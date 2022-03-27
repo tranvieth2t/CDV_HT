@@ -1,11 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 // Admin Routes
 Route::prefix("admin")->group(function () {
-    Route::get("/", function () {
-        return "Trang Login";
-    });
-
+    Route::get("/", [HomeController::class, 'index'])->name('home');
 });
