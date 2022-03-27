@@ -2,11 +2,11 @@
 
 return [
     'admin' => [
-        'dashboard' => 'Dashboard',
+        'dashboard' => 'Trang chủ',
         'users' => [
-            'users' => 'Users',
-            'end-users' => 'List Users',
-            'admin' => 'Admin'
+            'users' => 'Người dùng',
+            'end-users' => 'Danh sách người dùng',
+            'admin' => 'Quản trị viên'
         ],
     ]
 ];
