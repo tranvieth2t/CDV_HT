@@ -1,64 +1,211 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# [PLEASURE GIFT]
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Required
 
-## About Laravel
+- PHP >= 7.3
+- MySQL 5.7.x
+- NodeJS & npm (for compile js & css)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Architecture Overview
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Packaging Rules
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+List components in source code and explain it.
 
-## Learning Laravel
+Example:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+.
+├── app - contains the core code
+│             ├── Console - contains all of the custom commands
+│             ├── Exceptions -
+│             ├── Http
+│             │             ├── Controllers -
+│             │             │             └── Api -
+│             │             └── Middleware -
+│             ├── Models - contains all of entities.
+│             ├── Providers -
+│             ├── Repositories -
+│             ├── Services -
+│             └── Usecases -
+├── docs - contains all of documents explain about system or source code
+├── routes - contains all of the route definitions for application
+├── storage
+│             └── logs - Logging
+└── tests
+    ├── Feature
+    └── Unit - Unit test
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
 
-## Laravel Sponsors
+※ To take above value, use below command:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+tree -d -I "vendor" # -d get only diretory, -I igonre pattern "vendor"
+```
 
-### Premium Partners
+### Create packages
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Guilde to generate packages for projects
 
-## Contributing
+Example:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Generate models
 
-## Code of Conduct
+```bash
+php artisan make:model User
+```
+## Rules
+Define rules for steps of process as naming convention, filename convention...
+Can split separate file, link to it
+### Designs
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Database
 
-## Security Vulnerabilities
+### API
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Logging
+[Logging Design](./docs/logging.md)
 
-## License
+### Auth
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Cache Design
+
+### Coding
+※ Convnetion url, route, controller, function  name
+| METHOD |URL                  | ROUTE NAME    |CONTROLLER & FUNCTION NAME  |SCREEN        |
+|--------|---------------------|---------------|----------------------------|--------------|
+| GET    | photos              | photos.index  | PhotoController@index      | list         |
+| GET    | photos/show/{id}    | photos.show   | PhotoController@show       | detail       |
+| GET    | photos/create       | photos.create | PhotoController@create     | create       |
+| POST   | photos/store        | photos.store  | PhotoController@store      | submit create|
+| GET    | photos/edit/{id}    | photos.edit   | PhotoController@edit       | edit         |
+| POST   | photos/update/{id}  | photos.update | PhotoController@update     | submit edit  |
+| GET    | photos/delete/{id}  | photos.delete | PhotoController@delete     | delete       |
+
+-----Xử lý khác phương thức get post tùy chọn cho hợp lý----
+
+VD:
+| METHOD |url| ROUTE NAME|CONTROLLER & FUNCTION NAME|SCREEN|
+|---|---|---|---|---|
+| GET|photos/{id}/update-status| photos.update_status | PhotoController@updateStatus|update status|
+
+-----Param khác truyền bình thường----
+
+VD: màn list có search: photos?search=value&page=2&per_page=10
+...
+
+### Git flow
+- Tạo nhánh feature để code chức năng
+- Tên nhánh sẽ có format:
+```console
+feat/{chức năng}
+```
+- Mỗi task backlog sẽ tạo 1 nhánh feature
+- Trường hợp các task có liên quan đến nhau thì tạo 1 nhánh nhưng commit khác nhau, commit message lúc này bổ sung thêm backlog id
+
+## Get started docker
+
+### Set up `app` 
+
+- Clone repository from git
+
+```console
+git clone git@git.hblab.vn:hb3/bael/pleasureGift.git
+```
+
+- Run docker
+
+```console
+docker-compose up -d
+```
+
+- Install dependencies library
+
+```console
+docker-compose exec app composer install
+docker-compose exec app npm install
+```
+
+- Create environment file
+
+```console
+cp .env.example .env
+```
+
+- Generate application key
+
+```console
+docker-compose exec app php artisan key:generate
+```
+
+- Update database connection info in environment file
+
+```console
+DB_HOST=mysql
+DB_PASSWORD=root
+```
+
+- Migrate database
+
+```console
+docker-compose exec app php artisan migrate
+docker-compose exec app php artisan db:seed
+```
+
+- Compile js & css
+
+```console
+docker-compose exec app npm run dev
+```
+
+- Add to your hosts file docker và xampp
+
+```console
+127.0.0.1	online-lottery.local
+```
+
+- Finish open http://cdvht.com.test/
+### Run up app
+
+Go back to `app` directory.
+
+- Run up app:
+
+```console
+docker-compose up -d
+```
+
+- Run compile js & css real-time if you need
+
+```console
+docker-compose exec app npm run watch
+```
+
+- Stop app
+
+```console
+docker-compose down
+```
+
+## DB
+
+Open http://localhost:8080/
+
+## [Thrid-party service]
+
+## Unit test(optional)
+
+## Swagger-document:
+- Install plugins with PHP Storm
+```
+    - Ctrl + Alt + S
+    - Go to Plugin
+    - Search and install: OpenAPI (Swagger) Editor and Swagger
+```
+- Create my_openapi in Swagger
+
+## Document page
+
+- Backlog :
+- Sonar : 
