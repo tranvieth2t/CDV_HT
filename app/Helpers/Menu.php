@@ -5,7 +5,7 @@ namespace App\Helpers;
 
 class Menu
 {
-    public static function menus(): array
+    public function menus(): array
     {
         return [
             [
