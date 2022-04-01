@@ -9,6 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view("admin.home");
+        $user = Auth::guard('admin')->user();
+        echo 'Xin chào Admin, '. $user->name;
     }
 }
