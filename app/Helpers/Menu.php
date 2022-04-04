@@ -56,6 +56,30 @@ class Menu
                     ]
                 ]
             ],
+            [
+                'id' => 2,
+                'name' => trans('message.admin.news.news'),
+                'route' => '#',
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' => [
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.news.created-news'),
+                        'route' => 'admin/index',
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ],
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.news.list-news'),
+                        'route' => 'admin/create',
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ]
+                ]
+            ],
         ];
 
     }
