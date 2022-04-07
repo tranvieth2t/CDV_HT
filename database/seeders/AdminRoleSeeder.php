@@ -18,21 +18,18 @@ class AdminRoleSeeder extends Seeder
         $data = [
             [
                 'name' => 'Admin',
-                'role_code' => AdminRole::SUPPER_ADMIN,
                 'description' => 'SuperAdmin',
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
                 'name' => 'Admin',
-                'role_code' => AdminRole::ADMIN,
                 'description' => 'Admin',
                 'created_by' => 1,
                 'updated_by' => 1,
             ],
             [
                 'name' => 'Editor',
-                'role_code' => AdminRole::EDITS,
                 'description' => 'Editor',
                 'created_by' => 1,
                 'updated_by' => 1,
