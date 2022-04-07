@@ -53,7 +53,9 @@ Example:
 - Generate models
 
 ```bash
+php artisan make:controller Admin/Auth/LoginController
 php artisan make:model User
+php artisan db:seed
 ```
 ## Rules
 Define rules for steps of process as naming convention, filename convention...
