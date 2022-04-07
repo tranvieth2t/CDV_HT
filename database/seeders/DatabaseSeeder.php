@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\AdminRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +20,24 @@ class DatabaseSeeder extends Seeder
                 'name' => 'DaiViet',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin123'),
+                'role_code' => AdminRole::SUPPER_ADMIN
+            ],
+            [
+                'name' => 'DaiViet',
+                'email' => 'tranvieth2t@gmail.com',
+                'password' => bcrypt('admin123'),
+                'role_code' => AdminRole::EDITS
+            ],
+            [
+                'name' => 'DaiViet',
+                'email' => 'pauldaiviet@gmail.com',
+                'password' => bcrypt('admin123'),
+                'role_code' => AdminRole::ADMIN
+            ], [
+                'name' => 'DaiViet',
+                'email' => 'daivietdonBosco@gmail.com',
+                'password' => bcrypt('admin123'),
+                'role_code' => AdminRole::ADMIN
             ]
         ]);
 
