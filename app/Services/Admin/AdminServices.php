@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Services\Admin;
-use App\Models\Admin;
+namespace App\Services\Admin;
 
-class AdminServices
+use App\Models\Admin;
+use App\Services\BaseService;
+
+class AdminServices extends BaseService
 {
-    protected $model;
     public function __construct(Admin $admin)
     {
         $this->model = $admin;
@@ -14,7 +15,7 @@ class AdminServices
     /**
      * @return Admin
      */
-    public function getAllAdmin($per_page)
+    public function getAllAdmin($per_page = 10)
     {
         return $this->model
             ->with('adminRole')

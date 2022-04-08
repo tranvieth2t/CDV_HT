@@ -6445,7 +6445,7 @@ code-pull-request:
   changes:
     - 6.0.0-beta1
     - 6.0.0
-  label: Code Pull Request
+  label: Code Pull Requests
   search:
     terms: []
   styles:
