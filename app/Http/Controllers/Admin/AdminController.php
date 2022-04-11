@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
-use App\Http\Services\Admin\AdminServices;
+use App\Http\Requests\Admin\StoreAdminRequest;
+use App\Services\Admin\AdminServices;
+use App\Services\MailService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
+use mysql_xdevapi\Exception;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -13,15 +20,17 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $adminServices;
+    protected $adminService;
+    protected $mailService;
 
-    public function __construct(AdminServices $adminServices) {
-       $this->adminServices = $adminServices;
+    public function __construct(AdminServices $adminService, MailService $mailService) {
+       $this->adminService = $adminService;
+       $this->mailService = $mailService ;
     }
     public function index(Request $request)
     {
         $per_page = $request->per_page ? $request->per_page : config('constants.per_page_default');
-        $listAdmin = $this->adminServices->getAllAdmin($per_page);
+        $listAdmin = $this->adminService->getAllAdmin($per_page);
         return view('admin.admins.index',[
             'admins' => $listAdmin,
         ]);
@@ -34,7 +43,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.admins.index');
+        return view('admin.admins.creat');
     }
 
     /**
@@ -43,9 +52,24 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdminRequest $request)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $param = $request->all();
+            $param['verify'] = AdminVerify::NOT_VERIFY;
+            $param['password'] = generatePassword();
+            $param['verify_token'] = Str::random(60);
+            $this->adminService->store($param);
+            $this->mailService->sendMailAddAdmin($param);
+            DB::commit();
+            return redirect()->route('admins.index');
+        } catch (Exception $exception) {
+            DB::rollBack();
+            Log::info($exception);
+            return route('admins.index');
+        }
+
     }
 
     /**
@@ -79,7 +103,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**
@@ -91,5 +115,23 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function verifyAddAdmin(Request  $request) {
+        try {
+            $data = [
+                'token' => $request->token
+            ];
+            $findAdmin = $this->adminService->findByField('verify_token', $data['token'])->first();
+            if (!empty($findAdmin)) {
+//                $dataUpdate['verify_token'] = null;
+//                $dataUpdate['verify'] = AdminVerify::VERIFY;
+//                $findAdmin->update($dataUpdate);
+                return redirect()->route('admin.register');
+            }
+            return redirect()->route('404');
+        } catch (Exception $exception) {
+            Log::info($exception);
+            return redirect()->route('404');
+        }
     }
 }

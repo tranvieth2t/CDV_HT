@@ -12,5 +12,5 @@ class AdminRole extends Enum
     const ADMIN = 2;
     const SUPPER_ADMIN = 1;
 
-//    const ALL_ROLES = [self::VIEW, self::EDIT, self::ADMIN];
+    const ALL_ROLES = [self::EDITS, self::ADMIN, self::SUPPER_ADMIN];
 }

@@ -1,4 +1,4 @@
-# [PLEASURE GIFT]
+# [CongDoanVinhHT]
 
 ## Required
 
@@ -113,21 +113,8 @@ feat/{chức năng}
 - Clone repository from git
 
 ```console
-git clone git@git.hblab.vn:hb3/bael/pleasureGift.git
 ```
 
-- Run docker
-
-```console
-docker-compose up -d
-```
-
-- Install dependencies library
-
-```console
-docker-compose exec app composer install
-docker-compose exec app npm install
-```
 
 - Create environment file
 
