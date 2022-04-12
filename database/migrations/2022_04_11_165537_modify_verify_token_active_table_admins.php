@@ -28,8 +28,8 @@ class ModifyVerifyTokenActiveTableAdmins extends Migration
     public function down()
     {
         Schema::table('admins', function (Blueprint $table) {
-            Schema::drop('verify_token');
-            Schema::drop('verify');
+            $table->dropIfExists('verify_token');
+            $table->dropIfExists('verify');
         });
     }
 }
