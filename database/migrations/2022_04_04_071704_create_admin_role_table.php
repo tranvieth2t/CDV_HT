@@ -16,7 +16,6 @@ class CreateAdminRoleTable extends Migration
         Schema::create('admin_role', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->tinyInteger('role_code');
             $table->text('description');
             $table->integer('created_by');
             $table->integer('updated_by');
@@ -31,6 +30,6 @@ class CreateAdminRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_role');
+        Schema::drop('admin_role');
     }
 }

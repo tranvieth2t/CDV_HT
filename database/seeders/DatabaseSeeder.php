@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Enums\AdminRole;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Database\Seeders\AdminRoleSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -48,5 +49,6 @@ class DatabaseSeeder extends Seeder
                 'password' => bcrypt('admin123'),
             ]
         ]);
+        $this->call([AdminRoleSeeder::class]);
     }
 }

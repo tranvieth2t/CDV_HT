@@ -9,7 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{asset('fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <title>{{ config('app.name', 'Laravel') }} Admin</title>
+    <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{asset('css/admin/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     {{-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
 
 

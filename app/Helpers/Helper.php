@@ -24,3 +24,14 @@ function getTreeMenu($menus)
        echo '</li>';
     }
 }
+function generatePassword($length = \App\Enums\AdminRole::DEFAULT_PASSWORD_LENGTH)
+{
+    $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
+    $pass = array();
+    $alphaLength = strlen($alphabet) - 1;
+    for ($i = 0; $i < $length; $i++) {
+        $position = rand(0, $alphaLength);
+        $pass[] = $alphabet[$position];
+    }
+    return implode($pass);
+}
