@@ -22,13 +22,6 @@ class Menu
                         'route' => '/admin/admins',
                         'parent_id' => 0,
                         'hideRole' => [],
-                    ],
-                    [
-                        'id' => '',
-                        'name' => trans('message.admin.admin.create-admin'),
-                        'route' => 'admin/admins/create',
-                        'parent_id' => 0,
-                        'hideRole' => [],
                     ]
                 ]
             ],

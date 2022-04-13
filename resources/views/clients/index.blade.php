@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{asset('assets/img/icon.png')}}" rel="icon">
+    <link href="{{asset('assets/img/icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -44,9 +44,11 @@
     <div class="container d-flex align-items-center justify-content-between">
 
         <div class="logo">
-            <h1 class="text-light"><a href="index.html"><span>Ninestars</span></a></h1>
+{{--            <h1 class="text-light"><a href="index.html">--}}
+{{--                    <img >Ninestars--}}
+{{--                    </a></h1>--}}
             <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            <a href="index.html"><img src="{{asset("assets/img/logo.jpg")}}" alt="" class="img-fluid"></a>
         </div>
 
         <nav id="navbar" class="navbar">
@@ -103,13 +105,12 @@
 
             <div class="row justify-content-between">
                 <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-                    <img src="assets/img/about-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
+                    <img src="assets/img/1.png" class="img-fluid" alt="" data-aos="zoom-in">
                 </div>
                 <div class="col-lg-6 pt-5 pt-lg-0">
-                    <h3 data-aos="fade-up">Voluptatem dignissimos provident quasi</h3>
+                    <h3 data-aos="fade-up">"Đến bao giờ tôi mới tìm được phi công của tôi"</h3>
                     <p data-aos="fade-up" data-aos-delay="100">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                        Lan Anh - 23 tuổi chia sẻ với K13
                     </p>
                     <div class="row">
                         <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -216,104 +217,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 portfolio-item filter-app">
-                    <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                               class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                            <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>App 1</h4>
-                            <p>App</p>
-                        </div>
-                    </div>
-                </div>
+
+
+
+
+
+
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-web">
                     <div class="portfolio-wrap">
