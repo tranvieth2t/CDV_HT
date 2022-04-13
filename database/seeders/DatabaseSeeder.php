@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Enums\AdminRole;
+use App\Enums\Community;
+use Database\Seeders\AdminRoleSeeder;
+use Database\Seeders\CommunitySeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Database\Seeders\AdminRoleSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,24 +23,28 @@ class DatabaseSeeder extends Seeder
                 'name' => 'DaiViet',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin123'),
-                'role_code' => AdminRole::SUPPER_ADMIN
+                'role_code' => AdminRole::SUPPER_ADMIN,
+                'community_id' => Community::VHT
             ],
             [
                 'name' => 'DaiViet',
-                'email' => 'tranvieth2t@gmail.com',
+                'email' => 'tranvieth21t@gmail.com',
                 'password' => bcrypt('admin123'),
-                'role_code' => AdminRole::EDITS
+                'role_code' => AdminRole::EDITS,
+                'community_id' => Community::DON
             ],
             [
                 'name' => 'DaiViet',
                 'email' => 'pauldaiviet@gmail.com',
                 'password' => bcrypt('admin123'),
-                'role_code' => AdminRole::ADMIN
+                'role_code' => AdminRole::ADMIN,
+                'community_id' => Community::MVN
             ], [
                 'name' => 'DaiViet',
                 'email' => 'daivietdonBosco@gmail.com',
                 'password' => bcrypt('admin123'),
-                'role_code' => AdminRole::ADMIN
+                'role_code' => AdminRole::ADMIN,
+                'community_id' => Community::DON
             ]
         ]);
 
@@ -50,5 +56,6 @@ class DatabaseSeeder extends Seeder
             ]
         ]);
         $this->call([AdminRoleSeeder::class]);
+        $this->call([CommunitySeeder::class]);
     }
 }

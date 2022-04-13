@@ -14,7 +14,7 @@ class AddRoleAdminTableAdmin extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->integer('role_code')->default(\App\Enums\AdminRole::EDITS);
+            $table->tinyInteger('role_code')->after('email')->default(\App\Enums\AdminRole::EDITS);
         });
     }
 

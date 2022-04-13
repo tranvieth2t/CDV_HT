@@ -21,6 +21,7 @@ class Admin extends Authenticatable
         'password',
         'role_code',
         'verify_token',
+        'community_id',
         'verify'
     ];
 
