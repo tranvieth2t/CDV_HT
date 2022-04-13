@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\AdminRole;
+use App\Enums\AdminVerify;
 use App\Enums\Community;
 use Database\Seeders\AdminRoleSeeder;
 use Database\Seeders\CommunitySeeder;
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'DaiViet',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin123'),
+                'verify' => AdminVerify::VERIFY,
                 'role_code' => AdminRole::SUPPER_ADMIN,
                 'community_id' => Community::VHT
             ],
@@ -30,21 +32,24 @@ class DatabaseSeeder extends Seeder
                 'name' => 'DaiViet',
                 'email' => 'tranvieth21t@gmail.com',
                 'password' => bcrypt('admin123'),
+                'verify' => AdminVerify::NOT_VERIFY,
                 'role_code' => AdminRole::EDITS,
                 'community_id' => Community::DON
             ],
             [
                 'name' => 'DaiViet',
-                'email' => 'pauldaiviet@gmail.com',
+                'email' => 'pauldaiviet1@gmail.com',
                 'password' => bcrypt('admin123'),
+                'verify' => AdminVerify::VERIFY,
                 'role_code' => AdminRole::ADMIN,
-                'community_id' => Community::MVN
+                'community_id' => Community::VHT
             ], [
                 'name' => 'DaiViet',
                 'email' => 'daivietdonBosco@gmail.com',
                 'password' => bcrypt('admin123'),
+                'verify' => AdminVerify::VERIFY,
                 'role_code' => AdminRole::ADMIN,
-                'community_id' => Community::DON
+                'community_id' => Community::VHT
             ]
         ]);
 

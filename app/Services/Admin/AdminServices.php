@@ -2,8 +2,10 @@
 
 namespace App\Services\Admin;
 
+use App\Enums\AdminRole;
 use App\Models\Admin;
 use App\Services\BaseService;
+use Illuminate\Support\Facades\Auth;
 
 class AdminServices extends BaseService
 {
@@ -17,9 +19,18 @@ class AdminServices extends BaseService
      */
     public function getAllAdmin($per_page = 10)
     {
-        return $this->model
-            ->with('adminRole')
+        $query = $this->model
+            ->with(['adminRole', 'community']);
+        $admin = Auth::guard('admin')->user();
+        if ($admin->role_code == AdminRole::EDITS) {
+            $query = $query->where('community_id', $admin->community_id);
+        }
+
+        return $query
+            ->with(['adminRole', 'community'])
+            ->orderBy('verify')
+            ->orderBy('role_code')
+            ->orderByDesc('id')
             ->paginate($per_page);
     }
-
 }

@@ -6,16 +6,16 @@ use Illuminate\Validation\Rules\Enum;
 
 class Community extends Enum
 {
-    const VHT       = 0;
-    const DON       = 1;
-    const MVN       = 2;
-    const GIOAN     = 3;
-    const DAMINH    = 4;
-    const PAUL      = 5;
-    const ANTON     = 6;
-    const ASSISI    = 7;
-    const XAVIE     = 8;
-    const GIUSE     = 9;
-    const QUEDIEM   = 10;
-    const CADOAN    = 11;
+    const VHT       = 1;
+    const DON       = 2;
+    const MVN       = 3;
+    const GIOAN     = 4;
+    const DAMINH    = 5;
+    const PAUL      = 6;
+    const ANTON     = 7;
+    const ASSISI    = 8;
+    const XAVIE     = 9;
+    const GIUSE     = 10;
+    const QUEDIEM   = 11;
+    const CADOAN    = 12;
 }

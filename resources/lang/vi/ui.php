@@ -3,6 +3,8 @@ return [
     'label' => [
         'name' => 'Tên',
         'email' => 'Email',
-        'role'  => 'Quyền'
+        'role'  => 'Quyền hạn',
+        'verify' => 'Trạng thái',
+        'community' => 'Cộng đoàn'
     ]
 ];
