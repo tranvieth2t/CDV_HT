@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyVerifyTokenActiveTableAdmins extends Migration
+class AddColCommunityTableAdmin extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class ModifyVerifyTokenActiveTableAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->tinyInteger('verify')->after('email')
-                ->default(\App\Enums\AdminVerify::NOT_VERIFY)->comment('1: verify, 2: not_verify,');
-            $table->string('verify_token')->nullable();
+            $table->tinyInteger('community_id')
+                ->after('email');
         });
     }
 
@@ -28,8 +27,7 @@ class ModifyVerifyTokenActiveTableAdmins extends Migration
     public function down()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->dropIfExists('verify_token');
-            $table->dropIfExists('verify');
+            $table->dropIfExists('community_id');
         });
     }
 }

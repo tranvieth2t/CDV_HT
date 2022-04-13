@@ -35,6 +35,14 @@
                                    'colInput' => 'col-lg-4 col-sm-8',
                                    'value' => \App\Enums\AdminRole::EDITS
                                ])
+                        @include('admin.inc.form.select', [
+                                 'name' => 'community_id',
+                                 'label' => __('ui.label.role'),
+                                 'pluck' => trans('enums.community'),
+                                 'colLabel' => 'col-lg-2 col-sm-4',
+                                 'colInput' => 'col-lg-4 col-sm-8',
+                                 'value' => \App\Enums\Community::VHT
+                             ])
                         <button class="btn-primary btn" type="submit"> {{__('btn.confirm')}}</button>
                     </form>
                 </div>
