@@ -1,4 +1,4 @@
-@component('inc.form.form-group', get_defined_vars())
+@component('admin.inc.form.form-group', get_defined_vars())
     @foreach($values as $key => $title)
         <div class="custom-control custom-radio @if(!isset($customControlBlock)) custom-control-inline @endif pt-2">
             <input {!! $attributes ?? '' !!} @if($key == old($name, $value ?? '')) checked @endif type="radio" id="{{ !empty($formName) ? ($formName.'__') : '' }}{{ $name }}-{{ $key }}"
