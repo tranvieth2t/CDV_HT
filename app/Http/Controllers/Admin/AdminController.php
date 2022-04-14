@@ -63,7 +63,7 @@ class AdminController extends Controller
             $param['password'] = generatePassword();
             $param['verify_token'] = Str::random(60);
             $this->adminService->store($param);
-            $this->mailService->sendMailAddAdmin($param);
+//            $this->mailService->sendMailAddAdmin($param);
             DB::commit();
             return redirect()->route('admins.index');
         } catch (Exception $exception) {

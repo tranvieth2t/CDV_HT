@@ -23,7 +23,9 @@ class Admin extends Authenticatable
         'role_code',
         'verify_token',
         'community_id',
-        'verify'
+        'verify',
+        'created_at',
+        'updated_at',
     ];
 
     protected $hidden = [

@@ -16,6 +16,8 @@ class Community extends Model
         'facebook',
         'instagram',
         'youtube',
-        'tel'
+        'tel',
+        'created_at',
+        'updated_at',
     ];
 }

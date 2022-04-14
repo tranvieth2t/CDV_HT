@@ -9,7 +9,7 @@
                         @csrf
                         @include('admin.inc.form.input', [
                                    'name' => 'name',
-                                   'label' => __('ui.label.name'),
+                                   'label' => __('ui.label.admins.name'),
                                    'value' => '',
                                    'colLabel' => 'col-lg-2 col-sm-4',
                                    'colInput' => 'col-lg-4 col-sm-8',
@@ -17,7 +17,7 @@
                                    ])
                         @include('admin.inc.form.input', [
                                     'name' => 'email',
-                                    'label' => __('ui.label.email'),
+                                    'label' => __('ui.label.admins.email'),
                                     'value' => '',
                                     'colLabel' => 'col-lg-2 col-sm-4',
                                     'colInput' => 'col-lg-4 col-sm-8',
@@ -26,7 +26,7 @@
 
                         @include('admin.inc.form.select', [
                                    'name' => 'role_code',
-                                   'label' => __('ui.label.role'),
+                                   'label' => __('ui.label.admins.role'),
                                    'pluck' =>  [
                                        \App\Enums\AdminRole::SUPPER_ADMIN   => 'SuperAdmin',
                                        \App\Enums\AdminRole::ADMIN          => 'Admin',
@@ -37,7 +37,7 @@
                                ])
                         @include('admin.inc.form.select', [
                                  'name' => 'community_id',
-                                 'label' => __('ui.label.community'),
+                                 'label' => __('ui.label.admins.community'),
                                  'pluck' => trans('enums.community'),
                                  'colLabel' => 'col-lg-2 col-sm-4',
                                  'colInput' => 'col-lg-4 col-sm-8',
@@ -59,11 +59,11 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>{{__('ui.label.name')}}</th>
-                            <th>{{__('ui.label.email')}}</th>
-                            <th>{{__('ui.label.role')}}</th>
-                            <th>{{__('ui.label.verify')}}</th>
-                            <th>{{__('ui.label.community')}}</th>
+                            <th>{{__('ui.label.admins.name')}}</th>
+                            <th>{{__('ui.label.admins.email')}}</th>
+                            <th>{{__('ui.label.admins.role')}}</th>
+                            <th>{{__('ui.label.admins.verify')}}</th>
+                            <th>{{__('ui.label.admins.community')}}</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -14,7 +14,10 @@ class AdminRole extends Model
         'created_by',
         'updated_by',
         'description',
-        'role_code'
+        'role_code',
+        'created_at',
+        'updated_at',
+
     ];
 }
 

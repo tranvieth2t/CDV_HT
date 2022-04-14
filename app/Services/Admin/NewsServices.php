@@ -3,33 +3,30 @@
 namespace App\Services\Admin;
 
 use App\Enums\AdminRole;
-use App\Models\Admin;
+use App\Models\News;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\Auth;
 
-class AdminServices extends BaseService
+class NewsServices extends BaseService
 {
-    public function __construct(Admin $admin)
+    public function __construct(News $news)
     {
-        $this->model = $admin;
+        $this->model = $news;
     }
 
-    /**
-     * @return Admin
-     */
-    public function getAllAdmin($per_page = 10)
+    public function getListNews($per_page = 10)
     {
-        $query = $this->query();
         $admin = Auth::guard('admin')->user();
+        $query = $this->query()
+            ->with(['admin', 'community']);
+
         if ($admin->role_code == AdminRole::EDITS) {
             $query = $query->where('community_id', $admin->community_id);
         }
-
         return $query
-            ->with(['adminRole', 'community'])
+            ->with(['admin', 'community'])
+            ->orderByDesc('updated_at')
             ->orderBy('verify')
-            ->orderBy('role_code')
-            ->orderByDesc('id')
             ->paginate($per_page);
     }
 }
