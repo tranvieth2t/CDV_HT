@@ -55,14 +55,13 @@ class AdminController extends Controller
     public function store(StoreAdminRequest $request)
     {
         try {
-//            dd($request->all());
             DB::beginTransaction();
             $param = $request->all();
             $param['verify'] = AdminVerify::NOT_VERIFY;
             $param['password'] = generatePassword();
             $param['verify_token'] = Str::random(60);
             $this->adminService->store($param);
-            //$this->mailService->sendMailAddAdmin($param);
+            $this->mailService->sendMailAddAdmin($param);
             DB::commit();
             return redirect()->route('admins.index');
         } catch (Exception $exception) {
@@ -124,15 +123,32 @@ class AdminController extends Controller
             ];
             $findAdmin = $this->adminService->findByField('verify_token', $data['token'])->first();
             if (!empty($findAdmin)) {
-//                $dataUpdate['verify_token'] = null;
-//                $dataUpdate['verify'] = AdminVerify::VERIFY;
-//                $findAdmin->update($dataUpdate);
-                return redirect()->route('admin.register');
+                return view('admin.auth.register')->with('admin', $findAdmin);
             }
             return redirect()->route('404');
         } catch (Exception $exception) {
             Log::info($exception);
             return redirect()->route('404');
+        }
+    }
+
+    public function updateRegister(Request $request) {
+        $admin = $this->adminService
+            ->getByConditions(['email' => $request->email, 'verify_token' => $request->verify_token])->first();
+        if (!$admin) return route('404');
+
+        try {
+            DB::beginTransaction();
+            $param = $request->only('password');
+            $param['verify_token'] = null;
+            $param['verify'] = AdminVerify::VERIFY;
+            $admin->update($param);
+            DB::commit();
+            return redirect()->route('admins.index');
+        } catch (Exception $exception) {
+            Log::info($exception);
+            return redirect()->route('404');
+            DB::rollBack();
         }
     }
 }
