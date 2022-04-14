@@ -1,5 +1,6 @@
 <?php
 use App\Enums\Community;
+use App\Enums\AdminVerify;
 return [
     'community' => [
         Community::VHT      => 'Vinh Hà Tĩnh',
@@ -14,5 +15,9 @@ return [
         Community::GIUSE    => 'Cựu SV & GĐCG',
         Community::QUEDIEM  => 'Que Diêm Sài Gòn',
         Community::CADOAN   => 'Ca đoàn ',
-        ]
+        ],
+    'verify' => [
+        AdminVerify::VERIFY => 'Xác thực',
+        AdminVerify::NOT_VERIFY => 'Chưa xác thực'
+    ]
 ];

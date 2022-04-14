@@ -16,6 +16,7 @@ class Admin extends Authenticatable
     protected $guarded = 'admin';
 
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
@@ -33,6 +34,10 @@ class Admin extends Authenticatable
     public function adminRole()
     {
         return $this->belongsTo(AdminRole::class, "role_code");
+    }
+    public function community()
+    {
+        return $this->hasOne(Community::class, 'id', "community_id");
     }
 }
 

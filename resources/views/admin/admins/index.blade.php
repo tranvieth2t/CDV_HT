@@ -4,7 +4,7 @@
         <h1 class="h3 mb-2 text-gray-800">Thêm admin</h1>
         <div class="card shadow mb-4">
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="justify-content-center">
                     <form method="POST" action="{{route('admins.store')}}">
                         @csrf
                         @include('admin.inc.form.input', [
@@ -37,7 +37,7 @@
                                ])
                         @include('admin.inc.form.select', [
                                  'name' => 'community_id',
-                                 'label' => __('ui.label.role'),
+                                 'label' => __('ui.label.community'),
                                  'pluck' => trans('enums.community'),
                                  'colLabel' => 'col-lg-2 col-sm-4',
                                  'colInput' => 'col-lg-4 col-sm-8',
@@ -49,6 +49,7 @@
             </div>
         </div>
     </div>
+
     <div>
         <h1 class="h3 mb-2 text-gray-800">Admin</h1>
         <div class="card shadow mb-4">
@@ -58,18 +59,22 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>{{__('ui.label.name')}}</th>
+                            <th>{{__('ui.label.email')}}</th>
+                            <th>{{__('ui.label.role')}}</th>
+                            <th>{{__('ui.label.verify')}}</th>
+                            <th>{{__('ui.label.community')}}</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($admins as $admin)
                             <tr>
-                            <td>{{$admin->id}}</td>
-                            <td>{{$admin->name}}</td>
-                            <td>{{$admin->email}}</td>
-                            <td>{{$admin->adminRole->name}}</td>
+                                <td>{{$admin->id}}</td>
+                                <td>{{$admin->name}}</td>
+                                <td>{{$admin->email}}</td>
+                                <td>{{$admin->adminRole->name}}</td>
+                                <td>{{__('enums.verify')[$admin->verify]}}</td>
+                                <td>{{$admin->community ? $admin->community->name :"--"}}</td>
                             </tr>
                         @endforeach
                         </tbody>
