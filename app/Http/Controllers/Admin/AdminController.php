@@ -23,15 +23,17 @@ class AdminController extends Controller
     protected $adminService;
     protected $mailService;
 
-    public function __construct(AdminServices $adminService, MailService $mailService) {
-       $this->adminService = $adminService;
-       $this->mailService = $mailService ;
+    public function __construct(AdminServices $adminService, MailService $mailService)
+    {
+        $this->adminService = $adminService;
+        $this->mailService = $mailService;
     }
+
     public function index(Request $request)
     {
         $per_page = $request->per_page ? $request->per_page : config('constants.per_page_default');
         $listAdmin = $this->adminService->getAllAdmin($per_page);
-        return view('admin.admins.index',[
+        return view('admin.admins.index', [
             'admins' => $listAdmin,
         ]);
     }
@@ -49,7 +51,7 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreAdminRequest $request)
@@ -75,7 +77,7 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -86,7 +88,7 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -97,8 +99,8 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -109,14 +111,16 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
     }
-    public function verifyAddAdmin(Request  $request) {
+
+    public function verifyAddAdmin(Request $request)
+    {
         try {
             $data = [
                 'token' => $request->token
@@ -132,7 +136,8 @@ class AdminController extends Controller
         }
     }
 
-    public function updateRegister(Request $request) {
+    public function updateRegister(Request $request)
+    {
         $admin = $this->adminService
             ->getByConditions(['email' => $request->email, 'verify_token' => $request->verify_token])->first();
         if (!$admin) return route('404');
