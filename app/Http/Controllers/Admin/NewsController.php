@@ -65,7 +65,7 @@ class NewsController extends Controller
         $params['created_by'] = Auth::guard('admin')->user()->id;
         try {
             DB::beginTransaction();
-            $this->newsServices->store($params);
+            $this->newsServices->create($params);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
@@ -82,8 +82,10 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = $this->newsServices->show($id);
-        return view('admin.news.create', ['news' => $news]);
+        $news = $this->newsServices->find($id);
+        $listAdminCensor = $this->adminServices->getAdminCensor();
+        $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
+        return view('admin.news.create', ['listCommunity' => $listCommunityByRoleAdmin, 'adminCensors' => $listAdminCensor,'news' => $news]);
     }
 
     /**

@@ -19,4 +19,5 @@ class NewsServices extends BaseService
     {
         return $this->repository->getListNews($perPage, $condition, $columns);
     }
+
 }
