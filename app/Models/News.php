@@ -17,6 +17,7 @@ class News extends Model
         'description',
         'content',
         'verify',
+        'censors',
         'community_id',
         'created_by',
         'created_at',

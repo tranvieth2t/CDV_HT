@@ -6,6 +6,7 @@ use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreAdminRequest;
 use App\Services\Admin\AdminServices;
+use App\Services\Admin\CommunityServices;
 use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -22,10 +23,16 @@ class AdminController extends Controller
      */
     protected $adminService;
     protected $mailService;
+    protected $communityService;
 
-    public function __construct(AdminServices $adminService, MailService $mailService)
+    public function __construct(
+        AdminServices     $adminService,
+        MailService       $mailService,
+        CommunityServices $communityServices
+    )
     {
         $this->adminService = $adminService;
+        $this->communityService = $communityServices;
         $this->mailService = $mailService;
     }
 
@@ -33,8 +40,10 @@ class AdminController extends Controller
     {
         $per_page = $request->per_page ? $request->per_page : config('constants.per_page_default');
         $listAdmin = $this->adminService->getAllAdmin($per_page);
+        $listCommunity = $this->communityService->getListCommunityByRoleAdmin();
         return view('admin.admins.index', [
             'admins' => $listAdmin,
+            'communities' => $listCommunity
         ]);
     }
 
@@ -62,8 +71,8 @@ class AdminController extends Controller
             $param['verify'] = AdminVerify::NOT_VERIFY;
             $param['password'] = generatePassword();
             $param['verify_token'] = Str::random(60);
-            $this->adminService->store($param);
-//            $this->mailService->sendMailAddAdmin($param);
+            $this->adminService->create($param);
+            $this->mailService->sendMailAddAdmin($param);
             DB::commit();
             return redirect()->route('admins.index');
         } catch (Exception $exception) {
@@ -139,7 +148,8 @@ class AdminController extends Controller
     public function updateRegister(Request $request)
     {
         $admin = $this->adminService
-            ->getByConditions(['email' => $request->email, 'verify_token' => $request->verify_token])->first();
+            ->findByField('email', $request->email)
+            ->where('verify_token', $request->verify_token)->first();
         if (!$admin) return route('404');
 
         try {

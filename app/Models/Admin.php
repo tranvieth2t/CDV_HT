@@ -20,7 +20,7 @@ class Admin extends Authenticatable
         'name',
         'email',
         'password',
-        'role_code',
+        'role_admin',
         'verify_token',
         'community_id',
         'verify',
@@ -35,7 +35,7 @@ class Admin extends Authenticatable
 
     public function adminRole()
     {
-        return $this->belongsTo(AdminRole::class, "role_code");
+        return $this->belongsTo(AdminRole::class, "role_admin");
     }
     public function community()
     {
