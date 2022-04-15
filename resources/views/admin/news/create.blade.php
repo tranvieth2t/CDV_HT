@@ -53,10 +53,10 @@
                                         'name' => 'content',
                                         'label' => __('ui.label.news.content'),
                                         'value' => '',
-                                        'colLabel' => 'col-lg-2 ',
-                                        'colInput' => 'col-lg-10 ',
-                                         'rows' => 30,
-                                        'attributes' => 'type ="text" maxlength="255"'
+                                        'colLabel' => 'col-lg-12 ',
+                                        'colInput' => 'col-lg-12 ',
+                                         'rows' => 60,
+                                        'attributes' => 'type ="text" maxlength="255" id= "input_content"'
                                         ])
 
                             <div class="justify-content-center d-flex">
@@ -71,5 +71,11 @@
 @endsection
 
 @push('scripts')
-
+    <script !src="">
+        CKEDITOR.replace('input_content', {
+            uiColor : '#AADC6E',
+            width: '100%',
+            height: 800,
+        })
+    </script>
 @endpush
