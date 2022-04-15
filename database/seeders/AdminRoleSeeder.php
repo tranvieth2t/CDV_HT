@@ -16,11 +16,7 @@ class AdminRoleSeeder extends Seeder
     public function run()
     {
         $data = [
-            [
-                'name' => 'SuperAdmin',
-                'description' => 'SuperAdmin',
-                'created_by' => 1,
-                'updated_by' => 1,
+
             ],
             [
                 'name' => 'Admin',
