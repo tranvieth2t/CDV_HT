@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/icon.png')}}" rel="icon">
-    <link href="{{asset('assets/img/icon.png')}}" rel="apple-touch-icon">
+    <link href="{{asset('client/img/icon.png')}}" rel="icon">
+    <link href="{{asset('client/img/icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link
@@ -19,15 +19,15 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="{{asset('assets/vendor/aos/aos.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <link href="{{asset('client/vendor/aos/aos.css')}}" rel="stylesheet">
+    <link href="{{asset('client/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('client/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('client/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('client/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+    <link href="{{asset('client/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{asset('client/css/style.css')}}" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: Ninestars - v4.7.0
@@ -48,7 +48,7 @@
 {{--                    <img >Ninestars--}}
 {{--                    </a></h1>--}}
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="index.html"><img src="{{asset("assets/img/logo.jpg")}}" alt="" class="img-fluid"></a>
+            <a href="index.html"><img src="{{asset("client/img/logo.jpg")}}" alt="" class="img-fluid"></a>
         </div>
 
         <nav id="navbar" class="navbar">
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img">
-                <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
+                <img src="client/img/hero-img.svg" class="img-fluid animated" alt="">
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
 
             <div class="row justify-content-between">
                 <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-                    <img src="assets/img/1.png" class="img-fluid" alt="" data-aos="zoom-in">
+                    <img src="client/img/1.png" class="img-fluid" alt="" data-aos="zoom-in">
                 </div>
                 <div class="col-lg-6 pt-5 pt-lg-0">
                     <h3 data-aos="fade-up">"Đến bao giờ tôi mới tìm được phi công của tôi"</h3>
@@ -205,9 +205,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -226,9 +226,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-web">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="12312312312312331231231233123123 3"><i
                                     class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
@@ -242,9 +242,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -257,9 +257,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-card">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="Card 2"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -272,9 +272,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-web">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="Web 2"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -287,9 +287,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-app">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="App 3"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -302,9 +302,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-card">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="Card 1"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -317,9 +317,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-card">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="Card 3"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -332,9 +332,9 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-web">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+                        <img src="client/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
                         <div class="portfolio-links">
-                            <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
+                            <a href="client/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
                                class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
                             <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                         </div>
@@ -461,7 +461,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="member">
-                        <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                        <img src="client/img/team/team-1.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Walter White</h4>
@@ -479,7 +479,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="200">
                     <div class="member">
-                        <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                        <img src="client/img/team/team-2.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Sarah Jhonson</h4>
@@ -497,7 +497,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="member">
-                        <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                        <img src="client/img/team/team-3.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>William Anderson</h4>
@@ -515,7 +515,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4" data-aos="zoom-in" data-aos-delay="400">
                     <div class="member">
-                        <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                        <img src="client/img/team/team-4.jpg" class="img-fluid" alt="">
                         <div class="member-info">
                             <div class="member-info-content">
                                 <h4>Amanda Jepson</h4>
@@ -547,14 +547,14 @@
 
             <div class="clients-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-1.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-2.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-3.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-4.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-5.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-6.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-7.png" class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="client/img/clients/client-8.png" class="img-fluid" alt=""></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
@@ -729,15 +729,15 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
-<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-<script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-<script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
+<script src="{{asset('client/vendor/aos/aos.js')}}"></script>
+<script src="{{asset('client/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('client/vendor/glightbox/js/glightbox.min.js')}}"></script>
+<script src="{{asset('client/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('client/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('client/vendor/php-email-form/validate.js')}}"></script>
 
 <!-- Template Main JS File -->
-<script src="{{asset('assets/js/main.js')}}"></script>
+<script src="{{asset('client/js/main.js')}}"></script>
 
 </body>
 
