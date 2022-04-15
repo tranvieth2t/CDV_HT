@@ -11,7 +11,7 @@
                                    'name' => 'name',
                                    'label' => __('ui.label.admins.name'),
                                    'value' => '',
-                                   'colLabel' => 'col-lg-2 col-sm-4',
+                                   'colLabel' => 'col-lg-2 col-sm-4 d-flex align-items-center',
                                    'colInput' => 'col-lg-4 col-sm-8',
                                    'attributes' => 'type ="text" maxlength="255"'
                                    ])
@@ -19,27 +19,27 @@
                                     'name' => 'email',
                                     'label' => __('ui.label.admins.email'),
                                     'value' => '',
-                                    'colLabel' => 'col-lg-2 col-sm-4',
+                                    'colLabel' => 'col-lg-2 col-sm-4 d-flex align-items-center',
                                     'colInput' => 'col-lg-4 col-sm-8',
                                     'attributes' => ' type ="text" maxlength="255"'
                                     ])
 
                         @include('admin.inc.form.select', [
-                                   'name' => 'role_code',
+                                   'name' => 'role_admin',
                                    'label' => __('ui.label.admins.role'),
                                    'pluck' =>  [
                                        \App\Enums\AdminRole::SUPPER_ADMIN   => 'SuperAdmin',
                                        \App\Enums\AdminRole::ADMIN          => 'Admin',
                                        \App\Enums\AdminRole::EDITS          => 'Editor',],
-                                   'colLabel' => 'col-lg-2 col-sm-4',
+                                   'colLabel' => 'col-lg-2 col-sm-4 d-flex align-items-center',
                                    'colInput' => 'col-lg-4 col-sm-8',
                                    'value' => \App\Enums\AdminRole::EDITS
                                ])
                         @include('admin.inc.form.select', [
                                  'name' => 'community_id',
                                  'label' => __('ui.label.admins.community'),
-                                 'pluck' => trans('enums.community'),
-                                 'colLabel' => 'col-lg-2 col-sm-4',
+                                 'pluck' => $communities,
+                                 'colLabel' => 'col-lg-2 col-sm-4 d-flex align-items-center',
                                  'colInput' => 'col-lg-4 col-sm-8',
                                  'value' => \App\Enums\Community::VHT
                              ])

@@ -14,7 +14,7 @@ class AddRoleAdminTableAdmin extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->tinyInteger('role_code')->after('email')->default(\App\Enums\AdminRole::EDITS);
+            $table->tinyInteger('role_admin')->after('email')->default(\App\Enums\AdminRole::EDITS);
         });
     }
 
@@ -26,7 +26,7 @@ class AddRoleAdminTableAdmin extends Migration
     public function down()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->dropIfExists('role_code');
+            $table->dropIfExists('role_admin');
         });
     }
 }

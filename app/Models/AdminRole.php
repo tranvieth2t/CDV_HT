@@ -14,7 +14,7 @@ class AdminRole extends Model
         'created_by',
         'updated_by',
         'description',
-        'role_code',
+        'role_admin',
         'created_at',
         'updated_at',
 

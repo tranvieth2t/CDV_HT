@@ -13,6 +13,7 @@ return [
             'community' => 'Cộng đoàn',
             'status' => 'Trạng thái',
             'thumbnail' => 'Ảnh đại diện',
+            'censors' => 'Người kiểm duyệt',
             'description' => 'Mô tả',
             'content' => 'Nội dung',
             'admin' => 'Người đăng',
