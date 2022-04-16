@@ -7,6 +7,8 @@ use App\Services\Admin\AdminServices;
 use App\Services\Admin\CommunityServices;
 use App\Services\Admin\NewsServices;
 use App\Http\Requests\Admin\StoreNewsRequest;
+use App\Http\Requests\Admin\UpdateNewsRequest;
+use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,15 +20,19 @@ class NewsController extends Controller
     protected $newsServices;
     protected $adminServices;
     protected $communityServices;
+    protected $mailServices;
 
     public function __construct(
         NewsServices $newsServices,
         AdminServices $adminServices,
-        CommunityServices $communityServices)
+        CommunityServices $communityServices,
+        MailService $mailService
+    )
     {
         $this->newsServices = $newsServices;
         $this->adminServices = $adminServices;
         $this->communityServices = $communityServices;
+        $this->mailServices = $mailService;
     }
 
     /**
@@ -49,7 +55,8 @@ class NewsController extends Controller
     {
         $listAdminCensor = $this->adminServices->getAdminCensor();
         $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
-        return view('admin.news.create', ['listCommunity' => $listCommunityByRoleAdmin, 'adminCensors' => $listAdminCensor]);
+        return view('admin.news.create',
+            ['listCommunity' => $listCommunityByRoleAdmin, 'adminCensors' => $listAdminCensor]);
     }
 
     /**
@@ -60,12 +67,10 @@ class NewsController extends Controller
      */
     public function store(StoreNewsRequest $request)
     {
-        $params = $request->all();
-        $request->merge(['created_by' => Auth::guard('admin')->user()->id]);
-        $params['created_by'] = Auth::guard('admin')->user()->id;
         try {
             DB::beginTransaction();
-            $this->newsServices->store($params);
+            $news = $this->newsServices->createNews($request);
+//            $this->mailServices->sendMaiLNews($news);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
@@ -82,8 +87,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = $this->newsServices->show($id);
-        return view('admin.news.create', ['news' => $news]);
+//
     }
 
     /**
@@ -94,7 +98,13 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $news = $this->newsServices->find($id);
+        $listAdminCensor = $this->adminServices->getAdminCensor();
+        $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
+        return view('admin.news.edit', [
+            'news' => $news,
+            'listCommunity' => $listCommunityByRoleAdmin,
+            'adminCensors' => $listAdminCensor]);
     }
 
     /**
@@ -104,9 +114,10 @@ class NewsController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateNewsRequest $request, $id)
     {
-        //
+        $this->newsServices->find($id)->update($request->all());
+        return redirect()->route('news.index');
     }
 
     /**
