@@ -22,13 +22,6 @@ class Menu
                         'route' => '/admin/admins',
                         'parent_id' => 0,
                         'hideRole' => [],
-                    ],
-                    [
-                        'id' => '',
-                        'name' => trans('message.admin.admin.create-admin'),
-                        'route' => 'admin/admins/create',
-                        'parent_id' => 0,
-                        'hideRole' => [],
                     ]
                 ]
             ],
@@ -66,15 +59,15 @@ class Menu
                 'sub-menu' => [
                     [
                         'id' => '',
-                        'name' => trans('message.admin.news.created-news'),
-                        'route' => 'admin/index',
+                        'name' => trans('message.admin.news.list-news'),
+                        'route' => route('news.index'),
                         'parent_id' => 0,
                         'hideRole' => [],
                     ],
                     [
                         'id' => '',
-                        'name' => trans('message.admin.news.list-news'),
-                        'route' => 'admin/create',
+                        'name' => trans('message.admin.news.created-news'),
+                        'route' => route('news.create'),
                         'parent_id' => 0,
                         'hideRole' => [],
                     ]

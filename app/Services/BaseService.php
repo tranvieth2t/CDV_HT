@@ -2,136 +2,99 @@
 
 namespace App\Services;
 
-use App\Models\Admin;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
+use App\Traits\Logging;
+use Illuminate\Support\Facades\Storage;
 
-abstract class BaseService
+/**
+ * Class BaseService.
+ *
+ * @package namespace App\Http\Controllers;
+ */
+class BaseService
 {
+    use Logging;
     /**
-     * @type Model
+     * @var Repository
      */
-    protected $model;
+    protected $repository;
 
-    private static $me = null;
-
-
-    public static function getMe()
+    public function all($columns = array('*'))
     {
-        if (static::$me) {
-            return static::$me;
-        }
-
-        foreach (config('auth.guards') as $guardName => $guard) {
-            if (auth($guardName)->check() === false) {
-                continue;
-            }
-            static::$me = auth($guardName)->user();
-            break;
-        }
-
-        return static::$me;
+        return $this->repository->all($columns);
     }
 
-    /**
-     * @param int $limit
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
-     */
-    public function index($request, $limit = 25)
+    public function first($columns = array('*'))
     {
-        if ($limit === 0) {
-            $limit = $this->query()->count();
-        }
-        return $this->query()
-            ->paginate($limit);
+        return $this->repository->first($columns);
     }
 
-    /**
-     * @param $id
-     * @return \Illuminate\Database\Eloquent\Collection|Model|null
-     */
-    public function show($id)
+    public function paginate($limit = null, $columns = ['*'])
     {
-        return $this->query()
-            ->findOrFail($id);
+        return $this->repository->paginate($limit, $columns);
     }
 
-    /**
-     * @param $request
-     * @return \Illuminate\Database\Eloquent\Builder|Model
-     */
-    public function store($request)
+    public function find($id, $columns = ['*'])
     {
-        return $this->query()
-            ->create($request);
+        return $this->repository->find($id, $columns);
     }
-
-    /**
-     * @param int $id
-     * @param $request
-     * @return bool|int
-     */
-    public function update($request, $id)
-    {
-        return $this->query()
-            ->findOrFail($id)
-            ->update($request);
-//            ->update($request->validated());
-    }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
-     */
-    public function destroy($id)
-    {
-        $this->query()->findOrFail($id)->delete();
-        return redirect()->back();
-    }
-
-    /**
-     * @param $arrayData
-     */
-    public function createByArray(array $arrayData)
-    {
-        return $this->query()->create($arrayData);
-    }
-
-    /**
-     * @return Builder
-     */
-    public function query()
-    {
-        return $this->model::query();
-    }
-
-    public function pluck()
-    {
-        return $this->query()->select(['id', 'name'])->pluck('name', 'id');
-    }
-
-    public function find($id)
-    {
-        return $this->query()->findOrFail($id);
-    }
-
-    /**
-     * Create pagination from array
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
 
     public function findByField($field, $value, $columns = ['*'])
     {
-        return $this->query()->where($field, $value)->get();
+        return $this->repository->findByField($field, $value, $columns);
     }
-    public function getByConditions(array $condition)
+
+    public function findWhere(array $where, $columns = ['*'])
     {
-        return $this->query()->where($condition)->get();
+        return $this->repository->findWhere($where, $columns);
+    }
+
+    public function findWhereIn($field, array $where, $columns = ['*'])
+    {
+        return $this->repository->findWhereIn($field, $where, $columns);
+    }
+
+    public function findWhereNotIn($field, array $where, $columns = ['*'])
+    {
+        return $this->repository->findWhereNotIn($field, $where, $columns);
+    }
+
+    public function findWhereBetween($field, array $where, $columns = ['*'])
+    {
+        return $this->repository->findWhereBetween($field, $where, $columns);
+    }
+
+    public function create(array $attributes)
+    {
+        return $this->repository->create($attributes);
+    }
+
+    public function update(array $attributes, $id)
+    {
+        return $this->repository->update($attributes, $id);
+    }
+
+    public function updateOrCreate(array $attributes, array $values = [])
+    {
+        return $this->repository->updateOrCreate($attributes, $values);
+    }
+
+    public function delete($id)
+    {
+        return $this->repository->delete($id);
+    }
+
+    public function deleteWhere(array $where)
+    {
+        return $this->repository->deleteWhere($where);
+    }
+
+    public function orderBy($column, $direction = 'asc')
+    {
+        return $this->repository->orderBy($column, $direction);
+    }
+
+    public function scopeQuery(\Closure $scope)
+    {
+        return $this->repository->scopeQuery($scope);
     }
 }

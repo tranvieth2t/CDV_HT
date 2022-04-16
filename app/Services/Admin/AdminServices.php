@@ -2,24 +2,34 @@
 
 namespace App\Services\Admin;
 
-use App\Models\Admin;
+use App\Enums\AdminRole;
+use App\Enums\AdminVerify;
+use App\Interfaces\AdminRepository;
+use App\Interfaces\CommunityRepository;
 use App\Services\BaseService;
+use Illuminate\Support\Facades\Auth;
 
 class AdminServices extends BaseService
 {
-    public function __construct(Admin $admin)
+    protected $repository;
+    protected $communityRepository;
+    public function __construct(AdminRepository $repository, CommunityRepository $communityRepository)
     {
-        $this->model = $admin;
+        $this->repository = $repository;
+        $this->communityRepository = $communityRepository;
     }
 
     /**
-     * @return Admin
+     * @param $perPage
+     * @return mixed
      */
-    public function getAllAdmin($per_page = 10)
+    public function getAllAdmin($perPage = 10)
     {
-        return $this->model
-            ->with('adminRole')
-            ->paginate($per_page);
+        return $this->repository->getListAdmin($perPage, $condition = [], $columns = [ '*' ]);
     }
 
+    public function getAdminCensor()
+    {
+        return $this->repository->getAdminCensor();
+    }
 }

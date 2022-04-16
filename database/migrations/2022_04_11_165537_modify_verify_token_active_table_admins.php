@@ -14,9 +14,9 @@ class ModifyVerifyTokenActiveTableAdmins extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->string('verify_token')->nullable();
-            $table->tinyInteger('verify')
+            $table->tinyInteger('verify')->after('email')
                 ->default(\App\Enums\AdminVerify::NOT_VERIFY)->comment('1: verify, 2: not_verify,');
+            $table->string('verify_token')->nullable();
         });
     }
 
