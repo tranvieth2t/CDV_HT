@@ -30,7 +30,7 @@
         @php($index = 0)
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
             @foreach($listHotNews as $news)
-                <div class="col-lg-4 col-md-6 portfolio-item filter-{{$news->community_id}}">
+                <div class="col-lg-3 col-md-4 portfolio-item filter-{{$news->community_id}}">
                     <div class="portfolio-wrap">
                         @php($index++)
                         <img src="assets/img/portfolio/portfolio-{{$index}}.jpg" class="img-fluid" alt="">
