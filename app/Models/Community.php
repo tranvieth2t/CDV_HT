@@ -13,6 +13,7 @@ class Community extends Model
         'id',
         'name',
         'description',
+        'content',
         'facebook',
         'instagram',
         'youtube',

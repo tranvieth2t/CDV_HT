@@ -2,11 +2,25 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Facades\DB;
 
 class Menu
 {
     public static function menus(): array
     {
+        $listCommunity = getListCommunity();
+        $data = [];
+        foreach ($listCommunity as $community) {
+            $data[] =
+                [
+                    'id' => '',
+                    'name' => $community->name ?? '',
+                    'route' => route('community.edit',[ $community->id]),
+                    'parent_id' => 0,
+                    'hideRole' => [],
+                ]
+            ;
+        }
         return [
             [
                 'id' => 0,
@@ -72,6 +86,16 @@ class Menu
                         'hideRole' => [],
                     ]
                 ]
+            ],
+            [
+                'id' => 3,
+                'name' => trans('message.admin.community.community'),
+                'route' => '#',
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' =>
+                    $data,
             ],
         ];
 

@@ -21,6 +21,15 @@ return [
             'admin' => 'Người đăng',
             'created_at' => 'Ngày đăng',
             'note' => 'Ghi chú'
+        ],
+        'community' => [
+            'name' => 'Tên cộng đoàn',
+            'description' => 'Mô tả',
+            'content' => 'Nội dung',
+            'facebook' => 'Link Facebook',
+            'instagram' => 'Link Instagram',
+            'youtube' => 'Link Youtube',
+            'tel' => 'Số điện thoại',
         ]
     ]
 ];

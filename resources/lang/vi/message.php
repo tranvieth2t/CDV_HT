@@ -19,5 +19,9 @@ return [
             'list-news' => 'Danh sách bài viết',
             'created-news' => 'Thêm bài viết'
         ],
+        'community' => [
+            'community' => 'Cộng đoàn',
+            'edit-community' => 'Chỉnh sửa cộng đoàn',
+        ],
     ]
 ];
