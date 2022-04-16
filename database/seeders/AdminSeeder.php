@@ -6,6 +6,7 @@ use App\Enums\AdminRole;
 use App\Enums\AdminVerify;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker;
 
 class AdminSeeder extends Seeder
 {

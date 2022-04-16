@@ -28,7 +28,7 @@
                                 <td>{{$news->created_at}}</td>
                                 <td>
                                     <a class="btn btn-primary"
-                                       href="{{route('news.show', [$news->id])}}"><span>{{__('btn.detail')}} </span></a>
+                                       href="{{route('news.edit', [$news->id])}}"><span>{{__('btn.detail')}} </span></a>
                                 </td>
                             </tr>
                         @endforeach
