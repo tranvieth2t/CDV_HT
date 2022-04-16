@@ -15,9 +15,16 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListNews($perPage = null, $condition = [], $columns = ['*'])
+    public function getListNews($perPage = null, $request)
     {
-        return $this->repository->getListNews($perPage, $condition, $columns);
+        $condition = [];
+        if ($request->community_id) {
+            $condition[] = ['community_id' => $request->community_id];
+        }
+        if ($request->verify) {
+            $condition[] = ['verify' => $request->verify];
+        }
+        return $this->repository->getListNews($perPage, $condition);
     }
     public function createNews($request) {
         $params = $request->all();

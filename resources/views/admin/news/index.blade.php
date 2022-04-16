@@ -1,10 +1,47 @@
 @extends('admin.layouts.app')
 @section('content')
+    <div class="card shadow">
+        <div class="card-header">
+            <h1 class="h3 mb-2 text-gray-800">Tìm kiếm</h1>
+        </div>
+        <div class="card-body">
+            <form method="GET" action="{{route('news.index')}}">
+                @include('admin.inc.form.select', [
+                               'name' => 'community_id',
+                               'label' => __('ui.label.news.community'),
+                               'pluck' => $listCommunity,
+                               'colLabel' => 'col-lg-2',
+                               'colInput' => 'col-lg-10',
+                               'value' => $_GET['community_id']?? \Illuminate\Support\Facades\Auth::guard('admin')->user()->id
+                           ])
+                @include('admin.inc.form.input', [
+                                    'name' => 'title',
+                                    'label' => __('ui.label.news.title'),
+                                    'value' => '',
+                                    'colLabel' => 'col-lg-2 ',
+                                    'colInput' => 'col-lg-10 ',
+                                    'attributes' => 'type ="text" maxlength="255"'
+                                    ])
+                @include('admin.inc.form.checkbox', [
+                                   'name' => 'verify',
+                                   'label' => __('ui.label.news.title'),
+                                   'value' => $_GET['verify']?? '',
+                                   'colLabel' => 'col-lg-2 ',
+                                   'colInput' => 'col-lg-10 ',
+                                   'values' => trans('enums.news_verify'),
+                                   'attributes' => 'type="radio"',
+                                   ])
+                <button type="submit" class="btn btn-primary">{{__('btn.confirm')}}</button>
+            </form>
+        </div>
+    </div>
     <div>
-        <h1 class="h3 mb-2 text-gray-800">Tin tức</h1>
+
+
         <div class="card shadow mb-4">
+            <div class="card-header"> <h1 class="h3 mb-2 text-gray-800">Tin tức</h1></div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive pt-2">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>

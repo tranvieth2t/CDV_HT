@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\AdminRole;
+use App\Enums\NewsVerify;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker;
@@ -18,11 +19,11 @@ class NewsSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 500;
+        $limit = 10000;
         $listAdmin = DB::table('admins')->get();
         $listAdminCensor = DB::table('admins')->where('role_admin', AdminRole::ADMIN)->get();
         $listCommunity = DB::table('community')->get();
-        $listVerify = [0,1];
+        $listVerify = [NewsVerify::VERIFY, NewsVerify::NOT_VERIFY];
         for ($i = 0; $i < $limit; $i++) {
             DB::table('news')->insert([
                 'title' => $faker->name,

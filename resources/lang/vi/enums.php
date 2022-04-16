@@ -1,6 +1,7 @@
 <?php
 use App\Enums\Community;
 use App\Enums\AdminVerify;
+use App\Enums\NewsVerify;
 return [
     'community' => [
         Community::VHT      => 'Vinh Hà Tĩnh',
@@ -19,5 +20,9 @@ return [
     'verify' => [
         AdminVerify::VERIFY => 'Xác thực',
         AdminVerify::NOT_VERIFY => 'Chưa xác thực'
+    ],
+    'news_verify' => [
+        NewsVerify::VERIFY => 'Đã duyệt',
+        NewsVerify::NOT_VERIFY => 'Chưa duyệt'
     ]
 ];

@@ -23,10 +23,10 @@ class NewsController extends Controller
     protected $mailServices;
 
     public function __construct(
-        NewsServices $newsServices,
-        AdminServices $adminServices,
+        NewsServices      $newsServices,
+        AdminServices     $adminServices,
         CommunityServices $communityServices,
-        MailService $mailService
+        MailService       $mailService
     )
     {
         $this->newsServices = $newsServices;
@@ -40,10 +40,14 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $listNews = $this->newsServices->getListNews();
-        return view('admin.news.index', ['listNews' => $listNews]);
+        $listNews = $this->newsServices->getListNews(null, $request);
+        $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
+        return view('admin.news.index', [
+            'listCommunity' => $listCommunityByRoleAdmin,
+            'listNews' => $listNews
+        ]);
     }
 
     /**
@@ -116,7 +120,14 @@ class NewsController extends Controller
      */
     public function update(UpdateNewsRequest $request, $id)
     {
-        $this->newsServices->find($id)->update($request->all());
+        try {
+            DB::beginTransaction();
+            $this->newsServices->find($id)->update($request->all());
+            DB::commit();
+        } catch (Exception $exception) {
+            DB::rollBack();
+            Log::info($exception);
+        }
         return redirect()->route('news.index');
     }
 
