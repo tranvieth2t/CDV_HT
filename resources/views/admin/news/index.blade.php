@@ -6,6 +6,7 @@
         </div>
         <div class="card-body">
             <form method="GET" action="{{route('news.index')}}">
+                @php($listCommunity[\App\Enums\Community::ALL] = 'Tất cả')
                 @include('admin.inc.form.select', [
                                'name' => 'community_id',
                                'label' => __('ui.label.news.community'),
@@ -17,21 +18,40 @@
                 @include('admin.inc.form.input', [
                                     'name' => 'title',
                                     'label' => __('ui.label.news.title'),
-                                    'value' => '',
+                                    'value' => $_GET['title']?? '',
                                     'colLabel' => 'col-lg-2 ',
                                     'colInput' => 'col-lg-10 ',
                                     'attributes' => 'type ="text" maxlength="255"'
                                     ])
+                @include('admin.inc.form.input', [
+                                   'name' => 'startDate',
+                                   'label' => __('ui.label.news.start-date'),
+                                   'value' => $_GET['startDate']?? '',
+                                   'colLabel' => 'col-lg-2 ',
+                                   'colInput' => 'col-lg-10 ',
+                                   'attributes' => 'type ="datetime-local" maxlength="255"'
+                                   ])
+                @include('admin.inc.form.input', [
+                                   'name' => 'endDate',
+                                   'label' => __('ui.label.news.end-date'),
+                                   'value' => $_GET['endDate']?? '',
+                                   'colLabel' => 'col-lg-2 ',
+                                   'colInput' => 'col-lg-10 ',
+                                   'attributes' => 'type ="datetime-local" maxlength="255"'
+                                   ])
                 @include('admin.inc.form.checkbox', [
                                    'name' => 'verify',
-                                   'label' => __('ui.label.news.title'),
+                                   'label' => __('ui.label.news.verify'),
                                    'value' => $_GET['verify']?? '',
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
                                    'values' => trans('enums.news_verify'),
                                    'attributes' => 'type="radio"',
                                    ])
-                <button type="submit" class="btn btn-primary">{{__('btn.confirm')}}</button>
+                <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary m-2">{{__('btn.confirm')}}</button>
+                <a href="{{route('news.index')}}" class="btn btn-warning m-2 ">{{__('btn.reset')}}</a>
+                </div>
             </form>
         </div>
     </div>
@@ -47,7 +67,7 @@
                         <tr>
                             <th class="col-1">ID</th>
                             <th class="col-2">{{__('ui.label.news.title')}}</th>
-                            <th class="col-1">{{__('ui.label.news.status')}}</th>
+                            <th class="col-1">{{__('ui.label.news.verify')}}</th>
                             <th class="col-1">{{__('ui.label.news.admin')}}</th>
                             <th class="col-2">{{__('ui.label.news.community')}}</th>
                             <th class="col-2">{{__('ui.label.news.created_at')}}</th>

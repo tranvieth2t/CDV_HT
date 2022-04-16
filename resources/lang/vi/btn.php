@@ -1,6 +1,7 @@
 <?php
 return [
     'confirm' => 'Xác nhận',
-    'detail'  => 'Chi tiết'
+    'detail'  => 'Chi tiết',
+    'reset' => 'Làm mới'
 ];
 

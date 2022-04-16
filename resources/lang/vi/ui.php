@@ -11,7 +11,9 @@ return [
         'news' => [
             'title'  => 'Tên bài viết',
             'community' => 'Cộng đoàn',
-            'status' => 'Trạng thái',
+            'start-date' => 'Ngày bắt đầu',
+            'end-date' => 'Ngày kết thúc',
+            'verify' => 'Trạng thái',
             'thumbnail' => 'Ảnh đại diện',
             'censors' => 'Người kiểm duyệt',
             'description' => 'Mô tả',

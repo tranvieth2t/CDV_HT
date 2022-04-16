@@ -34,12 +34,25 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
      * @return mixed
      */
 
-    public function getListNews($perPage, $condition = [], $columns = ['*'])
+    public function getListNews($perPage, $conditions = [], $columns = ['*'])
     {
-        return $this->model
-            ->when(!empty($condition), function ($query) use ($condition) {
-                return $query->where([$condition]);
-            })
+        $query = $this->model;
+        if (isset($conditions['community_id']) and $conditions['community_id']) {
+            $query =  $query->where('community_id', $conditions['community_id']);
+        }
+        if (isset($conditions['verify'])) {
+            $query =  $query->where('verify', $conditions['verify']);
+        }
+        if (isset($conditions['startDate'])) {
+            $query = $query->where('created_at', '>=', $conditions['startDate']);
+        }
+        if (isset($conditions['endDate'])) {
+            $query =  $query->where('created_at', '<=', $conditions['endDate']);
+        }
+        if (isset($conditions['title'])) {
+            $query =  $query->where('title', 'LIKE', $conditions['endDate']);
+        }
+        return $query->orderByDesc('created_at')
             ->paginate($perPage, $columns);
     }
 }

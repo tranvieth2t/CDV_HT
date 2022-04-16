@@ -42,7 +42,7 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $listNews = $this->newsServices->getListNews(null, $request);
+        $listNews = $this->newsServices->getListNews(null, $request->all());
         $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
         return view('admin.news.index', [
             'listCommunity' => $listCommunityByRoleAdmin,

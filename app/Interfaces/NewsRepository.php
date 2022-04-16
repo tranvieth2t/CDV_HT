@@ -11,5 +11,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface NewsRepository extends RepositoryInterface
 {
-    public function getListNews($perPage, $condition = [], $columns = [ '*' ]);
+    public function getListNews($perPage, $conditions = [], $columns = [ '*' ]);
 }

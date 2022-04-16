@@ -6,6 +6,7 @@ use Illuminate\Validation\Rules\Enum;
 
 class Community extends Enum
 {
+    const ALL       = 0;
     const VHT       = 1;
     const DON       = 2;
     const MVN       = 3;
