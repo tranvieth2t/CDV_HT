@@ -74,6 +74,7 @@ class NewsController extends Controller
         try {
             DB::beginTransaction();
             $news = $this->newsServices->createNews($request);
+            dd($news);
 //            $this->mailServices->sendMaiLNews($news);
             DB::commit();
         } catch (Exception $exception) {
