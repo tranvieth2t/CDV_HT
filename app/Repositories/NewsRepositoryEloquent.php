@@ -55,4 +55,5 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         return $query->orderByDesc('created_at')
             ->paginate($perPage, $columns);
     }
+
 }
