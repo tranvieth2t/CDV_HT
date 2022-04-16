@@ -5,7 +5,7 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
                         <form method="POST" action="{{route('news.store')}}">
                             @csrf
                             @include('admin.inc.form.input', [
@@ -63,7 +63,6 @@
                                 <button type="submit" class="btn btn-primary"> {{__('btn.confirm')}} </button>
                             </div>
                         </form>
-                    </table>
                 </div>
             </div>
         </div>
