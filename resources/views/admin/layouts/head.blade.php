@@ -14,8 +14,5 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     {{-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> --}}
-
-
-
     @yield('custom-css')
 </head>
