@@ -17,6 +17,7 @@ class TableCommunity extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->text('description')->nullable();
+            $table->text('content')->nullable();
             $table->string('facebook',255)->nullable();
             $table->string('instagram',255)->nullable();
             $table->string('youtube',255)->nullable();
