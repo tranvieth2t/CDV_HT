@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.5",
         "prettus/l5-repository": "^2.7",
         "laravel/ui": "^3.4",
-        "fakerphp/faker": "^1.9.1"
+        "fzaninotto/faker": "^1.9.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
