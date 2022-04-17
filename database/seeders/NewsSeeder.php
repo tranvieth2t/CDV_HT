@@ -19,7 +19,7 @@ class NewsSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 10000;
+        $limit = 1000;
         $listAdmin = DB::table('admins')->get();
         $listAdminCensor = DB::table('admins')->where('role_admin', AdminRole::ADMIN)->get();
         $listCommunity = DB::table('community')->get();
@@ -28,6 +28,7 @@ class NewsSeeder extends Seeder
             DB::table('news')->insert([
                 'title' => $faker->name,
                 'content' => $faker->text,
+                'thumbnail' => $faker->text,
                 'verify' => $faker->randomElement($listVerify),
                 'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'created_by' =>  $faker->randomElement($listAdmin)->id,
