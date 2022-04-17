@@ -72,10 +72,8 @@ class NewsController extends Controller
     public function store(StoreNewsRequest $request)
     {
         try {
-            DB::beginTransaction();
             $news = $this->newsServices->createNews($request);
 //            $this->mailServices->sendMaiLNews($news);
-            DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
             Log::info($exception);
