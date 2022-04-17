@@ -26,6 +26,7 @@ class AdminSeeder extends Seeder
             DB::table('admins')->insert([
                 'name' => $faker->name,
                 'email' => $faker->unique()->email,
+                'password' => bcrypt('admin123'),
                 'verify' => $faker->randomElement($listVerify),
                 'role_admin' => $faker->randomElement($listRole),
                 'community_id' => $faker->randomElement($listCommunity)->id,
