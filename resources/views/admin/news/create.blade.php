@@ -5,7 +5,6 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="">
-
                         <form method="POST" action="{{route('news.store')}}">
                             @csrf
                             @include('admin.inc.form.input', [
