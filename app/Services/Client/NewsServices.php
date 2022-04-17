@@ -17,7 +17,7 @@ class NewsServices extends BaseService
 
     public function getListHotNews($perPage = null, $condition = [])
     {
-        return $this->repository->limit(20);
+        return $this->repository->limit(40);
     }
     public function createNews($request) {
         $params = $request->all();

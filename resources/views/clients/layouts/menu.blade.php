@@ -1,4 +1,4 @@
-<button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+<button type="button" class="mobile-nav-toggle d-xl-none"><i class="bx bx-menu"></i></button>
 <header id="header" class="d-flex flex-column justify-content-center">
     <nav class="nav-menu">
         <ul>
