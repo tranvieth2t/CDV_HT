@@ -17,10 +17,10 @@ class CreateNewsTable extends Migration
             $table->id();
 
             $table->string('title', 255);
-            $table->text('thumbnail')>nullable();
-            $table->text('description')>nullable();
-            $table->text('content')>nullable();
-            $table->tinyInteger('verify')>nullable();
+            $table->text('thumbnail')->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
+            $table->tinyInteger('verify')->nullable();
             $table->integer('community_id')->unsigned();
             $table->integer('created_by')->unsigned();
             $table->foreign('created_by')->references('id')->on('admins');
