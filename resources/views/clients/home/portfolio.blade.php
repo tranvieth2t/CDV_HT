@@ -3,9 +3,9 @@
 
         <div class="section-title">
             <h2>Các hoạt động của Cộng đoàn</h2>
-            <p class="px-5 px-md-2 px-sm-2">Một ngày mới nữa lại đến, Châu Sơn sáng tinh mơ này vẫn vậy… vẫn là Châu Sơn với một nét đẹp nguyên sơ và
-                thánh thiện như ngày nào. Nồng nàn yêu thương và dịu dàng vẻ đẹp hoang sơ… Cảnh đàn cò trắng bay ngang
-                núi Thánh ẩn hiện trong màn sương khói khiến chúng tôi như đang lạc vào cõi thiên đường.</p>
+            <p class="px-5 px-md-2 px-sm-2">Trải qua gần 13 năm hoạt động, Cộng đoàn ngày càng phát triển về số lượng và
+                chất lượng thành viên cũng như các hoạt động của mình. Tôn chỉ hoạt động của Cộng đoàn Vinh - Hà Tĩnh
+                dựa trên ba tiêu chí: Tâm linh – Tri thức – Nối kết. </p>
         </div>
 
         <div class="row">
@@ -39,7 +39,7 @@
                             <p>{{$news->description}}</p>
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-{{$index}}.jpg" data-gall="portfolioGallery"
-                                   class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                                   class="venobox" title="{{$news->title}}"><i class="bx bx-plus"></i></a>
                                 <a href="{{route('admin.login')}}" data-gall="portfolioDetailsGallery"
                                    data-vbtype="iframe" class="venobox" title="Portfolio Details"><i
                                         class="bx bx-link"></i></a>
@@ -49,6 +49,5 @@
                 </div>
             @endforeach
         </div>
-
     </div>
 </section>

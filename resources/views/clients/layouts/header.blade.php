@@ -9,26 +9,26 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-                <li><a class="nav-link scrollto" href="#services">Services</a></li>
-                <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-                <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                <li><a class="nav-link scrollto " href="#hero">Trang chủ</a></li>
+                <li><a class="nav-link scrollto" href="#about">Tin cộng đoàn</a></li>
+{{--                <li><a class="nav-link scrollto" href="#services">Services</a></li>--}}
+{{--                <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>--}}
+{{--                <li><a class="nav-link scrollto" href="#team">Cộng đoàn</a></li>--}}
+                <li class="dropdown"><a href="#"><span>Cộng đoàn</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Drop Down 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Drop Down 1</a></li>
-                                <li><a href="#">Deep Drop Down 2</a></li>
-                                <li><a href="#">Deep Drop Down 3</a></li>
-                                <li><a href="#">Deep Drop Down 4</a></li>
-                                <li><a href="#">Deep Drop Down 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Drop Down 2</a></li>
-                        <li><a href="#">Drop Down 3</a></li>
-                        <li><a href="#">Drop Down 4</a></li>
+                        <li><a href="#">Vinh Hà Tĩnh</a></li>
+                        <li><a href="#">Don Bosco</a></li>
+                        <li><a href="#">Mẹ Vô Nhiễm</a></li>
+                        <li><a href="#">Gioan Tông Đồ</a></li>
+                        <li><a href="#">Đa Minh Savio</a></li>
+                        <li><a href="#">Phaolo Trở Lạ</a></li>
+                        <li><a href="#">Antôn Padua</a></li>
+                        <li><a href="#">Phanxico Assisi</a></li>
+                        <li><a href="#">Phanxico Xavie</a></li>
+                        <li><a href="#">Cựu SV & GĐCG</a></li>
+
+                        <li><a href="#">Que Diêm Sài Gòn</a></li>
+                        <li><a href="#">Ca đoàn</a></li>
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
