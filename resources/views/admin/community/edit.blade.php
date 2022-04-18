@@ -56,7 +56,7 @@
                                     'value' => $community->description,
                                     'colLabel' => 'col-lg-2 ',
                                     'colInput' => 'col-lg-10 ',
-                                    'attributes' => 'type ="text" maxlength="255"'
+                                    'attributes' => 'type ="text" '
                                     ])
                         @include('admin.inc.form.textarea', [
                                    'name' => 'content',
@@ -64,7 +64,7 @@
                                    'value' => $community->content,
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
-                                   'attributes' => 'type ="text" maxlength="255"'
+                                   'attributes' => 'type ="text" '
                                    ])
                         <div class="justify-content-center d-flex">
                             <button type="submit" class="btn btn-primary"> {{__('btn.confirm')}} </button>

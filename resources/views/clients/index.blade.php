@@ -4,11 +4,11 @@
         @include('clients.home.banner')
         @include('clients.inc.section')
 
-        @include('clients.home.portfolio',[
-    'listHotNews' => $listHotNews,
-])
-
+    @include('clients.home.portfolio',[
+            'listHotNews' => $listHotNews,
+            ])
         @include('clients.home.teams')
-    </main><!-- End #main -->
+        @include('clients.inc.contact')
+    </main>
 @endsection
 
