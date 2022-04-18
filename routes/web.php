@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\NewsController;
+use App\Http\Controllers\Client\CommunityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +17,8 @@ use App\Http\Controllers\Client\HomeController;
 */
 
 Route::get('', [HomeController::class,'index'])->name('home');
+
+//News
+Route::resource('news', NewsController::class)->names('clients.news');
+//Community
+Route::resource('community', CommunityController::class)->names('clients.community');

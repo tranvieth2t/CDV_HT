@@ -10,3 +10,5 @@
 <script src="{{asset('assets/vendor/typed.js/typed.min.js')}}"></script>
 <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
+
+@stack('scripts')

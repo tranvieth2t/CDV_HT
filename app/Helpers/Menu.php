@@ -8,7 +8,7 @@ class Menu
 {
     public static function menus(): array
     {
-        $listCommunity = getListCommunity();
+        $listCommunity = getListCommunityByRoleId();
         $data = [];
         foreach ($listCommunity as $community) {
             $data[] =
