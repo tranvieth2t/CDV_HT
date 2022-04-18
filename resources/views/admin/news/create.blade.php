@@ -69,5 +69,10 @@
 @endsection
 
 @push('scripts')
-
+    <script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script !src="">
+        CKEDITOR.replace('content', {
+            language:'vi',
+        })
+    </script>
 @endpush
