@@ -33,6 +33,7 @@
                 <div class="col-lg-3 col-md-4 portfolio-item filter-{{$news->community_id}}">
                     <div class="portfolio-wrap">
                         @php($index++)
+                        @php($index = $index %20 +1)
                         <img src="assets/img/portfolio/portfolio-{{$index}}.jpg" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>{{$news->title}}</h4>
@@ -40,7 +41,7 @@
                             <div class="portfolio-links">
                                 <a href="assets/img/portfolio/portfolio-{{$index}}.jpg" data-gall="portfolioGallery"
                                    class="venobox" title="{{$news->title}}"><i class="bx bx-plus"></i></a>
-                                <a href="{{route('admin.login')}}" data-gall="portfolioDetailsGallery"
+                                <a href="{{route('clients.community.show', [$news->id % 10])}}" data-gall="portfolioDetailsGallery"
                                    data-vbtype="iframe" class="venobox" title="Portfolio Details"><i
                                         class="bx bx-link"></i></a>
                             </div>

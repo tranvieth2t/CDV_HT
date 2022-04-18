@@ -58,7 +58,7 @@
                                         'colLabel' => 'col-lg-2 ',
                                         'colInput' => 'col-lg-10 ',
                                          'rows' => 30,
-                                        'attributes' => 'type ="text" maxlength="255"'
+                                        'attributes' => 'id= "content" type ="text" maxlength="255"'
                                         ])
 
                             <div class="justify-content-center d-flex">
@@ -72,5 +72,10 @@
 @endsection
 
 @push('scripts')
-
+    <script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script !src="">
+        CKEDITOR.replace('content', {
+            language:'vi',
+        })
+    </script>
 @endpush
