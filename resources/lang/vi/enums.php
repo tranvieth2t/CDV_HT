@@ -2,6 +2,7 @@
 use App\Enums\Community;
 use App\Enums\AdminVerify;
 use App\Enums\NewsVerify;
+use App\Enums\NewsHot;
 return [
     'community' => [
         Community::VHT      => 'Vinh Hà Tĩnh',
@@ -22,6 +23,12 @@ return [
     ],
     'news_verify' => [
         NewsVerify::VERIFY => 'Đã duyệt',
-        NewsVerify::NOT_VERIFY => 'Chưa duyệt'
-    ]
+        NewsVerify::NOT_VERIFY => 'Chưa duyệt',
+        NewsVerify::ALL => 'Tất Cả'
+    ],
+    'news_hot' => [
+        NewsHot::HOT => 'Tin nổi bật',
+        NewsHot::NO_HOT => 'Tin thường',
+        NewsHot::ALL => 'Tất cả'
+]
 ];

@@ -14,8 +14,17 @@
                                          'value' => $news->title,
                                          'colLabel' => 'col-lg-2 ',
                                          'colInput' => 'col-lg-10 ',
-                                         'attributes' => 'type ="text" maxlength="255"'
+                                         'attributes' => 'type ="text"'
                                          ])
+
+                            @include('admin.inc.form.input', [
+                                 'name' => 'thumbnail',
+                                 'label' => __('ui.label.news.thumbnail'),
+                                 'value' => $news->thumbnail,
+                                 'colLabel' => 'col-lg-2 ',
+                                 'colInput' => 'col-lg-10 ',
+                                 'attributes' => 'type ="text"'
+                                 ])
 {{--                            @include('admin.inc.form.input', [--}}
 {{--                                         'name' => 'title',--}}
 {{--                                         'label' => __('ui.label.news.title'),--}}
@@ -58,7 +67,7 @@
                                         'colLabel' => 'col-lg-2 ',
                                         'colInput' => 'col-lg-10 ',
                                          'rows' => 30,
-                                        'attributes' => 'id= "content" type ="text" maxlength="255"'
+                                        'attributes' => 'id= "content" type ="text" '
                                         ])
 
                             <div class="justify-content-center d-flex">
@@ -75,6 +84,7 @@
     <script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
     <script !src="">
         CKEDITOR.replace('content', {
+
             language:'vi',
         })
     </script>

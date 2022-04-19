@@ -2,7 +2,9 @@
 
 namespace App\Repositories;
 
+use App\Enums\NewsHot;
 use App\Enums\NewsStatus;
+use App\Enums\NewsVerify;
 use App\Interfaces\NewsRepository;
 use App\Models\News;
 use Illuminate\Database\Eloquent\Builder;
@@ -37,11 +39,14 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     public function getListNews($perPage, $conditions = [], $columns = ['*'])
     {
         $query = $this->model;
-        if (isset($conditions['community_id']) and $conditions['community_id']) {
+        if (isset($conditions['community_id']) and $conditions['community_id'] != 'none') {
             $query =  $query->where('community_id', $conditions['community_id']);
         }
-        if (isset($conditions['verify'])) {
+        if (isset($conditions['verify']) and $conditions['verify'] != NewsVerify::ALL) {
             $query =  $query->where('verify', $conditions['verify']);
+        }
+        if (isset($conditions['hot']) and $conditions['hot'] != NewsHot::ALL) {
+            $query =  $query->where('hot', $conditions['hot']);
         }
         if (isset($conditions['startDate'])) {
             $query = $query->where('created_at', '>=', $conditions['startDate']);
@@ -52,7 +57,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         if (isset($conditions['title'])) {
             $query =  $query->where('title', 'LIKE', $conditions['endDate']);
         }
-        return $query->orderByDesc('created_at')
+        return $query->with('admin')->orderByDesc('created_at')
             ->paginate($perPage, $columns);
     }
 

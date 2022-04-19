@@ -6,15 +6,16 @@
         </div>
         <div class="card-body">
             <form method="GET" action="{{route('news.index')}}">
-                @php($listCommunity[\App\Enums\Community::ALL] = 'Tất cả')
                 @include('admin.inc.form.select', [
-                               'name' => 'community_id',
-                               'label' => __('ui.label.news.community'),
-                               'pluck' => $listCommunity,
-                               'colLabel' => 'col-lg-2',
-                               'colInput' => 'col-lg-10',
-                               'value' => $_GET['community_id']?? \Illuminate\Support\Facades\Auth::guard('admin')->user()->id
-                           ])
+                                   'name' => 'community_id',
+                                   'label' => __('ui.label.news.community'),
+                                   'pluck' => $listCommunity,
+                                   'colLabel' => 'col-lg-2',
+                                   'colInput' => 'col-lg-10',
+                                   'value' => $_GET['community_id']?? 'none',
+                                   'isAll' => true,
+                                   'nameAll' => 'Tất cả'
+                               ])
                 @include('admin.inc.form.input', [
                                     'name' => 'title',
                                     'label' => __('ui.label.news.title'),
@@ -42,12 +43,21 @@
                 @include('admin.inc.form.checkbox', [
                                    'name' => 'verify',
                                    'label' => __('ui.label.news.verify'),
-                                   'value' => $_GET['verify']?? '',
+                                   'value' => $_GET['verify']?? \App\Enums\NewsVerify::ALL,
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
                                    'values' => trans('enums.news_verify'),
                                    'attributes' => 'type="radio"',
                                    ])
+                @include('admin.inc.form.checkbox', [
+                              'name' => 'hot',
+                              'label' => __('ui.label.news.hot'),
+                              'value' => $_GET['hot']?? \App\Enums\NewsHot::ALL,
+                              'colLabel' => 'col-lg-2 ',
+                              'colInput' => 'col-lg-10 ',
+                              'values' => trans('enums.news_hot'),
+                              'attributes' => 'type="radio"',
+                              ])
                 <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary m-2">{{__('btn.confirm')}}</button>
                 <a href="{{route('news.index')}}" class="btn btn-warning m-2 ">{{__('btn.reset')}}</a>
@@ -79,13 +89,18 @@
                             <tr>
                                 <td>{{$news->id}}</td>
                                 <td>{{$news->title}}</td>
-                                <td>{{$news->verify}}</td>
+                                <td>{{trans('enums.news_verify')[$news->verify]}}</td>
                                 <td>{{$news->admin->name}}</td>
                                 <td>{{trans('enums.community')[$news->community_id]}}</td>
                                 <td>{{$news->created_at}}</td>
                                 <td>
-                                    <a class="btn btn-primary"
-                                       href="{{route('news.edit', [$news->id])}}"><span>{{__('btn.detail')}} </span></a>
+                                    <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"  title="{{__('btn.edit')}}"
+                                       href="{{route('news.edit', [$news->id])}}"><span><i class="fas fa-edit fa-fw"></i></span></a>
+                                    <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"  title="{{__('btn.news-hot')}}"
+                                       href="{{route('news.edit', [$news->id])}}"><span><i class="fas fa-mug-hot fa-fw"></i></span></a>
+                                    <a class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top"  title="{{__('btn.news-verify')}}"
+                                       href="{{route('news.edit', [$news->id])}}"><span><i class="fas fa-diagram-successor fa-fw"></i></span></a>
+
                                 </td>
                             </tr>
                         @endforeach
@@ -97,3 +112,11 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script !src=''>
+     $(function () {
+         $('[data-toggle="tooltip"]').tooltip()
+     })
+ </script>
+@endpush

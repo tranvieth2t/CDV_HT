@@ -11,6 +11,7 @@ return [
         'news' => [
             'title'  => 'Tên bài viết',
             'community' => 'Cộng đoàn',
+            'hot' => 'Tin nổi bật',
             'start-date' => 'Ngày bắt đầu',
             'end-date' => 'Ngày kết thúc',
             'verify' => 'Trạng thái',

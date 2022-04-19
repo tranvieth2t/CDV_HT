@@ -38,6 +38,7 @@ class AdminRepositoryEloquent extends BaseRepository implements AdminRepository
             ->when(!empty($condition), function ($query) use ($condition) {
                 return $query->where([$condition]);
             })
+            ->with('adminRole', 'community')
             ->orderByDesc('id')
             ->paginate($perPage, $columns);
     }
