@@ -26,4 +26,5 @@ class StoreAdminRequest extends FormRequest
             'name'  => 'required|string|max:255',
         ];
     }
+
 }
