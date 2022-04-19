@@ -22,6 +22,7 @@ class TableCommunity extends Migration
             $table->string('instagram',255)->nullable();
             $table->string('youtube',255)->nullable();
             $table->string('tel', 255)->nullable();
+            $table->tinyInteger('parent')->default(\App\Enums\ParentCommunity::CHILD);
             $table->timestamps();
         });
     }

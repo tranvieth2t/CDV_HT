@@ -48,10 +48,7 @@ class CommunitySeeder extends Seeder
             ],
             [
                 'name' => 'Nhóm Que Diêm Sài Gòn',
-            ],
-            [
-                'name' => 'Ca đoàn Teresa',
-            ],
+            ]
         ];
         DB::table('community')->insert($data);
     }

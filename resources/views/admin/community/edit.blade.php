@@ -64,7 +64,7 @@
                                    'value' => $community->content,
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
-                                   'attributes' => 'type ="text" '
+                                   'attributes' => 'id="content" type ="text" '
                                    ])
                         <div class="justify-content-center d-flex">
                             <button type="submit" class="btn btn-primary"> {{__('btn.confirm')}} </button>
@@ -77,5 +77,10 @@
 @endsection
 
 @push('scripts')
-
+    <script type="text/javascript" src="{{asset('ckeditor/ckeditor.js')}}"></script>
+    <script !src="">
+        CKEDITOR.replace('content', {
+            language:'vi',
+        })
+    </script>
 @endpush

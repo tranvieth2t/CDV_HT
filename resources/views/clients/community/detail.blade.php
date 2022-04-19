@@ -7,7 +7,7 @@
                     <h2>{{$community->name}}</h2>
                     <p class="px-1 px-md-2 px-sm-1"> {{$community->description}} </p>
                 </div>
-                <div> {{$community->content}}</div>
+                <div> {!! $community->content !!}</div>
                 <div class="news ">
                     <div class="section-body">
                     </div>

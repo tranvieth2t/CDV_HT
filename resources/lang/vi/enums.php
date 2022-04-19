@@ -15,7 +15,6 @@ return [
         Community::XAVIE    => 'Phanxico Xavie',
         Community::GIUSE    => 'Cựu SV & GĐCG',
         Community::QUEDIEM  => 'Que Diêm Sài Gòn',
-        Community::CADOAN   => 'Ca đoàn ',
         ],
     'verify' => [
         AdminVerify::VERIFY => 'Xác thực',

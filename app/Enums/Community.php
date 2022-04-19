@@ -18,5 +18,4 @@ class Community extends Enum
     const XAVIE     = 9;
     const GIUSE     = 10;
     const QUEDIEM   = 11;
-    const CADOAN    = 12;
 }
