@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\NewsHot;
+use App\Enums\NewsVerify;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\AdminServices;
 use App\Services\Admin\CommunityServices;
@@ -139,4 +141,19 @@ class NewsController extends Controller
     {
         //
     }
+
+    public function verify($id)
+    {
+        $new = $this->newsServices->findByField('id', $id)->first();
+        $param = $new->verify == NewsVerify::NOT_VERIFY ? NewsVerify::VERIFY : NewsVerify::NOT_VERIFY;
+        $new->update(['verify' => $param]);
+        return redirect()->route('news.index');
+    }
+    public function setNews($id){
+        $new = $this->newsServices->findByField('id',$id)->first();
+        $param = $new->hot == NewsHot::NO_HOT ? NewsHot::HOT : NewsHot::NO_HOT;
+        $new->update(['hot' => $param]);
+        return redirect()->route('news.index');
+    }
+
 }

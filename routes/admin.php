@@ -28,4 +28,7 @@ Route::middleware('auth:admin')->group(function (){
     Route::resource('/news', NewsController::class)->names('news');
     //Community
     Route::resource('/community', CommunityController::class)->names('community');
+
+    Route::get('/news/{id}/verify', [NewsController::class,'verify']) ->name('news.verify');
+    Route::get('/news/{id}/setNews', [NewsController::class,'setNews']) ->name('news.setNews');
 });
