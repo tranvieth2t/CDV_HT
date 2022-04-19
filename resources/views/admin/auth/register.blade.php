@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 @include("admin.layouts.head")
 
 <body class="bg-gradient-primary">
@@ -28,10 +28,17 @@
                                     <div class="form-group">
                                         <input type="password" name="password" class="form-control form-control-user"
                                                id="exampleInputPassword" placeholder="Password">
+                                        @error('password')
+                                        <span style="color: red">{{$message}} </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="cf_password" class="form-control form-control-user"
                                                id="exampleInputPassword" placeholder="Confrim Password">
+                                         @error('cf_password')
+                                        <span style="color: red">{{$message}} </span>
+                                        @enderror
+
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Xác nhận

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CheckPassRequest;
 use App\Http\Requests\Admin\StoreAdminRequest;
 use App\Services\Admin\AdminServices;
 use App\Services\Admin\CommunityServices;
@@ -145,7 +146,7 @@ class AdminController extends Controller
         }
     }
 
-    public function updateRegister(Request $request)
+    public function updateRegister(CheckPassRequest $request)
     {
         $admin = $this->adminService
             ->findByField('email', $request->email)
