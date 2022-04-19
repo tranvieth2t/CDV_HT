@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Enums\AdminRole;
 use App\Models\Admin;
 
+use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Eloquent\BaseRepository;
 use App\Interfaces\AdminRepository;
 
@@ -34,7 +35,14 @@ class AdminRepositoryEloquent extends BaseRepository implements AdminRepository
 
     public function getListAdmin($perPage, $condition = [], $columns = ['*'])
     {
-        return $this->model->query()
+
+        $admin = Auth::guard('admin')->user();
+
+        $query = $this->model->query();
+        if($admin->role_admin != AdminRole::SUPPER_ADMIN){
+            $query = $query->where('community_id', $admin->community_id);
+        }
+        return $query
             ->when(!empty($condition), function ($query) use ($condition) {
                 return $query->where([$condition]);
             })

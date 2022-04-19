@@ -1,6 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
     <div>
+        @if(\Illuminate\Support\Facades\Auth::guard('admin')->user()->role_admin  == \App\Enums\AdminRole::SUPPER_ADMIN)
         <h1 class="h3 mb-2 text-gray-800">Thêm admin</h1>
         <div class="card shadow mb-4">
             <div class="card-body">
@@ -49,7 +50,7 @@
             </div>
         </div>
     </div>
-
+    @endif
     <div>
         <h1 class="h3 mb-2 text-gray-800">Admin</h1>
         <div class="card shadow mb-4">
