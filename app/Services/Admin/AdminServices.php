@@ -23,7 +23,7 @@ class AdminServices extends BaseService
      * @param $perPage
      * @return mixed
      */
-    public function getAllAdmin($perPage = 10)
+    public function getAllAdminByRoleAdmin($perPage = 10)
     {
         return $this->repository->getListAdmin($perPage, $condition = [], $columns = [ '*' ]);
     }

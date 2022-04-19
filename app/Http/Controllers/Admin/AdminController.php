@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function index(Request $request)
     {
         $per_page = $request->per_page ? $request->per_page : config('constants.per_page_default');
-        $listAdmin = $this->adminService->getAllAdmin($per_page);
+        $listAdmin = $this->adminService->getAllAdminByRoleAdmin($per_page);
         $listCommunity = $this->communityService->getListCommunityByRoleAdmin();
         return view('admin.admins.index', [
             'admins' => $listAdmin,
