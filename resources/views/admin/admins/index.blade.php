@@ -65,6 +65,7 @@
                             <th>{{__('ui.label.admins.role')}}</th>
                             <th>{{__('ui.label.admins.verify')}}</th>
                             <th>{{__('ui.label.admins.community')}}</th>
+
                         </tr>
                         </thead>
                         <tbody>

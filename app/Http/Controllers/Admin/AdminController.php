@@ -167,4 +167,15 @@ class AdminController extends Controller
             DB::rollBack();
         }
     }
+
+
+    public function resetPassWord(){
+        return view('admin.auth.resetPassword');
+    }
+    public function resetPass(CheckPassRequest $request, $id){
+        $password = $request->only(['password']);
+        $admin = $this->adminService->find($id)->first();
+        $admin->update(['password' => $password]);
+       return redirect()->route('admin.login');
+    }
 }
