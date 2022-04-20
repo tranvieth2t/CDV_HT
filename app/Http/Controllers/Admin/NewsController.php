@@ -149,7 +149,7 @@ class NewsController extends Controller
         $new->update(['verify' => $param]);
         return redirect()->route('news.index');
     }
-    public function setNews($id){
+    public function hot_news($id){
         $new = $this->newsServices->findByField('id',$id)->first();
         $param = $new->hot == NewsHot::NO_HOT ? NewsHot::HOT : NewsHot::NO_HOT;
         $new->update(['hot' => $param]);
