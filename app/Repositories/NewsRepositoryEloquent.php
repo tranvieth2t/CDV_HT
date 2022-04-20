@@ -57,7 +57,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         if (isset($conditions['title'])) {
             $query =  $query->where('title', 'LIKE', $conditions['endDate']);
         }
-        return $query->with('admin')->orderByDesc('created_at')
+        return $query->with('admin')->orderByDesc('id')
             ->paginate($perPage, $columns);
     }
 
