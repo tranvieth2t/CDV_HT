@@ -59,8 +59,8 @@
                               'attributes' => 'type="radio"',
                               ])
                 <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary m-2">{{__('btn.confirm')}}</button>
-                <a href="{{route('news.index')}}" class="btn btn-warning m-2 ">{{__('btn.reset')}}</a>
+                    <button type="submit" class="btn btn-primary m-2">{{__('btn.confirm')}}</button>
+                    <a href="{{route('news.index')}}" class="btn btn-warning m-2 ">{{__('btn.reset')}}</a>
                 </div>
             </form>
         </div>
@@ -69,7 +69,7 @@
 
 
         <div class="card shadow mb-4">
-            <div class="card-header"> <h1 class="h3 mb-2 text-gray-800">Tin tức</h1></div>
+            <div class="card-header"><h1 class="h3 mb-2 text-gray-800">Tin tức</h1></div>
             <div class="card-body">
                 <div class="table-responsive pt-2">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -96,13 +96,26 @@
                                 <td>{{trans('enums.community')[$news->community_id]}}</td>
                                 <td>{{$news->created_at}}</td>
                                 <td>
-                                    <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"  title="{{__('btn.edit')}}"
-                                       href="{{route('news.edit', [$news->id])}}"><span><i class="fas fa-edit fa-fw"></i></span></a>
-                                    <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"  title="{{__('btn.news-hot')}}"
-                                       href="{{route('news.setNews', [$news->id])}}"><span><i class="fas fa-mug-hot fa-fw"></i></span></a>
-                                    <a class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top"  title="{{__('btn.news-verify')}}"
-                                       href="{{route('news.verify', [$news->id])}}"><span><i class="fas fa-diagram-successor fa-fw"></i></span></a>
-
+                                    <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                       title="{{__('btn.edit')}}"
+                                       href="{{route('news.edit', [$news->id])}}"><span>
+                                            <i class="fas fa-edit fa-fw"></i></span></a>
+                                    <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"
+                                       title="{{__('btn.news-hot')}}"
+                                       href="{{route('news.setNews', [$news->id])}}"><span>
+                                            <i class="fas fa-mug-hot fa-fw"></i></span></a>
+                                    <a class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top"
+                                       title="{{__('btn.news-verify')}}"
+                                       href="{{route('news.verify', [$news->id])}}"><span>
+                                            <i class="fas fa-diagram-successor fa-fw"></i></span></a>
+                                    <button type="button" class="btn btn-primary news-request-verify"
+                                            data-toggle="modal"
+                                            data-censors="{{$news->censors}}"
+                                            data-target="#exampleModalCenter" data-toggle="tooltip" data-placement="top"
+                                            data-action="{{route('news.wait', [$news->id])}}"
+                                            title="{{__('btn.news-request-verify')}}">
+                                        <i class="fas fa-diagram-successor fa-fw"> </i>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -113,12 +126,67 @@
             </div>
         </div>
     </div>
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Yêu cầu duyệt bài</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="form-input-note" method="POST" action="">
+                    <div class="modal-body">
+                        @csrf
+                        <div class="modal-selected">
+                            <h3></h3>
+                            @include('admin.inc.form.select', [
+                                          'name' => 'censors',
+                                          'label' => __('ui.label.news.censors'),
+                                          'pluck' => $listAdminCensors,
+                                          'colLabel' => 'col-12',
+                                          'colInput' => 'col-12',
+                                      ])
+                        </div>
+                        <div class="modal-input-note">
+                            @include('admin.inc.form.textarea', [
+                                          'name' => 'note',
+                                          'label' => __('ui.label.news.content'),
+                                          'value' => '',
+                                          'colLabel' => 'col-12',
+                                          'colInput' => 'col-12 ',
+                                           'rows' => 6,
+                                          'attributes' => 'id= "content" type ="text" '
+                                          ])
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">{{__('btn.close')}}</button>
+                        <button type="submit" class="btn btn-primary">{{__('btn.send-mail')}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
     <script !src=''>
-     $(function () {
-         $('[data-toggle="tooltip"]').tooltip()
-     })
- </script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        $('.news-request-verify').click(function () {
+            $('#form-input-note textarea').val('')
+            console.log($(this).attr('data-censors'))
+            $('#form-input-note select').val($(this).attr('data-censors'))
+            let action = $(this).attr('data-action')
+            $('#form-input-note').attr('action', action)
+        });
+    </script>
 @endpush

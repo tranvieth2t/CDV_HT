@@ -45,8 +45,10 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $listNews = $this->newsServices->getListNews(null, $request->all());
+        $listAdminCensors = $this->adminServices->getAdminCensor();
         $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
         return view('admin.news.index', [
+            'listAdminCensors' => $listAdminCensors,
             'listCommunity' => $listCommunityByRoleAdmin,
             'listNews' => $listNews
         ]);
@@ -75,7 +77,6 @@ class NewsController extends Controller
     {
         try {
             $news = $this->newsServices->createNews($request);
-//            $this->mailServices->sendMaiLNews($news);
         } catch (Exception $exception) {
             DB::rollBack();
             Log::info($exception);
@@ -154,7 +155,19 @@ class NewsController extends Controller
         $param = $new->hot == NewsHot::NO_HOT ? NewsHot::HOT : NewsHot::NO_HOT;
         $new->update(['hot' => $param]);
         return redirect()->route('news.index');
+    }
 
+    public function wait(Request $request,$id){
+        try {
+            $news = $this->newsServices->update($request->only('verify', 'censors'), $id);
+            $adminRequest = Auth::guard('admin')->user();
+            $this->mailServices->sendMaiLNews($news, $adminRequest, $request->note);
+        } catch (Exception $exception) {
+            Log::info($exception);
+            return redirect()->route('404');
+        }
+
+        return redirect()->route('news.index');
     }
 
 }

@@ -29,6 +29,10 @@ class News extends Model
     {
         return $this->hasOne(Admin::class, 'id','created_by');
     }
+    public function censorsAdmin()
+    {
+        return $this->hasOne(Admin::class, 'id','censors');
+    }
 
     public function community()
     {

@@ -22,13 +22,14 @@ return [
         AdminVerify::NOT_VERIFY => 'Chưa xác thực'
     ],
     'news_verify' => [
+        NewsVerify::ALL => 'Tất Cả',
         NewsVerify::VERIFY => 'Đã duyệt',
+        NewsVerify::WAIT => 'Chờ duyệt',
         NewsVerify::NOT_VERIFY => 'Chưa duyệt',
-        NewsVerify::ALL => 'Tất Cả'
     ],
     'news_hot' => [
+        NewsHot::ALL => 'Tất cả',
         NewsHot::HOT => 'Tin nổi bật',
         NewsHot::NO_HOT => 'Tin thường',
-        NewsHot::ALL => 'Tất cả'
 ]
 ];
