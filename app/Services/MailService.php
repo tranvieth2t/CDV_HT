@@ -18,4 +18,16 @@ class MailService extends BaseService
         ];
         Mail::to($data['email'])->send(new SendMail($dataMail));
     }
+    public function sendMailNews($news, $adminRequest ,$note)
+    {
+        $dataMail = [
+            'subject' => 'Yêu cầu phê duyệt Bài viết',
+            'viewFile' => 'mail.sendMailNews',
+            'news' => $news,
+            'adminRequest' => $adminRequest,
+            'url' => route('news.edit',[$news->id]),
+            'note' => $note
+        ];
+        Mail::to($news->censorsAdmin->email)->send(new SendMail($dataMail));
+    }
 }

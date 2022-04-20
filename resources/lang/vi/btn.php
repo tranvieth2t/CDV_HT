@@ -5,6 +5,9 @@ return [
     'reset' => 'Làm mới',
     'edit' => 'Chỉnh sửa',
     'news-hot' => 'Đặt làm tin hot',
-    'news-verify' => 'Duyệt tin'
+    'news-verify' => 'Duyệt tin',
+    'close' => 'Đóng',
+    'send-mail' => 'Gửi mail',
+    'news-request-verify' => 'Yêu cầu duyệt tin'
 ];
 
