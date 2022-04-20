@@ -154,6 +154,7 @@ class NewsController extends Controller
         $param = $new->hot == NewsHot::NO_HOT ? NewsHot::HOT : NewsHot::NO_HOT;
         $new->update(['hot' => $param]);
         return redirect()->route('news.index');
+
     }
 
 }
