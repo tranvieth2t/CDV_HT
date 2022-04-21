@@ -33,6 +33,5 @@ Route::middleware('auth:admin')->group(function (){
 
     Route::get('/news/{id}/verify', [NewsController::class,'verify']) ->name('news.verify');
     Route::get('/news/{id}/setNews', [NewsController::class,'hot_news']) ->name('news.setNews');
-
-
+    Route::post('/news/{id}/wait', [NewsController::class,'wait']) ->name('news.wait');
 });
