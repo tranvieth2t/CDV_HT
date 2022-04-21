@@ -178,7 +178,7 @@
                  </a>
                  <a class="dropdown-item" href="{{route('admin.resetPassword')}}">
                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                     Reset Pasword
+                     Update Information
                  </a>
                  <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="{{route('admin.logout')}}" >
