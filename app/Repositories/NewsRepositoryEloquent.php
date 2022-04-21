@@ -38,7 +38,11 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
 
     public function getListNews($perPage, $conditions = [], $columns = ['*'])
     {
+        $admin = Auth::guard('admin')->user();
         $query = $this->model;
+        if ($admin->community_id == null) {
+            $query = $query->where('community_id', null);
+        }
         if (isset($conditions['community_id']) and $conditions['community_id'] != 'none') {
             $query = $query->where('community_id', $conditions['community_id']);
         }
@@ -94,7 +98,8 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
                 }
             }
         }
-        return $query->with('admin')
+
+        return $query->with('admin', 'community')
             ->paginate($perPage, $columns);
     }
 }

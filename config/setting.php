@@ -8,5 +8,6 @@ return [
         '4' => 'Sắp xếp theo trạng thái',
         '5' => 'Sắp xếp theo Cộng đoàn',
 
-    ]
+    ],
+    'password_default' => 'congdoanvinhhatinh'
 ];

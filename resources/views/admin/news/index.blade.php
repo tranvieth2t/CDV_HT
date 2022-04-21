@@ -75,7 +75,7 @@
     </div>
     <div>
 
-
+        @php($admin = \Illuminate\Support\Facades\Auth::guard('admin')->user() )
         <div class="card shadow mb-4">
             <div class="card-header"><h1 class="h3 mb-2 text-gray-800">Tin tức</h1></div>
             <div class="card-body">
@@ -88,6 +88,7 @@
                             <th class="col-1">{{__('ui.label.news.verify')}}</th>
                             <th class="col-1">{{__('ui.label.news.admin')}}</th>
                             <th class="col-1">{{__('ui.label.news.hot')}}</th>
+                            <th class="col-1">{{__('ui.label.news.verify')}}</th>
                             <th class="col-2">{{__('ui.label.news.community')}}</th>
                             <th class="col-2">{{__('ui.label.news.created_at')}}</th>
                             <th class="col-2">{{__('ui.label.news.note')}}</th>
@@ -101,25 +102,41 @@
                                 <td>{{trans('enums.news_verify')[$news->verify]}}</td>
                                 <td>{{$news->admin->name}}</td>
                                 <td>{{trans('enums.news_hot')[$news->hot]}}</td>
-                                <td>{{trans('enums.community')[$news->community_id]}}</td>
+                                <td>{{trans('enums.news_verify')[$news->verify]}}</td>
+                                <td>{{$news->community->name ?? "Khác"}}</td>
                                 <td>{{$news->created_at}}</td>
                                 <td>
                                     <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
                                        title="{{__('btn.edit')}}"
                                        href="{{route('news.edit', [$news->id])}}"><span>
                                             <i class="fas fa-edit fa-fw"></i></span></a>
-                                    <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"
-                                       title="{{__('btn.news-hot')}}"
-                                       href="{{route('news.setNews', [$news->id])}}"><span>
+                                    @if($admin->role_admin != \App\Enums\AdminRole::EDITS)
+
+                                        @if ($news->hot == \App\Enums\NewsHot::NO_HOT)
+                                            <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"
+                                               title="{{__('btn.news-hot')}}"
+                                               href="{{route('news.setNews', [$news->id])}}"><span>
                                             <i class="fas fa-mug-hot fa-fw"></i></span></a>
-                                    <a class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top"
-                                       title="{{__('btn.news-verify')}}"
-                                       href="{{route('news.verify', [$news->id])}}"><span>
+                                        @else
+                                            <a class="btn btn-outline-success" data-toggle="tooltip"
+                                               data-placement="top"
+                                               title="{{__('btn.news-no_hot')}}"
+                                               href="{{route('news.setNews', [$news->id])}}"><span>
+                                            <i class="fas fa-mug-hot fa-fw"></i></span></a>
+                                        @endif
+                                        @if($news->verify != \App\Enums\NewsVerify::VERIFY )
+                                            <a class="btn btn-outline-warning" data-toggle="tooltip"
+                                               data-placement="top"
+                                               title="{{__('btn.news-verify')}}"
+                                               href="{{route('news.verify', [$news->id])}}"><span>
                                             <i class="fas fa-diagram-successor fa-fw"></i></span></a>
-                                    <button type="button" class="btn btn-primary news-request-verify"
+                                        @endif
+                                    @endif
+                                    <button type="button" class="btn btn-success news-request-verify"
                                             data-toggle="modal"
                                             data-censors="{{$news->censors}}"
-                                            data-target="#exampleModalCenter" data-toggle="tooltip" data-placement="top"
+                                            data-target="#exampleModalCenter" data-toggle="tooltip"
+                                            data-placement="top"
                                             data-action="{{route('news.wait', [$news->id])}}"
                                             title="{{__('btn.news-request-verify')}}">
                                         <i class="fas fa-diagram-successor fa-fw"> </i>
