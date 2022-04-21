@@ -6,6 +6,7 @@ use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CheckNameRequest;
 use App\Http\Requests\Admin\CheckPassRequest;
+use App\Http\Requests\Admin\NameReqest;
 use App\Http\Requests\Admin\StoreAdminRequest;
 use App\Services\Admin\AdminServices;
 use App\Services\Admin\CommunityServices;
@@ -70,11 +71,14 @@ class AdminController extends Controller
         try {
             DB::beginTransaction();
             $param = $request->all();
+            if ($request->community_id == 'none') {
+                $param['community_id'] = null;
+            };
             $param['verify'] = AdminVerify::NOT_VERIFY;
-            $param['password'] = generatePassword();
+            $param['password'] = bcrypt(config('setting.password_default'));
             $param['verify_token'] = Str::random(60);
             $this->adminService->create($param);
-            $this->mailService->sendMailAddAdmin($param);
+//            $this->mailService->sendMailAddAdmin($param);
             DB::commit();
             return redirect()->route('admins.index');
         } catch (Exception $exception) {
@@ -179,6 +183,16 @@ class AdminController extends Controller
     {
         $password = $request->password;
         $params = ['password' => bcrypt($password), 'name' => $request->name];
+        $this->adminService->update($params, $id);
+        return redirect()->route('admin.login');
+    }
+    public function updateProfile(){
+        return view('admin.inc.form.updateProfile');
+    }
+
+    public function updatePro(NameReqest $reqest, $id)
+    {
+        $params = ['name' => $reqest->name];
         $this->adminService->update($params, $id);
         return redirect()->route('admin.login');
     }

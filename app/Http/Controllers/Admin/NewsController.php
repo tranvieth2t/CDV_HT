@@ -159,7 +159,9 @@ class NewsController extends Controller
 
     public function wait(Request $request,$id){
         try {
-            $news = $this->newsServices->update($request->only('verify', 'censors'), $id);
+            $params = $request->only( 'censors');
+            $params['verify'] = NewsVerify::WAIT;
+            $news = $this->newsServices->update($params, $id);
             $adminRequest = Auth::guard('admin')->user();
             $this->mailServices->sendMaiLNews($news, $adminRequest, $request->note);
         } catch (Exception $exception) {

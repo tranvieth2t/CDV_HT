@@ -14,7 +14,7 @@ class AddColCommunityTableAdmin extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->tinyInteger('community_id')
+            $table->tinyInteger('community_id')->nullable()
                 ->after('email');
         });
     }

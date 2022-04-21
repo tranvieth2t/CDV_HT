@@ -19,7 +19,7 @@ return [
         ],
     'verify' => [
         AdminVerify::VERIFY => 'Xác thực',
-        AdminVerify::NOT_VERIFY => 'Chưa xác thực'
+        AdminVerify::NOT_VERIFY => 'Chưa xác thực',
     ],
     'news_verify' => [
         NewsVerify::ALL => 'Tất Cả',

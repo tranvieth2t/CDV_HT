@@ -2,10 +2,11 @@
 @section('content')
     <div>
         @if(\Illuminate\Support\Facades\Auth::guard('admin')->user()->role_admin  == \App\Enums\AdminRole::SUPPER_ADMIN)
-        <h1 class="h3 mb-2 text-gray-800">Thêm admin</h1>
+
         <div class="card shadow mb-4">
             <div class="card-body">
-                <div class="justify-content-center">
+                <div class="card-header"><h1 class="h3 mb-2 text-gray-800">Thêm admin</h1></div>
+                <div class="card-body">
                     <form method="POST" action="{{route('admins.store')}}">
                         @csrf
                         @include('admin.inc.form.input', [
@@ -42,7 +43,10 @@
                                  'pluck' => $communities,
                                  'colLabel' => 'col-lg-2 col-sm-4 d-flex align-items-center',
                                  'colInput' => 'col-lg-4 col-sm-8',
-                                 'value' => \App\Enums\Community::VHT
+                                 'value' => \App\Enums\Community::VHT,
+                                 'isAll' => true,
+                                 'nameAll' => 'Khác',
+
                              ])
                         <button class="btn-primary btn" type="submit"> {{__('btn.confirm')}}</button>
                     </form>
@@ -52,8 +56,8 @@
     </div>
     @endif
     <div>
-        <h1 class="h3 mb-2 text-gray-800">Admin</h1>
         <div class="card shadow mb-4">
+            <div class="card-header"> <h1 class="h3 mb-2 text-gray-800">Admin</h1></div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
