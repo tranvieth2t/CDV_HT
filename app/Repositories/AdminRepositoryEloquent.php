@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Enums\AdminRole;
+use App\Enums\AdminVerify;
 use App\Models\Admin;
 
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,7 @@ class AdminRepositoryEloquent extends BaseRepository implements AdminRepository
     public function getAdminCensor()
     {
         return $this->model->query()
+            ->where('verify', AdminVerify::VERIFY)
             ->where('role_admin', AdminRole::ADMIN)->pluck('name', 'id');
     }
 }
