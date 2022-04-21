@@ -22,7 +22,7 @@ class CommunityServices extends BaseService
     public function getListCommunityByRoleAdmin() {
         $admin = Auth::guard('admin')->user();
         $query = $this->repository;
-        if ($admin->role_admin == AdminRole::EDITS) {
+        if ($admin->role_admin == AdminRole::EDITS or $admin->community_id == null) {
             $query = $query->where('id', $admin->community_id);
         }
         return $query
