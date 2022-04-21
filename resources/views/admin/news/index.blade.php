@@ -16,6 +16,14 @@
                                    'isAll' => true,
                                    'nameAll' => 'Tất cả'
                                ])
+                @include('admin.inc.form.select', [
+                                   'name' => 'orderBy',
+                                   'label' => __('ui.label.news.community'),
+                                   'pluck' => config('setting.orderBy'),
+                                   'colLabel' => 'col-lg-2',
+                                   'colInput' => 'col-lg-10',
+                                   'value' => $_GET['orderBy']?? 'none',
+                               ])
                 @include('admin.inc.form.input', [
                                     'name' => 'title',
                                     'label' => __('ui.label.news.title'),

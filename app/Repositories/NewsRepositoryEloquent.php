@@ -40,25 +40,61 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     {
         $query = $this->model;
         if (isset($conditions['community_id']) and $conditions['community_id'] != 'none') {
-            $query =  $query->where('community_id', $conditions['community_id']);
+            $query = $query->where('community_id', $conditions['community_id']);
         }
         if (isset($conditions['verify']) and $conditions['verify'] != NewsVerify::ALL) {
-            $query =  $query->where('verify', $conditions['verify']);
+            $query = $query->where('verify', $conditions['verify']);
         }
         if (isset($conditions['hot']) and $conditions['hot'] != NewsHot::ALL) {
-            $query =  $query->where('hot', $conditions['hot']);
+            $query = $query->where('hot', $conditions['hot']);
         }
         if (isset($conditions['startDate'])) {
             $query = $query->where('created_at', '>=', $conditions['startDate']);
         }
         if (isset($conditions['endDate'])) {
-            $query =  $query->where('created_at', '<=', $conditions['endDate']);
+            $query = $query->where('created_at', '<=', $conditions['endDate']);
         }
-        if (isset($conditions['title'])) {
-            $query =  $query->where('title', 'LIKE', $conditions['endDate']);
+
+        if (isset($conditions['orderBy'])) {
+            switch ($conditions['orderBy']) {
+                case 0 :
+                {
+                    $query = $query->orderBy('id', 'ASC');
+                    break;
+                }
+                case 1 :
+                {
+                    $query = $query->orderBy('id', 'ASC');
+                    break;
+                }
+                case 2 :
+                {
+                    $query = $query->orderBy('id', 'DESC');
+                    break;
+                }
+                case 3 :
+                {
+                    $query = $query->orderBy('hot', 'DESC');
+                    break;
+                }
+                case 4 :
+                {
+                    $query = $query->orderBy('verify', 'DESC');
+                    break;
+                }
+                case 5 :
+                {
+                    $query = $query->orderBy('community_id', 'ASC');
+                    break;
+                }
+
+                default:
+                {
+                    $query = $query->orderByDesc('id');
+                }
+            }
         }
-        return $query->with('admin')->orderByDesc('id')
+        return $query->with('admin')
             ->paginate($perPage, $columns);
     }
-
 }
