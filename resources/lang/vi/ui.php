@@ -31,6 +31,7 @@ return [
             'instagram' => 'Link Instagram',
             'youtube' => 'Link Youtube',
             'tel' => 'Số điện thoại',
-        ]
+        ],
+        'update-info' => 'Chỉnh sửa thông tin'
     ]
 ];

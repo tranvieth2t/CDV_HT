@@ -8,7 +8,7 @@
                 <div class="col-lg-6">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Change Password!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">{{__('ui.label.update-info')}}</h1>
                         </div>
                         @php($admin = \Illuminate\Support\Facades\Auth::guard('admin')->user())
                         <form class="user" method="POST"
@@ -20,14 +20,15 @@
                                        placeholder="Enter Email Address..."
                                        value="{{$admin->email}}"
                                 >
-{{--                                {{dd($admin->community->name)}}--}}
                             </div>
                             <div class="form-group">
                                 <input  type="text" name="name" class="form-control form-control-user"
                                        id="exampleInputEmail" aria-describedby="emailHelp"
                                         value="{{$admin->name}}"
-                                       placeholder="Enter name"
-                                >
+                                       placeholder="Enter name">
+                                @error('name')
+                                <span style="color: red">{{$message}} </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" class="form-control form-control-user"
@@ -45,7 +46,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Submit
+                                {{__('btn.confirm')}}
                             </button>
                             <hr>
                         </form>
