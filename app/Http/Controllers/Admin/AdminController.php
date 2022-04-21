@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CheckNameRequest;
 use App\Http\Requests\Admin\CheckPassRequest;
 use App\Http\Requests\Admin\StoreAdminRequest;
 use App\Services\Admin\AdminServices;
@@ -149,13 +150,13 @@ class AdminController extends Controller
     public function updateRegister(CheckPassRequest $request)
     {
         $admin = $this->adminService
-            ->findByField('email', $request->email)
-            ->where('verify_token', $request->verify_token)->first();
+            ->findWhere($request->only('email', 'verify_token'))
+            ->first();
         if (!$admin) return route('404');
 
         try {
             DB::beginTransaction();
-            $param = $request->only('password');
+            $param['password'] = bcrypt($request->password);
             $param['verify_token'] = null;
             $param['verify'] = AdminVerify::VERIFY;
             $admin->update($param);
@@ -166,5 +167,19 @@ class AdminController extends Controller
             return redirect()->route('404');
             DB::rollBack();
         }
+    }
+
+
+    public function resetPassWord()
+    {
+        return view('admin.auth.resetPassword');
+    }
+
+    public function resetPass(CheckNameRequest $request, $id)
+    {
+        $password = $request->password;
+        $params = ['password' => bcrypt($password), 'name' => $request->name];
+        $this->adminService->update($params, $id);
+        return redirect()->route('admin.login');
     }
 }

@@ -23,6 +23,8 @@ Route::get('/verify-admin', [AdminController::class, 'verifyAddAdmin']);
 Route::middleware('auth:admin')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+    Route::get('/resetPassword',[AdminController::class, 'resetPassWord']) ->name('admin.resetPassword');
+    Route::post('/resetPassword/{id}',[AdminController::class,'resetPass'])->name('admin.update-password');
     Route::resource('admins', AdminController::class)->names('admins');
     //News
     Route::resource('/news', NewsController::class)->names('news');
