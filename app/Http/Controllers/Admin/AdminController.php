@@ -6,6 +6,7 @@ use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CheckNameRequest;
 use App\Http\Requests\Admin\CheckPassRequest;
+use App\Http\Requests\Admin\NameReqest;
 use App\Http\Requests\Admin\StoreAdminRequest;
 use App\Services\Admin\AdminServices;
 use App\Services\Admin\CommunityServices;
@@ -182,6 +183,16 @@ class AdminController extends Controller
     {
         $password = $request->password;
         $params = ['password' => bcrypt($password), 'name' => $request->name];
+        $this->adminService->update($params, $id);
+        return redirect()->route('admin.login');
+    }
+    public function updateProfile(){
+        return view('admin.inc.form.updateProfile');
+    }
+
+    public function updatePro(NameReqest $reqest, $id)
+    {
+        $params = ['name' => $reqest->name];
         $this->adminService->update($params, $id);
         return redirect()->route('admin.login');
     }

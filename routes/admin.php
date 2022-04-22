@@ -13,6 +13,8 @@ Route::get('404', function () {
 // Login
 Route::get('/login', [LoginController::class, 'showFormLogin'])->name('admin.login');
 Route::post('/login', [LoginController::class, 'login']);
+//User
+Route::get('/user',[UserController::class, 'showUser'])->name('admin.user');
 
 // Register
 Route::post('/register',[AdminController::class, 'updateRegister'])->name('admin.update-register');
@@ -25,6 +27,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
     Route::get('/resetPassword',[AdminController::class, 'resetPassWord']) ->name('admin.resetPassword');
     Route::post('/resetPassword/{id}',[AdminController::class,'resetPass'])->name('admin.update-password');
+    Route::get('/updateProfile',[AdminController::class, 'updateProfile'])->name('admin.updateProfile');
+    Route::post('/updatePro/{id}',[AdminController::class, 'updatePro'])->name('admin.updatePro');
     Route::resource('admins', AdminController::class)->names('admins');
     //News
     Route::resource('/news', NewsController::class)->names('news');

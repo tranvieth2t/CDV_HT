@@ -33,7 +33,7 @@ class Menu
                     [
                         'id' => '',
                         'name' => trans('message.admin.admin.list-admin'),
-                        'route' => '/admin/admins',
+                        'route' =>  route('admins.index'),
                         'parent_id' => 0,
                         'hideRole' => [],
                     ]
@@ -50,14 +50,14 @@ class Menu
                     [
                         'id' => '',
                         'name' => trans('message.admin.users.edit-user'),
-                        'route' => 'admins/index',
+                        'route' => 'admin/index',
                         'parent_id' => 0,
                         'hideRole' => [],
                     ],
                     [
                         'id' => '',
                         'name' => trans('message.admin.users.list-users'),
-                        'route' => 'admins/create',
+                        'route' => 'admin/user',
                         'parent_id' => 0,
                         'hideRole' => [],
                     ]

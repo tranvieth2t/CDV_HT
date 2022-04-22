@@ -11,16 +11,24 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    protected $table = 'user';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+
+    public function community()
+    {
+        return $this->hasOne(Community::class, 'id', 'community_id');
+    }
     protected $fillable = [
         'name',
         'email',
         'password',
+        'community_id',
     ];
 
     /**

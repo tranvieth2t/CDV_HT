@@ -12,4 +12,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
 interface NewsRepository extends RepositoryInterface
 {
     public function getListNews($perPage, $conditions = [], $columns = [ '*' ]);
+    public function getListNewHot($perPage, $conditions = [], $columns = [ '*' ]);
 }

@@ -102,20 +102,45 @@
                                 <td>{{trans('enums.news_verify')[$news->verify]}}</td>
                                 <td>{{$news->admin->name}}</td>
                                 <td>{{trans('enums.news_hot')[$news->hot]}}</td>
-                                <td>{{trans('enums.news_verify')[$news->verify]}}</td>
                                 <td>{{$news->community->name ?? "Khác"}}</td>
                                 <td>{{$news->created_at}}</td>
                                 <td>
-                                    <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
-                                       title="{{__('btn.edit')}}"
-                                       href="{{route('news.edit', [$news->id])}}"><span>
+                                    @if ($news->verify != \App\Enums\NewsVerify::VERIFY)
+                                        <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                           title="{{__('btn.edit')}}"
+                                           href="{{route('news.edit', [$news->id])}}"><span>
                                             <i class="fas fa-edit fa-fw"></i></span></a>
-                                    @if($admin->role_admin != \App\Enums\AdminRole::EDITS)
 
+                                    @endif
+                                    @if($admin->role_admin != \App\Enums\AdminRole::EDITS)
                                         @if ($news->hot == \App\Enums\NewsHot::NO_HOT)
                                             <a class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top"
                                                title="{{__('btn.news-hot')}}"
                                                href="{{route('news.setNews', [$news->id])}}"><span>
+                                            <i class="fas fa-mug-hot fa-fw"></i></span></a>
+                                        @else
+                                            <button type="button" class="btn btn-outline-danger news-request-hot"
+                                                    data-toggle="modal"
+                                                    data-target="#exampleModalHot" data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    data-url="{{route('news.setNews', [$news->id])}}"
+                                                    title="{{__('btn.news-hot')}}">
+                                                <i class="fas fa-mug-hot fa-fw"> </i>
+                                            </button>
+                                        @endif
+                                        @if($news->verify != \App\Enums\NewsVerify::VERIFY )
+                                            <button type="button" class="btn btn-outline-warning news-request-status"
+                                                    data-toggle="modal"
+                                                    data-target="#exampleModalVerify" data-toggle="tooltip"
+                                                    data-placement="top"
+                                                    data-url="{{route('news.verify', [$news->id])}}"
+                                                    title="{{__('btn.news-verify')}}">
+                                                <i class="fas fa-diagram-successor fa-fw"> </i>
+                                            </button>
+                                        @endif
+                                    @endif
+                                    <button type="button" class="btn btn-primary news-request-verify"
+
                                             <i class="fas fa-mug-hot fa-fw"></i></span></a>
                                         @else
                                             <a class="btn btn-outline-success" data-toggle="tooltip"
@@ -145,6 +170,8 @@
                             </tr>
                         @endforeach
                         </tbody>
+
+
                     </table>
                     {!! $listNews->links() !!}
                 </div>
@@ -199,6 +226,46 @@
             </div>
         </div>
     </div>
+
+    <!-- ModalHot -->
+    <div class="modal fade" id="exampleModalHot" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xác nhận chuyển thành tin hot</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">{{__('btn.close')}}</button>
+                    <a type="button" class="btn btn-primary" style="color: white">{{__('btn.confirm')}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ModalVerify -->
+    <div class="modal fade" id="exampleModalVerify" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xác nhận thay đổi trạng thái </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">{{__('btn.close')}}</button>
+                    <a type="button" class="btn btn-primary" style="color: white">{{__('btn.confirm')}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('scripts')
@@ -206,9 +273,19 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+        $('.news-request-hot').click(function () {
+            $('#exampleModalHot .modal-content a').attr(
+                'href', $(this).attr('data-url')
+            )
+        })
+
+        $('.news-request-status').click(function () {
+            $('#exampleModalVerify .modal-content a').attr(
+                'href', $(this).attr('data-url')
+            )
+        })
         $('.news-request-verify').click(function () {
             $('#form-input-note textarea').val('')
-            console.log($(this).attr('data-censors'))
             $('#form-input-note select').val($(this).attr('data-censors'))
             let action = $(this).attr('data-action')
             $('#form-input-note').attr('action', action)

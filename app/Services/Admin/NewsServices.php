@@ -19,6 +19,12 @@ class NewsServices extends BaseService
     {
         return $this->repository->getListNews($perPage, $condition);
     }
+
+    public function getListNewHot($perPage = null, $condition = []){
+        return $this->repository->getListNewHot($perPage, $condition);
+
+    }
+
     public function createNews($request) {
         $params = $request->all();
         $request->merge(['created_by' => Auth::guard('admin')->user()->id]);
