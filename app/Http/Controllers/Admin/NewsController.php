@@ -11,6 +11,7 @@ use App\Services\Admin\NewsServices;
 use App\Http\Requests\Admin\StoreNewsRequest;
 use App\Http\Requests\Admin\UpdateNewsRequest;
 use App\Services\MailService;
+use App\Services\S3Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,18 +24,21 @@ class NewsController extends Controller
     protected $adminServices;
     protected $communityServices;
     protected $mailServices;
+    protected $s3Services;
 
     public function __construct(
         NewsServices      $newsServices,
         AdminServices     $adminServices,
         CommunityServices $communityServices,
-        MailService       $mailService
+        MailService       $mailService,
+        S3Service         $s3Service
     )
     {
         $this->newsServices = $newsServices;
         $this->adminServices = $adminServices;
         $this->communityServices = $communityServices;
         $this->mailServices = $mailService;
+        $this->s3Services = $s3Service;
     }
 
     /**
@@ -76,7 +80,16 @@ class NewsController extends Controller
     public function store(StoreNewsRequest $request)
     {
         try {
-            $news = $this->newsServices->createNews($request);
+            DB::beginTransaction();
+            if ($request->hasFile('thumbnail')) {
+            $dataImage = [
+                'imageNew' => $request->thumbnail,
+                'folder' => 'news'
+            ];
+            $imageUrl = $this->s3Services->uploadImage($dataImage);
+            $news = $this->newsServices->createNews($request->all(), $imageUrl);
+            }
+            DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
             Log::info($exception);
