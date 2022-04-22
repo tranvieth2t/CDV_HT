@@ -7,6 +7,7 @@ use App\Enums\NewsStatus;
 use App\Enums\NewsVerify;
 use App\Interfaces\NewsRepository;
 use App\Models\News;
+use http\Client\Curl\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -40,8 +41,8 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     {
         $admin = Auth::guard('admin')->user();
         $query = $this->model;
-        if ($admin->community_id == null) {
-            $query = $query->where('community_id', null);
+        if (isset($conditions['title'])) {
+            $query = $query->where('title', 'LIKE', '%'.$conditions['title'].'%');
         }
         if (isset($conditions['community_id']) and $conditions['community_id'] != 'none') {
             $query = $query->where('community_id', $conditions['community_id']);
@@ -61,16 +62,11 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
 
         if (isset($conditions['orderBy'])) {
             switch ($conditions['orderBy']) {
+                case 1 :
                 case 0 :
                 {
                     $query = $query->orderBy('id', 'ASC');
                     break;
-                }
-                case 1 :
-                {
-                    $query = $query->orderBy('id', 'ASC');
-                    break;
-                }
                 case 2 :
                 {
                     $query = $query->orderBy('id', 'DESC');
@@ -101,5 +97,11 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
 
         return $query->with('admin', 'community')
             ->paginate($perPage, $columns);
+    }
+    public function getListNewHot($perPage, $conditions = [], $columns = ['*'])
+    {
+        $query = $this->model;
+        $query = $query->where('hot', NewsHot::HOT)->get();
+        return $query;
     }
 }

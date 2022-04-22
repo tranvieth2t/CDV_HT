@@ -15,11 +15,10 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListNews($perPage = null, $condition = [])
-    {
-        return $this->repository->getListNews($perPage, $condition);
+    public function getListNewHot($perPage = null, $condition = []){
+        return $this->repository->getListNewHot($perPage, $condition);
     }
-    public function createNews($params, $thumbnail = null) {
+       public function createNews($params, $thumbnail = null) {
         $params['thumbnail'] = $thumbnail;
         $params['created_by'] = Auth::guard('admin')->user()->id;
         return $this->repository->create($params);

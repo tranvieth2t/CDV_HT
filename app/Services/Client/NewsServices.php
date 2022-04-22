@@ -3,6 +3,7 @@
 namespace App\Services\Client;
 
 use App\Enums\AdminRole;
+use App\Enums\NewsHot;
 use App\Enums\NewsVerify;
 use App\Interfaces\NewsRepository;
 use App\Services\BaseService;
@@ -16,9 +17,10 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListHotNews($perPage = null, $condition = [])
+    public function getListNewHot($perPage = null, $condition = [])
     {
-        return $this->repository->limit(40);
+        return $this->repository->limit(10);
+
     }
     public function createNews($request) {
         $params = $request->all();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
+use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
+        $credentials['verify'] = AdminVerify::VERIFY;
         $isRemember =  $request->remember ? true : false;
         if (Auth::guard('admin')->attempt($credentials, $isRemember)) {
             return redirect()->route('dashboard');
