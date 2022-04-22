@@ -6,7 +6,7 @@
         <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="">
-                    <form method="POST" action="{{route('news.store')}}">
+                    <form method="POST" action="{{route('news.store')}}" enctype="multipart/form-data">
                         @csrf
                         @include('admin.inc.form.input', [
                                      'name' => 'title',
@@ -22,7 +22,7 @@
                                      'value' => '',
                                      'colLabel' => 'col-lg-2 ',
                                      'colInput' => 'col-lg-10 ',
-                                     'attributes' => 'type ="text"'
+                                     'attributes' => 'type ="file"'
                                      ])
                         @include('admin.inc.form.textarea', [
                                      'name' => 'description',

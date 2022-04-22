@@ -19,9 +19,8 @@ class NewsServices extends BaseService
     {
         return $this->repository->getListNews($perPage, $condition);
     }
-    public function createNews($request) {
-        $params = $request->all();
-        $request->merge(['created_by' => Auth::guard('admin')->user()->id]);
+    public function createNews($params, $thumbnail = null) {
+        $params['thumbnail'] = $thumbnail;
         $params['created_by'] = Auth::guard('admin')->user()->id;
         return $this->repository->create($params);
     }

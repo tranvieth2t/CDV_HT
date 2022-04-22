@@ -106,10 +106,12 @@
                                 <td>{{$news->community->name ?? "Khác"}}</td>
                                 <td>{{$news->created_at}}</td>
                                 <td>
-                                    <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
-                                       title="{{__('btn.edit')}}"
-                                       href="{{route('news.edit', [$news->id])}}"><span>
+                                    @if($admin->role_admin != \App\Enums\AdminRole::EDITS or $news->verify != \App\Enums\NewsVerify::VERIFY)
+                                        <a class="btn btn-outline-primary" data-toggle="tooltip" data-placement="top"
+                                           title="{{__('btn.edit')}}"
+                                           href="{{route('news.edit', [$news->id])}}"><span>
                                             <i class="fas fa-edit fa-fw"></i></span></a>
+                                    @endif
                                     @if($admin->role_admin != \App\Enums\AdminRole::EDITS)
 
                                         @if ($news->hot == \App\Enums\NewsHot::NO_HOT)
@@ -132,15 +134,17 @@
                                             <i class="fas fa-diagram-successor fa-fw"></i></span></a>
                                         @endif
                                     @endif
-                                    <button type="button" class="btn btn-success news-request-verify"
-                                            data-toggle="modal"
-                                            data-censors="{{$news->censors}}"
-                                            data-target="#exampleModalCenter" data-toggle="tooltip"
-                                            data-placement="top"
-                                            data-action="{{route('news.wait', [$news->id])}}"
-                                            title="{{__('btn.news-request-verify')}}">
-                                        <i class="fas fa-diagram-successor fa-fw"> </i>
-                                    </button>
+                                    @if($news->verify != \App\Enums\NewsVerify::VERIFY)
+                                        <button type="button" class="btn btn-success news-request-verify"
+                                                data-toggle="modal"
+                                                data-censors="{{$news->censors}}"
+                                                data-target="#exampleModalCenter" data-toggle="tooltip"
+                                                data-placement="top"
+                                                data-action="{{route('news.wait', [$news->id])}}"
+                                                title="{{__('btn.news-request-verify')}}">
+                                            <i class="fas fa-diagram-successor fa-fw"> </i>
+                                        </button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
