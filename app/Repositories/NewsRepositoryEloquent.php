@@ -41,10 +41,8 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     {
         $admin = Auth::guard('admin')->user();
         $query = $this->model;
-
         if (isset($conditions['title'])) {
             $query = $query->where('title', 'LIKE', '%'.$conditions['title'].'%');
-
         }
         if (isset($conditions['community_id']) and $conditions['community_id'] != 'none') {
             $query = $query->where('community_id', $conditions['community_id']);
@@ -69,7 +67,6 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
                 {
                     $query = $query->orderBy('id', 'ASC');
                     break;
-                }
                 case 2 :
                 {
                     $query = $query->orderBy('id', 'DESC');
@@ -101,12 +98,10 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         return $query->with('admin', 'community')
             ->paginate($perPage, $columns);
     }
-
     public function getListNewHot($perPage, $conditions = [], $columns = ['*'])
     {
         $query = $this->model;
         $query = $query->where('hot', NewsHot::HOT)->get();
         return $query;
     }
-
 }
