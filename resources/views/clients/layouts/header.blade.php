@@ -6,17 +6,10 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto " href="{{route('home')}}">Trang chủ</a></li>
-                <li><a class="nav-link scrollto" href="#about">Tin cộng đoàn</a></li>
+                <li><a class="nav-link scrollto" href="{{route('clients.news.index')}}">Tin cộng đoàn</a></li>
+                <li><a class="nav-link scrollto" href="{{route('clients.news.index')}}">Thông báo</a></li>
                 @php($listCommunity = getFullCommunity())
-                <li><a class="dropdown" href="{{route('clients.news.index')}}"> <span>Tin cộng đoàn</span> <i class="bi bi-chevron-down"></i></a>
-{{--                    <ul>--}}
-{{--                        @foreach($listCommunity  as $community)--}}
-{{--                            <li><a href="{{route('clients.community.show', [$community->id])}}">{{$community->name}}</a></li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-                </li>
-                @php($listCommunity = getFullCommunity())
-                <li class="dropdown"><a href="#"><span>Cộng đoàn</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="#"><span>Giới thiệu</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @foreach($listCommunity  as $community)
                         <li><a href="{{route('clients.community.show', [$community->id])}}">{{$community->name}}</a></li>
@@ -24,10 +17,9 @@
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+                <li><a class="getstarted scrollto" href="#about">Đăng nhập</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
-
     </div>
 </div>

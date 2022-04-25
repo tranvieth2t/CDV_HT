@@ -12,24 +12,31 @@ use Illuminate\Support\Facades\Auth;
 class NewsServices extends BaseService
 {
     protected $repository;
+
     public function __construct(NewsRepository $repository)
     {
         $this->repository = $repository;
     }
 
-    public function getListNewHot($perPage = null, $condition = [])
+    public function getListNewHot($perPage = 20, $condition = [])
     {
-        return $this->repository->with('community')->limit(10);
-
+       return $this->repository
+            ->where('verify', NewsVerify::VERIFY)
+            ->where('hot', NewsHot::HOT)
+            ->with('community')->limit($perPage)->get();
     }
-    public function findNews($id) {
-        $news =  $this->repository->with('community')->find($id);
+
+    public function findNews($id)
+    {
+        $news = $this->repository->with('community')->find($id);
         if ($news->verify != NewsVerify::VERIFY) {
             return abort(404);
         }
         return $news;
     }
-    public function getListHotNewsCommunity($community_id) {
+
+    public function getListHotNewsCommunity($community_id)
+    {
         return $this->repository->findWhere([
             'community_id' => $community_id,
             'verify' => NewsVerify::VERIFY

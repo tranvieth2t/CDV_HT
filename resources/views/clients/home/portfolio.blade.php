@@ -2,16 +2,14 @@
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Các hoạt động của Cộng đoàn</h2>
-            <p class="px-5 px-md-2 px-sm-2">Trải qua gần 13 năm hoạt động, Cộng đoàn ngày càng phát triển về số lượng và
-                chất lượng thành viên cũng như các hoạt động của mình. Tôn chỉ hoạt động của Cộng đoàn Vinh - Hà Tĩnh
-                dựa trên ba tiêu chí: Tâm linh – Tri thức – Nối kết. </p>
+            <h2>Các hoạt động của cộng đoàn</h2>
+            <p class="px-5 px-md-2 px-sm-2"></p>
         </div>
 
         <div class="row">
             <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <ul id="portfolio-flters">
-                    <li data-filter="*" class="filter-active">All</li>
+                    <li data-filter="*" class="filter-active">Tất cả</li>
                     <li data-filter=".filter-1">Vinh Hà Tĩnh</li>
                     <li data-filter=".filter-2">Don Bosco</li>
                     <li data-filter=".filter-3">Mẹ Vô Nhiễm</li>
@@ -23,7 +21,6 @@
                     <li data-filter=".filter-9">Phanxico Xavie</li>
                     <li data-filter=".filter-10">Cựu SV & GĐCG</li>
                     <li data-filter=".filter-11">Que Diêm Sài Gòn</li>
-                    <li data-filter=".filter-12">Ca đoàn</li>
                 </ul>
             </div>
         </div>
@@ -36,15 +33,15 @@
                         @php($index = $index %20 +1)
                         <img src="assets/img/portfolio/portfolio-{{$index}}.jpg" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                            <h4>{{$news->community->name}}</h4>
-                            <p>{{$news->description}}</p>
+                            <h5>{{$news->community->name}}</h5>
+                            <p>{{$news->title}}</p>
                             <div class="portfolio-links">
                                 <a  href="{{route('clients.news.show', ['news' => $news->id])}}"
-                                    title="{{$news->title}}"><i class="bx bx-plus"></i></a>
+                                    title="Xem chi tiết"><i class="bx bx-bullseye"></i></a>
                                 <a href="assets/img/portfolio/portfolio-{{$index}}.jpg" data-gall="portfolioGallery"
-                                   class="venobox" title="{{$news->title}}"><i class="bx bx-plus"></i></a>
-                                <a href="{{route('clients.community.show', [$news->id % 10])}}" data-gall="portfolioDetailsGallery"
-                                   data-vbtype="iframe" class="venobox" title="Portfolio Details"><i
+                                   class="venobox" title="Xem ảnh"><i class="bx bx-plus"></i></a>
+                                <a href="{{route('clients.news.show', [$news->id])}}" data-gall="portfolioDetailsGallery"
+                                   data-vbtype="iframe" class="venobox" title="Xem qua"><i
                                         class="bx bx-link"></i></a>
                             </div>
                         </div>

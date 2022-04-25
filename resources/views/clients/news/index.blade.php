@@ -1,19 +1,9 @@
 @extends('clients.layouts.app')
 @section('content')
-   <div id = 'main'>
-       <div class="rows" >
-           @foreach($listNews as $news)
-           <div class="col-6" style="max-height: 100px;">
-               <div class="img col-6" style="overflow: hidden">
-                   <img src="{{asset('assets/img/portfolio/portfolio-1.jpg')}}">
-               </div>
-               <div class="col-4">
-                   <p >{{$news->title}} </p>
-               </div>
-           </div>
-           @endforeach
-       </div>
-   </div>
+    <div id='main'>
+        <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with"
+             data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false">đăng nhập bằng fb</div>
+    </div>
 @endsection
 
 @push('scripts')
