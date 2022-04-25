@@ -13,8 +13,8 @@ Route::get('404', function () {
 // Login
 Route::get('/login', [LoginController::class, 'showFormLogin'])->name('admin.login');
 Route::post('/login', [LoginController::class, 'login']);
-//User
-Route::get('/user',[UserController::class, 'showUser'])->name('admin.user');
+////User
+//Route::get('/user',[UserController::class, 'showUser'])->name('admin.user');
 
 // Register
 Route::post('/register',[AdminController::class, 'updateRegister'])->name('admin.update-register');
