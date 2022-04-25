@@ -19,14 +19,15 @@ class NewsServices extends BaseService
 
     public function getListNewHot($perPage = null, $condition = [])
     {
-        return $this->repository->limit(10);
+        return $this->repository->with('community')->limit(10);
 
     }
-    public function createNews($request) {
-        $params = $request->all();
-        $request->merge(['created_by' => Auth::guard('admin')->user()->id]);
-        $params['created_by'] = Auth::guard('admin')->user()->id;
-        return $this->repository->create($params);
+    public function findNews($id) {
+        $news =  $this->repository->with('community')->find($id);
+        if ($news->verify != NewsVerify::VERIFY) {
+            return abort(404);
+        }
+        return $news;
     }
     public function getListHotNewsCommunity($community_id) {
         return $this->repository->findWhere([
