@@ -3,10 +3,17 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Services\Client\NewsServices;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+    protected $newsService;
+    public function __construct(NewsServices $newsServices)
+    {
+        $this->newsService = $newsServices;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $listNews = $this->newsService->paginate(10);
+        return view('clients.news.index', ['listNews' => $listNews]);
     }
 
     /**
@@ -46,7 +54,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return view('clients.news.news');
+        $news = $this->newsService->findNews($id);
+        return view('clients.news.news',['news'=>$news]);
     }
 
     /**

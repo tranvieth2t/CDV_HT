@@ -36,9 +36,11 @@
                         @php($index = $index %20 +1)
                         <img src="assets/img/portfolio/portfolio-{{$index}}.jpg" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                            <h4>{{$news->title}}</h4>
+                            <h4>{{$news->community->name}}</h4>
                             <p>{{$news->description}}</p>
                             <div class="portfolio-links">
+                                <a  href="{{route('clients.news.show', ['news' => $news->id])}}"
+                                    title="{{$news->title}}"><i class="bx bx-plus"></i></a>
                                 <a href="assets/img/portfolio/portfolio-{{$index}}.jpg" data-gall="portfolioGallery"
                                    class="venobox" title="{{$news->title}}"><i class="bx bx-plus"></i></a>
                                 <a href="{{route('clients.community.show', [$news->id % 10])}}" data-gall="portfolioDetailsGallery"
@@ -52,3 +54,4 @@
         </div>
     </div>
 </section>
+
