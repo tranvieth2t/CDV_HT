@@ -1,15 +1,8 @@
 @extends('clients.layouts.app')
+
 @section('content')
-    <main id="main">
-        @include('clients.home.banner')
-        @include('clients.inc.section')
-        @include('clients.inc.events')
-
-    @include('clients.home.portfolio',[
-            'listHotNews' => $listHotNews,
-            ])
-        @include('clients.home.teams')
-        @include('clients.inc.contact')
-    </main>
+    @include('clients.home.banner')
+    @include('clients.home.community_CDVHT')
+    @include('clients.home.community_child' ,['listNewsChild' => $listHotNews])
+    @include('clients.layouts.stile_bottom')
 @endsection
-

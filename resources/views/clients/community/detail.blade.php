@@ -39,7 +39,7 @@
                                            class="venobox" title="{{$news->title}}"><i class="bx bx-plus"></i></a>
                                         <a href="{{route('admin.login')}}" data-gall="portfolioDetailsGallery"
                                            data-vbtype="iframe" class="venobox" title="Portfolio Details"><i
-                                                class="bx bx-link"></i></a>
+                                                    class="bx bx-link"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
             </div>
         </section>
 
-        @include('clients.inc.contact', [
+        @include('clients.layouts.slide_left', [
                    'community' => $community,
                ])
     </div>

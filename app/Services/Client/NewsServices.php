@@ -18,7 +18,7 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListNewHot($perPage = 20, $condition = [])
+    public function getListNewHot($perPage = 10, $condition = [])
     {
        return $this->repository
             ->where('verify', NewsVerify::VERIFY)

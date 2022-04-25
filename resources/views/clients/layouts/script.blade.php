@@ -1,14 +1,18 @@
-<script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
-<script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
-<script src="{{asset('assets/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('assets/vendor/counterup/counterup.min.js')}}"></script>
-<script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/vendor/venobox/venobox.min.js')}}"></script>
-<script src="{{asset('assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
-<script src="{{asset('assets/vendor/typed.js/typed.min.js')}}"></script>
-<script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
-<script src="{{asset('assets/js/main.js')}}"></script>
-
-@stack('scripts')
+<script src="{{ asset('assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.slicknav.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/slick.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/wow.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.ticker.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.vticker-min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.scrollUp.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.magnific-popup.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.sticky.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/perfect-scrollbar.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/waypoints.min.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/jquery.theia.sticky.js') }}"></script>
+ <script src="{{ asset('assets/js/main.js')}}"></script>
+@stack('scripts')   

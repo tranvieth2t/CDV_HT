@@ -1,24 +1,90 @@
-<div id="banner">
-    <div class="banner-carousel owl-carousel owl-theme">
-        <div class="item"><img src="assets/img/1.jpg" alt="The Last of us"></div>
-        <div class="item"><img src="assets/img/2.jpg" alt="GTA V"></div>
-        <div class="item"><img src="assets/img/3.jpg" alt="Mirror Edge"></div>
-        <div class="item"><img src="assets/img/4.jpg" alt="Mirror Edge"></div>
-        <div class="item"><img src="assets/img/5.jpg" alt="Mirror Edge"></div>
-        <div class="item"><img src="assets/img/6.jpg" alt="Mirror Edge"></div>
-        <div class="item"><img src="assets/img/7.jpg" alt="Mirror Edge"></div>
+<div class="container pt-30">
+    <div class="featured-slider-3 position-relative">
+        <div class="slider-3-arrow-cover"></div>
+        <div class="featured-slider-3-items">
+            <div class="slider-single overflow-hidden border-radius-10">
+                <div class="post-thumb position-relative">
+                    <div class="thumb-overlay position-relative" style="background-image: url(assets/imgs/news/news-16.jpg)">
+                        <div class="post-content-overlay">
+                            <div class="container">
+                                <div class="entry-meta meta-0 font-small mb-20">
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-info text-uppercase">Travel</span></a>
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-warning text-uppercase">Animal</span></a>
+                                </div>
+                                <h1 class="post-title mb-20 font-weight-900 text-white">
+                                    <a class="text-white" href="single.html.htm" tabindex="0">How to Visit Bali's Monkey Forest</a>
+                                </h1>
+                                <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                                    <span class="post-on">26 August 2020</span>
+                                    <span class="hit-count has-dot">18k Views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-single overflow-hidden border-radius-10">
+                <div class="post-thumb position-relative">
+                    <div class="thumb-overlay position-relative" style="background-image: url(assets/imgs/news/news-17.jpg)">
+                        <div class="post-content-overlay">
+                            <div class="container">
+                                <div class="entry-meta meta-0 font-small mb-20">
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-info text-uppercase">Lifestyle</span></a>
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-warning text-uppercase">Destinations</span></a>
+                                </div>
+                                <h1 class="post-title mb-20 font-weight-900 text-white">
+                                    <a class="text-white" href="single.html.htm" tabindex="0">Abstract Australia from Above</a>
+                                </h1>
+                                <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                                    <span class="post-on">15 September 2020</span>
+                                    <span class="hit-count has-dot">23k Views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-single overflow-hidden border-radius-10">
+                <div class="post-thumb position-relative">
+                    <div class="thumb-overlay position-relative" style="background-image: url(assets/imgs/news/news-18.jpg)">
+                        <div class="post-content-overlay">
+                            <div class="container">
+                                <div class="entry-meta meta-0 font-small mb-20">
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-warning text-uppercase">Travel Tips</span></a>
+                                </div>
+                                <h1 class="post-title mb-20 font-weight-900 text-white">
+                                    <a class="text-white" href="single.html.htm" tabindex="0">Tips for Scuba Diving the Great Barrier Reef</a>
+                                </h1>
+                                <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                                    <span class="post-on">15 September 2020</span>
+                                    <span class="hit-count has-dot">17k Views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-single overflow-hidden border-radius-10">
+                <div class="post-thumb position-relative">
+                    <div class="thumb-overlay position-relative" style="background-image: url(assets/imgs/news/news-19.jpg)">
+                        <div class="post-content-overlay">
+                            <div class="container">
+                                <div class="entry-meta meta-0 font-small mb-20">
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-info text-uppercase">Hotel</span></a>
+                                    <a href="category.html.htm" tabindex="0"><span class="post-cat text-warning text-uppercase">Healthy</span></a>
+                                </div>
+                                <h1 class="post-title mb-20 font-weight-900 text-white">
+                                    <a class="text-white" href="single.html.htm" tabindex="0">Staying at the Hilton Seychelles Northolme Resort & Spa</a>
+                                </h1>
+                                <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                                    <span class="post-on">22 September 2020</span>
+                                    <span class="hit-count has-dot">16k Views</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-@push('scripts')
-    <script !src="">
-        $("#banner .banner-carousel").owlCarousel({
-            slideSpeed: 300,
-            paginationSpeed: 400,
-            items: 1,
-            autoplay: true,
-            loop: true,
-            dots:true
-        });
-    </script>
-@endpush
