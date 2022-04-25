@@ -3,6 +3,7 @@
     <main id="main">
         @include('clients.home.banner')
         @include('clients.inc.section')
+        @include('clients.inc.events')
 
     @include('clients.home.portfolio',[
             'listHotNews' => $listHotNews,

@@ -17,6 +17,9 @@ use App\Http\Controllers\Client\CommunityController;
 */
 
 Route::get('', [HomeController::class,'index'])->name('home');
+Route::get('/404', function () {
+    return view('clients.404');
+})->name('clients.404');
 
 //News
 Route::resource('news', NewsController::class)->names('clients.news');

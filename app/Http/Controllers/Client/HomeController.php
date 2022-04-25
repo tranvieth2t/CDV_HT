@@ -24,11 +24,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-//    public function index()
-//    {
-//        $listHotNews = $this->newsServices->getListHotNews();
-//        return view('clients.index', ['listHotNews' => $listHotNews ]);
-//    }
+
     public function index()
     {
         $listNewHot = $this->newsServices->getListNewHot();
