@@ -35,11 +35,15 @@ class NewsServices extends BaseService
         return $news;
     }
 
-    public function getListHotNewsCommunity($community_id)
+    public function getListNewsCommunity($community_id)
     {
-        return $this->repository->findWhere([
-            'community_id' => $community_id,
-            'verify' => NewsVerify::VERIFY
-        ]);
+        return $this->repository->Where(
+            'community_id',$community_id)
+           ->where( 'verify' , NewsVerify::VERIFY
+        )->paginate(10);
     }
+//return $this->repository->Where([
+//'community_id' => $community_id,
+//'verify' => NewsVerify::VERIFY
+//]);
 }

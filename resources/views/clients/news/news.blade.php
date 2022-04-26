@@ -1,55 +1,52 @@
 @extends('clients.layouts.app')
 @section('content')
-    <div id="main">
+    <main class="bg-grey pb-30">
 
-    <section id="portfolio-details" class="portfolio-details">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-8">
-                    <div class="portfolio-details-slider swiper">
-                        <div class="swiper-wrapper align-items-center">
-
-                            <div class="swiper-slide">
-                                <img src="{{asset('assets/img/portfolio/portfolio-1.jpg')}}" alt="">
+        <div class="container single-content">
+            <div class="entry-header pt-80 pb-30 mb-20">
+                <div class="row">
+                    <div class="col-md-6 mb-md-0 mb-sm-3">
+                        <figure class="mb-0 mt-lg-0 mt-3 border-radius-5">
+                            <img class=" border-radius-5" src="{{asset('assets/imgs/news/news-8.jpg')}}" alt="">
+                        </figure>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <div class="post-content">
+                            <div class="entry-meta meta-0 mb-15 font-small">
+                                <a href="{{route('clients.news.show', [$news->id])}}"><span
+                                        class="post-cat position-relative text-info">{{$news->community->name}}</span></a>
+                                {{--                            <a href="category.html.htm"><span class="post-cat position-relative text-success">Food</span></a>--}}
                             </div>
+                            <h1 class="entry-title mb-30 font-weight-900">
+                                <a href="{{route('clients.news.show', [$news->id])}}"> {{$news->title}} </a>
 
-{{--                            <div class="swiper-slide">--}}
-{{--                                <img src="{{asset('assets/img/portfolio/portfolio-1.jpg')}}" alt="">--}}
-{{--                            </div>--}}
-
-{{--                            <div class="swiper-slide">--}}
-{{--                                <img src="{{asset('assets/img/portfolio/portfolio-1.jpg')}}" alt="">--}}
-{{--                            </div>--}}
-
+                            </h1>
+                            <p class="excerpt mb-30">
+                                {!! $news->description !!}
+                            </p>
+                            <div class="entry-meta align-items-center meta-2 font-small color-muted">
+                                <p class="mb-5">
+                                    <a class="author-avatar" href="#"><img class="img-circle"
+                                                                           src="{{asset('assets/imgs/news/news-8.jpg')}}"></a>
+                                    By <a href="author.html"><span
+                                            class="author-name font-weight-bold">Barbara Cartland</span></a>
+                                </p>
+                                <span class="mr-10"> {{$news->created_at}}</span>
+                                <span class="has-dot"> 8 mins read</span>
+                            </div>
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="portfolio-info">
-                        <h3>{{$news->title}}</h3>
-                        <ul>
-                            <li><strong>Title</strong>:{{$news->community->name}} </li>
-                            <li><strong>Ngày đăng</strong>:{{$news->created_at}}</li>
-{{--                            <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>--}}
-                        </ul>
-                    </div>
-                    <div class="portfolio-description">
-                        <h2>Description</h2>
-                        <p>
-                            {{$news->description}}
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12" style="overflow:hidden;">{!! $news->content !!}</div>
 
-
+                </div>
             </div>
-
+            <!--end single header-->
+            <!--figure-->
+            <article class="entry-wraper mb-50" >
+                {!! $news->content !!}}
+            </article>
         </div>
-    </section><!-- End Portfolio Details Section -->
-    </div>
-
+        <!--container-->
+    </main>
 @endsection
 
 @push('scripts')

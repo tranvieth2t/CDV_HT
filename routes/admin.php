@@ -35,6 +35,8 @@ Route::middleware('auth:admin')->group(function (){
     //Community
     Route::resource('/community', CommunityController::class)->names('community');
 
+
+    Route::get('/news/{id}/show',[NewsController::class,'show']) ->name('news.show');
     Route::get('/news/{id}/verify', [NewsController::class,'verify']) ->name('news.verify');
     Route::get('/news/{id}/setNews', [NewsController::class,'hot_news']) ->name('news.setNews');
     Route::post('/news/{id}/wait', [NewsController::class,'wait']) ->name('news.wait');

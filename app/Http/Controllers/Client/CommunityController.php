@@ -60,7 +60,7 @@ class CommunityController extends Controller
     public function show($id)
     {
         $community = $this->communityServices->find($id);
-        $newsHot = $this->newsServices->getListHotNewsCommunity($community->id);
+        $newsHot = $this->newsServices->getListNewsCommunity($community->id);
         return view('clients.community.detail', ['community' => $community, 'newsHot' =>$newsHot]);
     }
 

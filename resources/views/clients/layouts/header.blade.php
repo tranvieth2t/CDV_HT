@@ -13,7 +13,15 @@
                         <li><a href="category-list.html.htm">Giới thiệu</a></li>
                         <li class=""><a href="">Thông báo</a></li>
 {{--                        <li class="menu-item-has-children"><a href="category-grid.html.htm">Tin cộng đoàn</a></li>--}}
-                        <li class=""><a href="{{route('clients.community.index')}}">Tin cộng đoàn</a></li>
+                        <li class=""><a href="{{route('clients.community.index')}}">Tin cộng đoàn</a>
+                            <ul class="sub-menu font-small">
+                                @php($listCommunity = getFullCommunity())
+                                @foreach($listCommunity as $community)
+                                <li><a href="{{route('clients.community.show', [$community->id])}}">{{$community->name}}</a></li>
+                                    @endforeach
+
+                            </ul>
+                        </li>
                         <li class=""><a href="category-grid.html.htm">Tin Hội Thánh</a></li>
                         <li class=""><a href="category-grid.html.htm">Sự kiện</a></li>
                         <li><a href="category.html.htm">Cặp đôi cộng đoàn</a></li>
