@@ -37,7 +37,7 @@
                                         <a href="category.html.htm"><span class="post-cat text-success text-uppercase">Animal</span></a>
                                     </div>
                                     <h3 class="post-title font-weight-900 mb-20">
-                                        <a class="text-white" href="{{route('clients.community.show', [$listHotNewsParentCommunity[$let]->community_id])}}">{{$listHotNewsParentCommunity[$let]->title}}</a>
+                                        <a class="text-white" href="{{route('clients.news.show', [$listHotNewsParentCommunity[$let]->id])}}">{{$listHotNewsParentCommunity[$let]->title}}</a>
                                     </h3>
                                     <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
                                         <span class="post-on">{{$listHotNewsParentCommunity[$let]->created_at}}</span>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="d-flex post-card-content">
                             <h5 class="post-title mb-20 font-weight-900">
-                                <a href="{{route('clients.community.show', [$listHotNewsParentCommunity[$let]->community_id])}}">{{$listHotNewsParentCommunity[$let]->title}}</a>
+                                <a href="{{route('clients.news.show', [$listHotNewsParentCommunity[$let]->id])}}">{{$listHotNewsParentCommunity[$let]->title}}</a>
                             </h5>
                             <div class="post-excerpt mb-25 font-small text-muted">
                                 <p>{{$listHotNewsParentCommunity[$let]->description}}</p>
