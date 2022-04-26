@@ -3,6 +3,7 @@
 namespace App\Services\Client;
 
 use App\Enums\AdminRole;
+use App\Enums\Community;
 use App\Enums\NewsHot;
 use App\Enums\NewsVerify;
 use App\Interfaces\NewsRepository;
@@ -18,12 +19,20 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListNewHot($perPage = 10, $condition = [])
+    public function getListNewHot($perPage = 9, $condition = [])
     {
        return $this->repository
             ->where('verify', NewsVerify::VERIFY)
             ->where('hot', NewsHot::HOT)
+           ->where('community_id','!=', Community::VHT)
             ->with('community')->limit($perPage)->get();
+    }
+
+    public function getListNewsParentCommunity(){
+          return $this->repository
+              -> where('verify', NewsVerify::VERIFY)
+              -> where('hot', NewsHot::HOT)
+              -> where('community_id',Community::VHT )->get();
     }
 
     public function findNews($id)

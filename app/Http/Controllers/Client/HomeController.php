@@ -28,6 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $listNewHot = $this->newsServices->getListNewHot();
-        return view('clients.index', ['listHotNews' => $listNewHot ]);
+        $listHotNewsParentCommunity = $this->newsServices->getListNewsParentCommunity();
+        return view('clients.index', ['listHotNews' => $listNewHot , 'listHotNewsParentCommunity'=> $listHotNewsParentCommunity ]);
     }
 }
