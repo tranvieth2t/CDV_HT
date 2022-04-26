@@ -48,7 +48,7 @@ TABLE CONTENT
 @import url("../../../../../css2.css");
 :root {
     --color-mode: "light";
-    --color-primary: #5869da;
+    --color-primary: #0563bb;
     --color-secondary: #2d3d8b;
     --color-success: #09815c;
     --color-danger: #e3363e;
@@ -194,7 +194,12 @@ h6,
     font-weight: 500;
     text-transform: none;
     font-family: "Noto Sans JP", sans-serif;
-    word-break: break-word;
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 p {
     margin-bottom: 1.2em;
@@ -1898,4 +1903,13 @@ pre {
     100% {
         box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
     }
+}
+
+.post-excerpt p{
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }

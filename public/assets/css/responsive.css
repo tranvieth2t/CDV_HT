@@ -5,7 +5,7 @@
 
 /* Normal desktop :992px. */
 @media (min-width:992px){
-    .widget-area{padding-left:30px;}
+    .widget-area{padding-left:10px;}
     .col-1-5{-ms-flex:0 0 20%;flex:0 0 20%;max-width:20%;}
     .col-2-5{-ms-flex:0 0 40%;flex:0 0 40%;max-width:40%;}
     .col-3-5{-ms-flex:0 0 60%;flex:0 0 60%;max-width:60%;}

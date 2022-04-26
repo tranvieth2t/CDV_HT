@@ -48,3 +48,7 @@ function getListCommunityByRoleId() {
 function getFullCommunity() {
     return \Illuminate\Support\Facades\DB::table('community')->get(['id', 'name']);
 }
+
+function convertTimeDbToTimeString($time) {
+    return date('jS F, Y', strtotime($time));
+}

@@ -19,20 +19,25 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListNewHot($perPage = 9, $condition = [])
+    public function getListNewHot($perPage = 12, $condition = [])
     {
-       return $this->repository
+        return $this->repository
             ->where('verify', NewsVerify::VERIFY)
             ->where('hot', NewsHot::HOT)
-           ->where('community_id','!=', Community::VHT)
-            ->with('community')->limit($perPage)->get();
+            ->where('community_id', '>', Community::VHT)
+            ->with('community')
+            ->orderBy('created_at')
+            ->limit($perPage)->get();
     }
 
-    public function getListNewsParentCommunity(){
-          return $this->repository
-              -> where('verify', NewsVerify::VERIFY)
-              -> where('hot', NewsHot::HOT)
-              -> where('community_id',Community::VHT )->get();
+    public function getListNewsParentCommunity()
+    {
+        return $this->repository
+            ->where('verify', NewsVerify::VERIFY)
+            ->with('community')
+            ->orderBy('created_at')
+            ->where('community_id', Community::VHT)
+            ->limit(15)->get();
     }
 
     public function findNews($id)
@@ -46,13 +51,11 @@ class NewsServices extends BaseService
 
     public function getListNewsCommunity($community_id)
     {
-        return $this->repository->Where(
-            'community_id',$community_id)
-           ->where( 'verify' , NewsVerify::VERIFY
-        )->paginate(10);
+        return $this->repository
+            ->where('community_id', $community_id)
+            ->where('verify', NewsVerify::VERIFY)
+            ->orderBy('created_at')
+            ->with('community')
+            ->paginate(10);
     }
-//return $this->repository->Where([
-//'community_id' => $community_id,
-//'verify' => NewsVerify::VERIFY
-//]);
 }
