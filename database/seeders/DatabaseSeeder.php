@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([AdminRoleSeeder::class]);
         $this->call([CommunitySeeder::class]);
+        $this->call([AdminRoleSeeder::class]);
         DB::table('admins')->insert([
             [
                 'name' => 'DaiViet',

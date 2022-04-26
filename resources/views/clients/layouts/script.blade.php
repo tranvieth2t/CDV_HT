@@ -14,5 +14,6 @@
 <script src="{{ asset('assets/js/vendor/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/waypoints.min.js') }}"></script>
 <script src="{{ asset('assets/js/vendor/jquery.theia.sticky.js') }}"></script>
+<script src="{{ asset('assets/js/vendor/masonry.pkgd.min.js') }}"></script>
  <script src="{{ asset('assets/js/main.js')}}"></script>
 @stack('scripts')   

@@ -1,46 +1,61 @@
-<div class="bg-grey pt-50 pb-50">
+<div class="bg-grey ">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="post-module-2">
-                    <div class="widget-header-1 position-relative mb-30  wow fadeInUp animated d-flex justify-content-between">
-                        <h5 class="mt-5 mb-30">Tin cộng đoàn thành viên</h5>
-                        <a href="" class="btn-success"><h5 >Xem thêm</h5></a>
+        <div class="hot-tags pt-30 pb-30 font-small align-self-center">
+            <div class="widget-header-3">
+                <div class="row align-self-center">
+                    <div class="col-md-4 align-self-center">
+                        <h4 class="widget-title">Tin Cộng đoàn Thành Viên</h4>
                     </div>
+                    <div class="col-md-8 text-md-right font-small align-self-center">
+                        <a href="http://cdvht.something.test/community/1" class="d-inline-block mr-5 mb-0">
+                            <i class="elegant-icon  icon_tag_alt mr-5 text-muted"></i>Xem thêm
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="post-module-2">
                     <div class="loop-list loop-list-style-1">
                         <div class="row">
-                            @foreach($listNewsChild as $news)
-                                <article class="col-md-4 mb-40 wow fadeInUp  animated">
+                            @php($index = 0)
+                            @for(; $index < 4; $index++)
+                                <article class="grid-item col-lg-6 pb-50 wow fadeIn animated">
                                     <div class="post-card-1 border-radius-10 hover-up">
                                         <div class="post-thumb thumb-overlay img-hover-slide position-relative"
-                                             style="background-image: url(assets/imgs/news/news-6.jpg)">
-                                            <a class="img-link" href="{{route('clients.news.show',[$news->id])}}"></a>
+                                                {{-- style="background-image: url({{$news[$index]}})"--}}>
+                                            <a class="img-link" href="single.html.htm">
+                                                <img style="object-fit: scale-down" src="{{$news[$index]->thumbnail}}">
+                                            </a>
+                                            <span class="top-right-icon bg-success"><i
+                                                        class="elegant-icon icon_camera_alt"></i></span>
                                             <ul class="social-share">
                                                 <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
                                                 <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
-                                                            class="elegant-icon social_facebook"></i></a></li>
+                                                                class="elegant-icon social_facebook"></i></a></li>
                                                 <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                            class="elegant-icon social_twitter"></i></a></li>
+                                                                class="elegant-icon social_twitter"></i></a></li>
                                                 <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                            class="elegant-icon social_pinterest"></i></a></li>
+                                                                class="elegant-icon social_pinterest"></i></a></li>
                                             </ul>
                                         </div>
                                         <div class="post-content p-30">
                                             <div class="entry-meta meta-0 font-small mb-10">
-                                                <a href="{{route('clients.community.show', [$news->community_id])}}"><span
-                                                        class="post-cat text-info">{{$news->community->name}}</span></a>
-{{--                                                <a href="category.html.htm"><span--}}
-{{--                                                        class="post-cat text-success">Film</span></a>--}}
+                                                <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">
+                                                    <span class="post-cat"
+                                                          style="color: {{$news[$index]->community->color}}">{{$news[$index]->community->name}}</span></a>
+                                                {{--                        <a href="category.html.htm"><span class="post-cat text-success">Food</span></a>--}}
                                             </div>
                                             <div class="d-flex post-card-content">
                                                 <h5 class="post-title mb-20 font-weight-900">
-                                                    <a href="{{route('clients.news.show', [$news->id])}}">{{$news->title}}</a>
+                                                    <a href=" {{route('clients.news.show', [$news[$index]->id])}} ">{{$news[$index]->title}}</a>
                                                 </h5>
                                                 <div class="post-excerpt mb-25 font-small text-muted">
-                                                    <p>{{$news->description}}</p>
+                                                    <p>{{$news[$index]->description}}</p>
                                                 </div>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">{{$news->created_at}}</span>
+                                                    <span class="post-on">{{$news[$index]->created_at}}</span>
                                                     <span class="time-reading has-dot">12 mins read</span>
                                                     <span class="post-by has-dot">23k views</span>
                                                 </div>
@@ -48,66 +63,38 @@
                                         </div>
                                     </div>
                                 </article>
-                            @endforeach
+                            @endfor
                         </div>
                     </div>
                 </div>
-                {{--                <div class="post-module-3">--}}
-                {{--                    <div class="widget-header-1 position-relative mb-30">--}}
-                {{--                        <h5 class="mt-5 mb-30">Tin cộng đoàn thành viên</h5>--}}
-                {{--                    </div>--}}
-                {{--                    <div class="loop-list loop-list-style-1">--}}
-                {{--                        <article class="hover-up-2 transition-normal wow fadeInUp animated">--}}
-                {{--                            <div class="row mb-40 list-style-2">--}}
-                {{--                                <div class="col-md-4">--}}
-                {{--                                    <div class="post-thumb position-relative border-radius-5">--}}
-                {{--                                        <div class="img-hover-slide border-radius-5 position-relative" style="background-image: url(assets/imgs/news/news-13.jpg)">--}}
-                {{--                                            <a class="img-link" href="single.html.htm"></a>--}}
-                {{--                                        </div>--}}
-                {{--                                        <ul class="social-share">--}}
-                {{--                                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
-                {{--                                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
-                {{--                                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
-                {{--                                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
-                {{--                                        </ul>--}}
-                {{--                                    </div>--}}
-                {{--                                </div>--}}
-                {{--                                <div class="col-md-8 align-self-center">--}}
-                {{--                                    <div class="post-content">--}}
-                {{--                                        <div class="entry-meta meta-0 font-small mb-10">--}}
-                {{--                                            <a href="{{route('clients.community.show', ['community' => $news->community_id])}}"><span class="post-cat text-primary">{{$news->community->name}}</span></a>--}}
-                {{--                                        </div>--}}
-                {{--                                        <h5 class="post-title font-weight-900 mb-20">--}}
-                {{--                                            <a href="single.html.htm">{{$news->title}}</a>--}}
-                {{--                                            <span class="post-format-icon"><i class="elegant-icon icon_star_alt"></i></span>--}}
-                {{--                                        </h5>--}}
-                {{--                                        <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-                {{--                                            <span class="post-on">7 August</span>--}}
-                {{--                                            <span class="time-reading has-dot">11 mins read</span>--}}
-                {{--                                            <span class="post-by has-dot">3k views</span>--}}
-                {{--                                        </div>--}}
-                {{--                                    </div>--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                        </article>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
             </div>
-            {{--            <div class="col-lg-4">--}}
-            {{--                <div class="widget-area">--}}
-            {{--                    <div class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 bg-white border-radius-5 has-border  wow fadeInUp animated">--}}
-            {{--                        <img class="about-author-img mb-25" src="assets/imgs/authors/author.jpg" alt="">--}}
-            {{--                        <h5 class="mb-20">Hello, I'm Steven</h5>--}}
-            {{--                        <p class="font-medium text-muted">Hi, I’m Stenven, a Florida native, who left my career in corporate wealth management six years ago to embark on a summer of soul searching that would change the course of my life forever.</p>--}}
-            {{--                        <strong>Follow me: </strong>--}}
-            {{--                        <ul class="header-social-network d-inline-block list-inline color-white mb-20">--}}
-            {{--                            <li class="list-inline-item"><a class="fb" href="#" target="_blank" title="Facebook"><i class="elegant-icon social_facebook"></i></a></li>--}}
-            {{--                            <li class="list-inline-item"><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
-            {{--                            <li class="list-inline-item"><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
-            {{--                        </ul>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
+            <div class="col-lg-4">
+                <div class="widget-area">
+                    <div class="sidebar-widget widget-latest-posts mb-30 wow fadeInUp animated">
+                        <div class="post-block-list post-module-1">
+                            <ul class="list-post">
+                                @for(; $index < count($news); $index++)
+                                    <li class="mb-10 wow fadeInUp animated">
+                                        <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
+                                            <div class="post-content media-body">
+                                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
+                                                            href="single.html.htm">{{$news[$index]->title}}
+                                                    </a>
+                                                </h6>
+                                                <div class="entry-meta meta-1 float-left font-x-small ">
+                                                    <span class="post-cat font-weight-bold"
+                                                          style="color: {{$news[$index]->community->color}}">{{$news[$index]->community->name}}</span>
+                                                    <span class="post-on text-uppercase">{{$news[$index]->created_at}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endfor
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

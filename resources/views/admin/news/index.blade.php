@@ -104,14 +104,11 @@
                                 <td>{{$news->community->name ?? "Khác"}}</td>
                                 <td>{{$news->created_at}}</td>
                                 <td>
-
                                     <a class="btn btn-outline-primary" data-toggle="tooltip"
                                        data-placement="top"
                                        title="{{__('btn.edit')}}"
                                        href="{{route('news.edit', [$news->id])}}"><span>
                                             <i class="fas fa-edit fa-fw"></i></span></a>
-
-
                                     <button type="button" class="btn btn-outline-danger news-request-hot"
                                             data-toggle="modal"
                                             data-target="#exampleModalHot" data-toggle="tooltip"

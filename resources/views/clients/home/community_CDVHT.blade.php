@@ -3,192 +3,120 @@
         <div class="widget-header-3">
             <div class="row align-self-center">
                 <div class="col-md-4 align-self-center">
-                    <h5 class="widget-title">Tin cộng đoàn lớn</h5>
+                    <h4 class="widget-title">Tin cộng đoàn lớn</h4>
                 </div>
                 <div class="col-md-8 text-md-right font-small align-self-center">
-                    <p class="d-inline-block mr-5 mb-0"><i class="elegant-icon  icon_tag_alt mr-5 text-muted"></i>Hot tags:</p>
-                    <ul class="list-inline d-inline-block tags">
-                        <li class="list-inline-item"><a href="#"># Covid-19</a></li>
-                        <li class="list-inline-item"><a href="#"># Inspiration</a></li>
-                        <li class="list-inline-item"><a href="#"># Work online</a></li>
-                        <li class="list-inline-item"><a href="#"># Stay home</a></li>
-                    </ul>
+                    <a href="{{route('clients.community.show', [$news[0]->community_id])}}"
+                       class="d-inline-block mr-5 mb-0">
+                        <i class="elegant-icon  icon_tag_alt mr-5 text-muted"></i>Xem thêm
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
-
     <div class="loop-grid mb-30">
         <div class="row">
             <div class="col-lg-8 mb-30">
                 <div class="carausel-post-1 hover-up border-radius-10 overflow-hidden transition-normal position-relative wow fadeInUp animated">
                     <div class="arrow-cover"></div>
                     <div class="slide-fade">
-                        @php($let = 0)
-                        @for(; count($listHotNewsParentCommunity)-4 > $let; $let++)
-                        <div class="position-relative post-thumb">
-                            <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-4.jpg)">
-                                <a class="img-link" href="single.html.htm"></a>
-                                <span class="top-left-icon bg-warning"><i class="elegant-icon icon_star_alt"></i></span>
-                                <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
-                                    <div class="entry-meta meta-0 font-small mb-20">
-                                        <a href="{{route('clients.community.show', [$listHotNewsParentCommunity[$let]->community_id])}}"><span class="post-cat text-info text-uppercase">{{$listHotNewsParentCommunity[$let]->community->name}}</span></a>
-                                        <a href="category.html.htm"><span class="post-cat text-success text-uppercase">Animal</span></a>
-                                    </div>
-                                    <h3 class="post-title font-weight-900 mb-20">
-                                        <a class="text-white" href="{{route('clients.community.show', [$listHotNewsParentCommunity[$let]->community_id])}}">{{$listHotNewsParentCommunity[$let]->title}}</a>
-                                    </h3>
-                                    <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-                                        <span class="post-on">{{$listHotNewsParentCommunity[$let]->created_at}}</span>
-                                        <span class="post-on">20 minutes ago</span>
-                                        <span class="hit-count has-dot">23k Views</span>
+                        @php($index = 0)
+                        @for(; count($news) - 6 > $index; $index++)
+                            <div class="position-relative post-thumb">
+                                <div class="thumb-overlay img-hover-slide position-relative"
+                                     style="background-image: url({{$news[$index]->thumbnail}})">
+                                    <a class="img-link" href="{{route('clients.news.show', [$news[$index]->id])}}"></a>
+                                    <span class="top-left-icon bg-warning"><i
+                                                class="elegant-icon icon_star_alt"></i></span>
+                                    <div class="post-content-overlay text-white p-30">
+                                        <div class="entry-meta meta-0 font-small mb-20">
+                                            <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
+                                                        class="post-cat text-info text-uppercase">{{$news[$index]->community->name}}</span></a>
+                                            <a href="category.html.htm"><span
+                                                        class="post-cat text-success text-uppercase">Tâm linh</span></a>
+                                        </div>
+                                        <h3 class="post-title font-weight-900 mb-20">
+                                            <a class="text-white"
+                                               href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}</a>
+                                        </h3>
+                                        <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
+                                            <span class="post-on">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endfor
-                        <div class="position-relative post-thumb">
-                            <div class="thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-6.jpg)">
-                                <a class="img-link" href="single.html.htm"></a>
-                                <span class="top-left-icon bg-danger"><i class="elegant-icon icon_image"></i></span>
-                                <div class="post-content-overlay text-white ml-30 mr-30 pb-30">
-                                    <div class="entry-meta meta-0 font-small mb-20">
-                                        <a href="category.html.htm"><span class="post-cat text-info text-uppercase">Lifestyle</span></a>
-                                    </div>
-                                    <h3 class="post-title font-weight-900 mb-20">
-                                        <a class="text-white" href="single.html.htm">This genius photo experiment shows we are all just sheeple in the consumer matrix</a>
-                                    </h3>
-                                    <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
-                                        <span class="post-on">26 August 2020</span>
-                                        <span class="hit-count has-dot">18k Views</span>
-                                    </div>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="widget-area">
+                    <div class="sidebar-widget widget-latest-posts mb-30 wow fadeInUp animated">
+                        <div class="post-block-list post-module-1">
+                            <ul class="list-post">
+                                @for(; $index < count($news) - 3; $index++)
+                                    <li class="mb-10 wow fadeInUp animated">
+                                        <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
+                                            <div class="post-content media-body">
+                                                <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
+                                                            href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}
+                                                    </a>
+                                                </h6>
+                                                <div class="entry-meta meta-1 float-left font-x-small ">
+                                                    <span class="post-cat font-weight-bold"
+                                                          style="color: {{$news[$index]->community->color}}">
+                                                        {{$news[$index]->community->name}}</span>
+                                                    <span class="post-on text-uppercase">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endfor
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            @for(; count($listHotNewsParentCommunity) > $let; $let++)
-            <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
-                <div class="post-card-1 border-radius-10 hover-up">
-                    <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-1.jpg)">
-                        <a class="img-link" href="single.html.htm"></a>
-                        <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
-                        <ul class="social-share">
-                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
-                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
-                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="post-content p-30">
-                        <div class="entry-meta meta-0 font-small mb-10">
-                            <a href="{{route('clients.community.show', [$listHotNewsParentCommunity[$let]->community_id])}}"><span class="post-cat text-info">{{$listHotNewsParentCommunity[$let]->community->name}}</span></a>
-                            <a href="category.html.htm"><span class="post-cat text-success">Food</span></a>
+            @for(; count($news) > $index; $index++)
+                <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
+                    <div class="post-card-1 border-radius-10 hover-up">
+                        <div class="post-thumb thumb-overlay img-hover-slide position-relative"
+                             style="background-image: url({{$news[$index]->thumbnail}})">
+                            <a class="img-link" href="{{route('clients.news.show', [$news[$index]->id])}}"></a>
+                            <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
+                            <ul class="social-share">
+                                <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
+                                                class="elegant-icon social_facebook"></i></a></li>
+                                <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
+                                                class="elegant-icon social_twitter"></i></a></li>
+                                <li><a class="pt" href="#" target="_blank" title="Pin it"><i
+                                                class="elegant-icon social_pinterest"></i></a></li>
+                            </ul>
                         </div>
-                        <div class="d-flex post-card-content">
-                            <h5 class="post-title mb-20 font-weight-900">
-                                <a href="{{route('clients.community.show', [$listHotNewsParentCommunity[$let]->community_id])}}">{{$listHotNewsParentCommunity[$let]->title}}</a>
-                            </h5>
-                            <div class="post-excerpt mb-25 font-small text-muted">
-                                <p>{{$listHotNewsParentCommunity[$let]->description}}</p>
+                        <div class="post-content p-30">
+                            <div class="entry-meta meta-0 font-small mb-10">
+                                <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
+                                            class="post-cat text-info">{{$news[$index]->community->name}}</span></a>
+                                <a href="category.html.htm"><span class="post-cat text-success">Tâm linh</span></a>
                             </div>
-                            <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                <span class="post-on">{{$listHotNewsParentCommunity[$let]->created_at}}</span>
-                                <span class="time-reading has-dot">12 mins read</span>
-                                <span class="post-by has-dot">23k views</span>
+                            <div class="d-flex post-card-content">
+                                <h5 class="post-title mb-20 font-weight-900">
+                                    <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">{{$news[$index]->title}}</a>
+                                </h5>
+                                <div class="post-excerpt mb-25 font-small text-muted">
+                                    <p>{{$news[$index]->description}}</p>
+                                </div>
+                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                    <span class="post-on">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
+                                    <span class="time-reading has-dot">12 mins read</span>
+                                    <span class="post-by has-dot">23k views</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
             @endfor
-{{--            <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated">--}}
-{{--                <div class="post-card-1 border-radius-10 hover-up">--}}
-{{--                    <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-7.jpg)">--}}
-{{--                        <a class="img-link" href="single.html.htm"></a>--}}
-{{--                        <ul class="social-share">--}}
-{{--                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
-{{--                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
-{{--                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
-{{--                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="post-content p-30">--}}
-{{--                        <div class="entry-meta meta-0 font-small mb-10">--}}
-{{--                            <a href="category.html.htm"><span class="post-cat text-warning">Fashion</span></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex post-card-content">--}}
-{{--                            <h5 class="post-title mb-20 font-weight-900">--}}
-{{--                                <a href="single.html.htm">Put Yourself in Your Customers Shoes</a>--}}
-{{--                            </h5>--}}
-{{--                            <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-{{--                                <span class="post-on">17 July</span>--}}
-{{--                                <span class="time-reading has-dot">8 mins read</span>--}}
-{{--                                <span class="post-by has-dot">12k views</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </article>--}}
-{{--            <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">--}}
-{{--                <div class="post-card-1 border-radius-10 hover-up">--}}
-{{--                    <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-9.jpg)">--}}
-{{--                        <a class="img-link" href="single.html.htm"></a>--}}
-{{--                        <ul class="social-share">--}}
-{{--                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
-{{--                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
-{{--                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
-{{--                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="post-content p-30">--}}
-{{--                        <div class="entry-meta meta-0 font-small mb-10">--}}
-{{--                            <a href="category.html.htm"><span class="post-cat text-danger">Travel</span></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex post-card-content">--}}
-{{--                            <h5 class="post-title mb-20 font-weight-900">--}}
-{{--                                <a href="single.html.htm">Life and Death in the Empire of the Tiger</a>--}}
-{{--                            </h5>--}}
-{{--                            <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-{{--                                <span class="post-on">7 August</span>--}}
-{{--                                <span class="time-reading has-dot">15 mins read</span>--}}
-{{--                                <span class="post-by has-dot">500 views</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </article>--}}
-{{--            <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.4s">--}}
-{{--                <div class="post-card-1 border-radius-10 hover-up">--}}
-{{--                    <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-11.jpg)">--}}
-{{--                        <a class="img-link" href="single.html.htm"></a>--}}
-{{--                        <span class="top-right-icon bg-info"><i class="elegant-icon icon_headphones"></i></span>--}}
-{{--                        <ul class="social-share">--}}
-{{--                            <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
-{{--                            <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
-{{--                            <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
-{{--                            <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                    <div class="post-content p-30">--}}
-{{--                        <div class="entry-meta meta-0 font-small mb-10">--}}
-{{--                            <a href="category.html.htm"><span class="post-cat text-success">Lifestyle</span></a>--}}
-{{--                        </div>--}}
-{{--                        <div class="d-flex post-card-content">--}}
-{{--                            <h5 class="post-title mb-20 font-weight-900">--}}
-{{--                                <a href="single.html.htm">When Two Wheels Are Better Than Four</a>--}}
-{{--                            </h5>--}}
-{{--                            <div class="entry-meta meta-1 float-left font-x-small text-uppercase">--}}
-{{--                                <span class="post-on">15 Jun</span>--}}
-{{--                                <span class="time-reading has-dot">9 mins read</span>--}}
-{{--                                <span class="post-by has-dot">1.2k views</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </article>--}}
         </div>
     </div>
 </div>

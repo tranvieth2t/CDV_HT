@@ -1,10 +1,10 @@
-<div class="site-bottom pt-50 pb-50">
+<div class="site-bottom">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="sidebar-widget widget-latest-posts mb-30 wow fadeInUp animated">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">Destinations</h5>
+                        <h5 class="widget-title mt-5 mb-30">Destinations</h5>
                     </div>
                     <div class="post-block-list post-module-1">
                         <ul class="list-post">
@@ -71,7 +71,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="sidebar-widget widget-latest-posts mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">Lifestyle</h5>
+                        <h5 class=" widget-title mt-5 mb-30">Lifestyle</h5>
                     </div>
                     <div class="post-block-list post-module-1">
                         <ul class="list-post">
@@ -138,7 +138,7 @@
             <div class="col-lg-4">
                 <div class="sidebar-widget widget-latest-posts mb-30 wow fadeInUp animated" data-wow-delay="0.4s">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">Photography</h5>
+                        <h5 class="widget-title mt-5 mb-30">Photography</h5>
                     </div>
                     <div class="post-block-list post-module-1">
                         <ul class="list-post">
@@ -205,7 +205,7 @@
         </div>
         <div class="sidebar-widget widget-latest-posts mb-30 mt-20 wow fadeInUp animated">
             <div class="widget-header-2 position-relative mb-30">
-                <h5 class="mt-5 mb-30">Categories</h5>
+                <h5 class="widget-title mt-5 mb-30">Categories</h5>
             </div>
             <div class="carausel-3-columns">
                 <div

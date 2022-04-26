@@ -4,7 +4,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="sidebar-widget wow fadeInUp animated mb-30">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">About me</h5>
+                        <h5 class="widget-title mt-5 mb-30">About me</h5>
                     </div>
                     <div class="textwidget">
                         <p>
