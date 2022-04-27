@@ -25,3 +25,9 @@ Route::get('/404', function () {
 Route::resource('news', NewsController::class)->names('clients.news');
 //Community
 Route::resource('community', CommunityController::class)->names('clients.community');
+
+//login
+Route::get('/login',[\App\Http\Controllers\Admin\Auth\LoginController::class,'show'])->name('auth.login');
+//register
+Route::get('/register',[\App\Http\Controllers\Admin\Auth\LoginController::class,'showRegister'])->name('auth.register');
+

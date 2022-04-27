@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
+    public function show(){
+        return view('auth.login');
+    }
+
+    public function showRegister(){
+        return view('auth.register');
+    }
+
+
     public function showFormLogin() {
         return view('admin.auth.login');
     }
