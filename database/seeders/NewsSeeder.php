@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Enums\AdminRole;
 use App\Enums\NewsHot;
+use App\Enums\NewsTag;
 use App\Enums\NewsVerify;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -26,12 +27,14 @@ class NewsSeeder extends Seeder
         $listCommunity = DB::table('community')->get();
         $listVerify = [NewsVerify::VERIFY, NewsVerify::NOT_VERIFY, NewsVerify::WAIT];
         $listHot = [NewsHot::HOT, NewsHot::NO_HOT];
+        $listNewsTag = [NewsTag::KH, NewsTag::TL, NewsTag::NK , NewsTag::TT];
         for ($i = 0; $i < $limit; $i++) {
             DB::table('news')->insert([
                 'title' => $faker->text(100),
                 'content' => $faker->text,
                 'thumbnail' => 'https://cdvht.s3.amazonaws.com/news/portfolio-5.jpg',
                 'verify' => $faker->randomElement($listVerify),
+                'tag' => $faker->randomElement($listNewsTag),
                 'hot' => $faker->randomElement($listHot),
                 'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
                 'created_by' =>  $faker->randomElement($listAdmin)->id,

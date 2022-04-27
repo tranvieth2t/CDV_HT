@@ -17,7 +17,10 @@ return [
         'news' => [
             'news' => 'Bài viết',
             'list-news' => 'Danh sách bài viết',
-            'created-news' => 'Thêm bài viết'
+            'created-news' => 'Thêm bài viết',
+            'updatedSuccess' => 'Update thành công',
+            'deletedSuccess' => 'Xoá thành công',
+            'deletedError' => 'Không thể xoá bài viết'
         ],
         'community' => [
             'community' => 'Cộng đoàn',

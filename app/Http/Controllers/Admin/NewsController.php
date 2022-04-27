@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\AdminRole;
 use App\Enums\NewsHot;
 use App\Enums\NewsVerify;
 use App\Http\Controllers\Controller;
@@ -27,13 +28,12 @@ class NewsController extends Controller
     protected $s3Services;
 
     public function __construct(
-        NewsServices      $newsServices,
-        AdminServices     $adminServices,
+        NewsServices $newsServices,
+        AdminServices $adminServices,
         CommunityServices $communityServices,
-        MailService       $mailService,
-        S3Service         $s3Service
-    )
-    {
+        MailService $mailService,
+        S3Service $s3Service
+    ) {
         $this->newsServices = $newsServices;
         $this->adminServices = $adminServices;
         $this->communityServices = $communityServices;
@@ -44,7 +44,7 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -61,7 +61,7 @@ class NewsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -75,24 +75,18 @@ class NewsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreNewsRequest $request)
     {
         try {
             DB::beginTransaction();
-            if ($request->hasFile('thumbnail')) {
-            $dataImage = [
-                'imageNew' => $request->thumbnail,
-                'folder' => 'news'
-            ];
-            $imageUrl = $this->s3Services->uploadImage($dataImage);
-            $news = $this->newsServices->createNews($request->all(), $imageUrl);
-            }
+            $this->newsServices->createNews($request);
             DB::commit();
         } catch (Exception $exception) {
             DB::rollBack();
             Log::info($exception);
+            return redirect()->route('404');
         }
         return redirect()->route('news.index');
     }
@@ -105,14 +99,14 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-//
+dd($id, 'show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -122,7 +116,8 @@ class NewsController extends Controller
         return view('admin.news.edit', [
             'news' => $news,
             'listCommunity' => $listCommunityByRoleAdmin,
-            'adminCensors' => $listAdminCensor]);
+            'adminCensors' => $listAdminCensor
+        ]);
     }
 
     /**
@@ -134,14 +129,10 @@ class NewsController extends Controller
      */
     public function update(UpdateNewsRequest $request, $id)
     {
-        try {
-            DB::beginTransaction();
-            $this->newsServices->find($id)->update($request->all());
-            DB::commit();
-        } catch (Exception $exception) {
-            DB::rollBack();
-            Log::info($exception);
-        }
+
+        $this->newsServices->update($request, $id);
+
+
         return redirect()->route('news.index');
     }
 
@@ -149,11 +140,27 @@ class NewsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (!$request->ajax()) {
+            return response()->json([
+                'code' => 500,
+                'data' => trans('message.admin.news.deletedError'),
+            ] , 500);
+        }
+        if (Auth::guard('admin')->user()->role_admin > AdminRole::ADMIN) {
+            return response()->json([
+                'code'    => 500,
+                'message' => trans('message.admin.news.deletedError'),
+            ], 500);
+        }
+        $this->newsServices->delete($id);
+        return response()->json([
+            'code' => 200,
+            'message' => trans('news.createdSuccess'),
+        ]);
     }
 
     public function verify($id)
@@ -163,16 +170,19 @@ class NewsController extends Controller
         $new->update(['verify' => $param]);
         return redirect()->route('news.index');
     }
-    public function hot_news($id){
-        $new = $this->newsServices->findByField('id',$id)->first();
+
+    public function hot_news($id)
+    {
+        $new = $this->newsServices->findByField('id', $id)->first();
         $param = $new->hot == NewsHot::NO_HOT ? NewsHot::HOT : NewsHot::NO_HOT;
         $new->update(['hot' => $param]);
         return redirect()->route('news.index');
     }
 
-    public function wait(Request $request,$id){
+    public function wait(Request $request, $id)
+    {
         try {
-            $params = $request->only( 'censors');
+            $params = $request->only('censors');
             $params['verify'] = NewsVerify::WAIT;
             $news = $this->newsServices->update($params, $id);
             $adminRequest = Auth::guard('admin')->user();

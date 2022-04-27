@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Eloquent\BaseRepository;
+use App\Enums\Community;
+use DB;
 
 /**
  * Class AdminRepositoryEloquent.
@@ -59,7 +61,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         if (isset($conditions['endDate'])) {
             $query = $query->where('created_at', '<=', $conditions['endDate']);
         }
-
+        $query = $query->orderByDesc('created_at');
         if (isset($conditions['orderBy'])) {
             switch ($conditions['orderBy']) {
                 case 1 :
@@ -91,7 +93,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
 
                 default:
                 {
-                    $query = $query->orderByDesc('id');
+                    $query = $query->orderBy('created_at');
                 }
             }
         }
@@ -105,5 +107,23 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         $query = $this->model;
         $query = $query->where('hot', NewsHot::HOT)->get();
         return $query;
+    }
+
+    /**
+     * @param $perPage
+     * @return mixed
+     *
+     */
+
+    public function getListNewHotChildCommunity($perPage = 10)
+    {
+        return $this->model
+            ->where('verify', NewsVerify::VERIFY)
+            ->with('community')
+            ->where('hot', NewsHot::HOT)
+            ->where('community_id', '!=', Community::VHT)
+//            ->join('community', 'community.id', 'news.community_id' )
+            ->orderByDesc('created_at')
+            ->limit($perPage)->get();
     }
 }

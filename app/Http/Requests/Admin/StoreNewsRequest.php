@@ -33,9 +33,6 @@ class StoreNewsRequest extends FormRequest
             'community_id' => [
                 'required'
             ],
-            'censors' => [
-                'required'
-            ],
             'content' => [
                 'required', 'string'
             ],

@@ -12,6 +12,8 @@
         <div id="content-wrapper" class="d-flex flex-column">
             @include('admin.layouts.header')
             <div class="container-fluid">
+                @include('admin.layouts.message')
+                @include('admin.layouts.error_modal')
                 @yield('content')
             </div>
         </div>

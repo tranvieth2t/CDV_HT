@@ -22,6 +22,7 @@ class CreateNewsTable extends Migration
             $table->text('description')->nullable();
             $table->text('content')->nullable();
             $table->tinyInteger('verify')->default(\App\Enums\NewsVerify::NOT_VERIFY);
+            $table->tinyInteger('tag')->nullable()->default(\App\Enums\NewsTag::KH);
             $table->tinyInteger('hot')->default(NewsHot::NO_HOT);
             $table->integer('community_id')->nullable()->unsigned();
             $table->integer('created_by')->unsigned();

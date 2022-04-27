@@ -16,10 +16,16 @@ class Community extends Model
         'content',
         'color',
         'facebook',
+        'parent',
         'instagram',
         'youtube',
         'tel',
         'created_at',
         'updated_at',
     ];
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'community_id', );
+    }
 }

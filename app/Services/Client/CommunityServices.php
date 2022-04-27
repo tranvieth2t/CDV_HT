@@ -3,6 +3,7 @@
 namespace App\Services\Client;
 
 use App\Enums\AdminRole;
+use App\Enums\ParentCommunity;
 use App\Interfaces\CommunityRepository;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\Auth;
@@ -10,16 +11,19 @@ use Illuminate\Support\Facades\Auth;
 class CommunityServices extends BaseService
 {
     protected $repository;
+
     public function __construct(CommunityRepository $communityRepository)
     {
         $this->repository = $communityRepository;
     }
 
-    public function getListCommunity() {
+    public function getListCommunity()
+    {
         return $this->repository->pluck('name', 'id');
     }
 
-    public function getListCommunityByRoleAdmin() {
+    public function getListCommunityByRoleAdmin()
+    {
         $admin = Auth::guard('admin')->user();
         $query = $this->repository;
         if ($admin->role_admin == AdminRole::EDITS) {
@@ -27,5 +31,12 @@ class CommunityServices extends BaseService
         }
         return $query
             ->pluck('name', 'id');
+    }
+
+    public function getListHotNewsCommunity()
+    {
+        return $this->repository
+            ->where('parent', ParentCommunity::CHILD)
+            ->with('news')->get();
     }
 }

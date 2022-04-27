@@ -24,9 +24,8 @@
                                 <article class="grid-item col-lg-6 pb-50 wow fadeIn animated">
                                     <div class="post-card-1 border-radius-10 hover-up">
                                         <div class="post-thumb thumb-overlay img-hover-slide position-relative"
-                                                {{-- style="background-image: url({{$news[$index]}})"--}}>
-                                            <a class="img-link" href="single.html.htm">
-                                                <img style="object-fit: scale-down" src="{{$news[$index]->thumbnail}}">
+                                                 style="background-image: url({{getDomainShowImage().$news[$index]->thumbnail}})">
+                                            <a class="img-link" href="{{route('clients.news.show', $news[$index]->id)}}">
                                             </a>
                                             <span class="top-right-icon bg-success"><i
                                                         class="elegant-icon icon_camera_alt"></i></span>
