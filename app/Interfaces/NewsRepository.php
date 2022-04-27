@@ -13,4 +13,5 @@ interface NewsRepository extends RepositoryInterface
 {
     public function getListNews($perPage, $conditions = [], $columns = [ '*' ]);
     public function getListNewHot($perPage, $conditions = [], $columns = [ '*' ]);
+    public function getListNewHotChildCommunity($perPage);
 }

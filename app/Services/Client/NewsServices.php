@@ -19,15 +19,15 @@ class NewsServices extends BaseService
         $this->repository = $repository;
     }
 
-    public function getListNewHot($perPage = 12, $condition = [])
+    public function getListNewHotChildCommunity($perPage = 12, $condition = [])
     {
-        return $this->repository
-            ->where('verify', NewsVerify::VERIFY)
-            ->where('hot', NewsHot::HOT)
-            ->where('community_id', '>', Community::VHT)
-            ->with('community')
-            ->orderBy('created_at')
-            ->limit($perPage)->get();
+        return $this->repository->getListNewHotChildCommunity();
+//            ->where('verify', NewsVerify::VERIFY)
+//            ->where('hot', NewsHot::HOT)
+//            ->where('community_id', '>', Community::VHT)
+//            ->with('community')
+//            ->orderBy('created_at')
+//            ->limit($perPage)->get();
     }
 
     public function getListNewsParentCommunity()
@@ -35,7 +35,7 @@ class NewsServices extends BaseService
         return $this->repository
             ->where('verify', NewsVerify::VERIFY)
             ->with('community')
-            ->orderBy('created_at')
+            ->orderByDesc('created_at')
             ->where('community_id', Community::VHT)
             ->limit(15)->get();
     }
@@ -43,10 +43,11 @@ class NewsServices extends BaseService
     public function findNews($id)
     {
         $news = $this->repository->with('community')->find($id);
-        if ($news->verify != NewsVerify::VERIFY) {
-            return abort(404);
+        if ($news->verify == NewsVerify::VERIFY || Auth::guard('admin')->user()) {
+            return $news;
         }
-        return $news;
+        return abort(404);
+
     }
 
     public function getListNewsCommunity($community_id)

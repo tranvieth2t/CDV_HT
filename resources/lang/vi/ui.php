@@ -14,6 +14,7 @@ return [
             'hot' => 'Tin nổi bật',
             'start-date' => 'Ngày bắt đầu',
             'end-date' => 'Ngày kết thúc',
+            'tag' => 'Mục',
             'verify' => 'Trạng thái',
             'thumbnail' => 'Ảnh đại diện',
             'censors' => 'Người kiểm duyệt',
@@ -21,7 +22,8 @@ return [
             'content' => 'Nội dung',
             'admin' => 'Người đăng',
             'created_at' => 'Ngày đăng',
-            'note' => 'Ghi chú'
+            'note' => 'Ghi chú',
+            'orderby' => 'Sắp xếp'
         ],
         'community' => [
             'name' => 'Tên cộng đoàn',

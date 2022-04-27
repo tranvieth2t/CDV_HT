@@ -6,24 +6,25 @@ function getTreeMenu($menus)
 {
     foreach ($menus as $item) {
         echo '<li class="nav-item">
-           <a class="nav-link collapsed" href='.url($item["route"]).' data-toggle="collapse" data-target="#collapse'.$item["id"].'"
-               aria-expanded="false" aria-controls="collapse'.$item["id"].'">
+           <a class="nav-link collapsed" href=' . url($item["route"]) . ' data-toggle="collapse" data-target="#collapse' . $item["id"] . '"
+               aria-expanded="false" aria-controls="collapse' . $item["id"] . '">
                 ' . $item["icon"] . '
-               <span>'.$item["name"].'</span>
+               <span>' . $item["name"] . '</span>
            </a>';
         if (isset($item["sub-menu"])) {
-            echo '<div id="collapse'.$item["id"].'" class="collapse" aria-labelledby="heading'.$item["id"].'"
+            echo '<div id="collapse' . $item["id"] . '" class="collapse" aria-labelledby="heading' . $item["id"] . '"
                data-parent="#accordionSidebar">
                <div class="bg-white py-2 collapse-inner rounded">';
-                foreach ($item["sub-menu"] as $submenu) {
-                    echo '<a class="collapse-item" href='.url($submenu["route"]).'>'.$submenu["name"].'</a>';
-                };
-             echo '</div>
+            foreach ($item["sub-menu"] as $submenu) {
+                echo '<a class="collapse-item" href=' . url($submenu["route"]) . '>' . $submenu["name"] . '</a>';
+            };
+            echo '</div>
            </div>';
         }
-       echo '</li>';
+        echo '</li>';
     }
 }
+
 function generatePassword($length = \App\Enums\AdminRole::DEFAULT_PASSWORD_LENGTH)
 {
     $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
@@ -36,7 +37,8 @@ function generatePassword($length = \App\Enums\AdminRole::DEFAULT_PASSWORD_LENGT
     return implode($pass);
 }
 
-function getListCommunityByRoleId() {
+function getListCommunityByRoleId()
+{
     $user = \Illuminate\Support\Facades\Auth::guard('admin')->user() ?? [];
     if ($user->role_admin == \App\Enums\AdminRole::EDITS) {
         return \Illuminate\Support\Facades\DB::table('community')->where('id', $user->community_id)->get();
@@ -45,10 +47,27 @@ function getListCommunityByRoleId() {
     }
 }
 
-function getFullCommunity() {
+function getFullCommunity()
+{
     return \Illuminate\Support\Facades\DB::table('community')->get(['id', 'name']);
 }
 
-function convertTimeDbToTimeString($time) {
+function convertTimeDbToTimeString($time)
+{
     return date('jS F, Y', strtotime($time));
+}
+
+function getDomainShowImage(): string
+{
+    return config('app.env') == 'local' ? asset('storage') . '/' : config('filesystems.disks.s3.url') . '/';
+}
+
+function getBase64ContentFromImageTag($image)
+{
+    return substr($image, 5, strlen($image) - 7);
+}
+
+function getImageUrlFromImageTag($image)
+{
+    return substr($image, 5, strlen($image) - 6);
 }

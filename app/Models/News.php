@@ -18,6 +18,7 @@ class News extends Model
         'content',
         'verify',
         'hot',
+        'tag',
         'censors',
         'community_id',
         'created_by',

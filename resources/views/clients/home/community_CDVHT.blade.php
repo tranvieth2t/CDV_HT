@@ -24,7 +24,7 @@
                         @for(; count($news) - 6 > $index; $index++)
                             <div class="position-relative post-thumb">
                                 <div class="thumb-overlay img-hover-slide position-relative"
-                                     style="background-image: url({{$news[$index]->thumbnail}})">
+                                     style="background-image: url({{getDomainShowImage().$news[$index]->thumbnail}})">
                                     <a class="img-link" href="{{route('clients.news.show', [$news[$index]->id])}}"></a>
                                     <span class="top-left-icon bg-warning"><i
                                                 class="elegant-icon icon_star_alt"></i></span>
@@ -81,12 +81,14 @@
                 <article class="col-lg-4 col-md-6 mb-30 wow fadeInUp animated" data-wow-delay="0.2s">
                     <div class="post-card-1 border-radius-10 hover-up">
                         <div class="post-thumb thumb-overlay img-hover-slide position-relative"
-                             style="background-image: url({{$news[$index]->thumbnail}})">
+                             style="background-image: url({{getDomainShowImage().$news[$index]->thumbnail}})">
                             <a class="img-link" href="{{route('clients.news.show', [$news[$index]->id])}}"></a>
                             <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
                             <ul class="social-share">
                                 <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
-                                <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i
+                                <li><a class="fb"
+                                       href="https://www.facebook.com/sharer/sharer.php?u={{route('clients.news.show', [$news[$index]->id])}}"
+                                       title="Share on Facebook" target="_blank"><i
                                                 class="elegant-icon social_facebook"></i></a></li>
                                 <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
                                                 class="elegant-icon social_twitter"></i></a></li>
@@ -98,7 +100,7 @@
                             <div class="entry-meta meta-0 font-small mb-10">
                                 <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
                                             class="post-cat text-info">{{$news[$index]->community->name}}</span></a>
-                                <a href="category.html.htm"><span class="post-cat text-success">Tâm linh</span></a>
+                                <a href="category.html.htm"><span class="post-cat text-success">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span></a>
                             </div>
                             <div class="d-flex post-card-content">
                                 <h5 class="post-title mb-20 font-weight-900">

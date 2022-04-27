@@ -9,6 +9,8 @@ return [
     'news-verify' => 'Duyệt tin',
     'close' => 'Đóng',
     'send-mail' => 'Gửi mail',
-    'news-request-verify' => 'Yêu cầu duyệt tin'
+    'news-request-verify' => 'Yêu cầu duyệt tin',
+    'news-preview' => 'Xem trước bài viết',
+    'news-destroy' => 'Xoá bài viết'
 ];
 
