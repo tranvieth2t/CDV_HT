@@ -11,7 +11,7 @@ Route::get('404', function () {
     return view('admin.404');
 })->name('404');
 // Login
-Route::get('/login', [LoginController::class, 'showFormLogin'])->name('admin.login');
+Route::get('/login', [LoginController::class, 'showFormLogin'])->name('admin.auth.login');
 Route::post('/login', [LoginController::class, 'login']);
 ////User
 //Route::get('/user',[UserController::class, 'showUser'])->name('admin.user');

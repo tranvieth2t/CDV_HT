@@ -4,15 +4,15 @@
         <!--Categories-->
         <div class="sidebar-widget widget_categories mb-50 mt-30">
             <div class="widget-header-2 position-relative">
-                <h5 class="mt-5 mb-15">Hot topics</h5>
+                <h5 class="mt-5 mb-15">Menu</h5>
             </div>
             <div class="widget_nav_menu">
                 <ul>
-                    <li class="cat-item cat-item-2"><a href="category.html.htm">Travel tips</a> <span class="post-count">30</span></li>
-                    <li class="cat-item cat-item-3"><a href="category-grid.html.htm">Book review</a> <span class="post-count">25</span></li>
-                    <li class="cat-item cat-item-4"><a href="category-list.html.htm">Hotel review</a> <span class="post-count">16</span></li>
-                    <li class="cat-item cat-item-5"><a href="category-masonry.html.htm">Destinations </a> <span class="post-count">22</span></li>
-                    <li class="cat-item cat-item-6"><a href="category-big.html.htm">Lifestyle</a> <span class="post-count">25</span></li>
+                    <li class="cat-item cat-item-2"><a href="{{route('auth.login')}}">Login</a></li>
+                    <li class="cat-item cat-item-3"><a href="{{route('auth.login')}}">Logout</a> </li>
+                    <li class="cat-item cat-item-4"><a href="{{route('auth.register')}}">Register</a> </li>
+                    <li class="cat-item cat-item-5"><a href="category-masonry.html.htm">Update Profile</a></li>
+                    <li class="cat-item cat-item-6"><a href="category-big.html.htm">Lifestyle</a> </li>
                 </ul>
             </div>
         </div>
