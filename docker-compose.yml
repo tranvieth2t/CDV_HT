@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "9010:9010"
+      - "9000:9000"
     volumes:
       - .:/var/www
       - ./php.conf.ini:/usr/local/etc/php/conf.d/php.conf.ini
@@ -23,7 +23,7 @@ services:
     tty: true
     ports:
       - "80:80"
-      - "4433:4433"
+      - "443:443"
     volumes:
       - .:/var/www
       - ./nginx.default.conf:/etc/nginx/conf.d/default.conf
@@ -31,11 +31,11 @@ services:
       - app-network
 
   mysql:
-    image: mysql:8.0
+    image: mysql:5.7
     container_name: mysql
     restart: unless-stopped
     ports:
-      - "3307:3307"
+      - "3306:3306"
     volumes:
       - .data/mysql:/var/lib/mysql
     environment:
@@ -56,7 +56,7 @@ services:
       - UPLOAD_LIMIT=300M
     restart: unless-stopped
     ports:
-      - "8088:80"
+      - "8080:80"
     volumes:
       - /sessions
     networks:
