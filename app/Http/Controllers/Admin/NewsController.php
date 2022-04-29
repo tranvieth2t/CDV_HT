@@ -130,7 +130,7 @@ class NewsController extends Controller
     public function update(UpdateNewsRequest $request, $id)
     {
 
-        $this->newsServices->update($request, $id);
+        $this->newsServices->updateNews($request, $id);
 
 
         return redirect()->route('news.index');

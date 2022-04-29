@@ -78,7 +78,7 @@ class AdminController extends Controller
             $param['password'] = bcrypt(config('setting.password_default'));
             $param['verify_token'] = Str::random(60);
             $this->adminService->create($param);
-//            $this->mailService->sendMailAddAdmin($param);
+            $this->mailService->sendMailAddAdmin($param);
             DB::commit();
             return redirect()->route('admins.index');
         } catch (Exception $exception) {

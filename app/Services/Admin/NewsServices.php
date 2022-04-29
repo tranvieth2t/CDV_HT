@@ -64,7 +64,7 @@ class NewsServices extends BaseService
         return $this->repository->create($params);
     }
 
-    public function update($request, $id)
+    public function updateNews($request, $id)
     {
         try {
             $news = $this->repository->find($id);
