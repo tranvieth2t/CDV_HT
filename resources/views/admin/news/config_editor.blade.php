@@ -11,7 +11,7 @@
         // toolbar: 'undo redo | addcomment showcomments | casechange checklist code | image editimage pageembed  table ',
         toolbar: 'undo redo | addcomment showcomments | casechange blocks | bold italic backcolor | ' +
             'alignleft aligncenter alignright alignjustify | ' +
-            'code table |bullist numlist checklist outdent indent ',
+            'code table image | bullist numlist checklist outdent indent ',
         image_title: true,
         automatic_uploads: true,
         file_picker_types: 'image',

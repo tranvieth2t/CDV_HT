@@ -31,7 +31,7 @@ class NewsServices extends BaseService
         return $this->repository->getListNewHot($perPage, $condition);
     }
 
-    public function createNews($request, $thumbnail = null)
+    public function createNews($request)
     {
         $params = $request->all();
 
@@ -44,7 +44,7 @@ class NewsServices extends BaseService
             ];
             $imageUrl = $this->s3Services->uploadImage($dataImage);
         }
-        preg_match_all('/src[^ >]+"/i', $params['content'], $result);
+        preg_match_all('/src="data:image[^ >]+"/i', $params['content'], $result);
         foreach ($result[0] as $image) {
             $img = getBase64ContentFromImageTag($image);
             $imageS3 = $this->s3Services->storeBase64ImageToS3(
@@ -59,7 +59,7 @@ class NewsServices extends BaseService
             }
         }
 
-        $params['thumbnail'] = $imageUrl ?? null;
+        $params['thumbnail'] = $imageUrl ?? config('constants.news_thumbnail_default');
         $params['created_by'] = Auth::guard('admin')->user()->id;
         return $this->repository->create($params);
     }
@@ -72,7 +72,7 @@ class NewsServices extends BaseService
             $data = $request->all();
             $listImageS3New = [];
             $forder = "news";
-            preg_match_all('/src[^ >]+"/i', $data['content'], $result);
+            preg_match_all('/src="data:image[^ >]+"/i', $data['content'], $result);
             foreach ($result[0] as $image) {
                 if (!strpos($image, config('filesystems.disks.s3.url'))) {
                     $img = getBase64ContentFromImageTag($image);
@@ -111,8 +111,10 @@ class NewsServices extends BaseService
                     'folder' => $forder
                 ];
                 $imageUrl = $this->s3Services->uploadImage($dataImage);
-                $data['thumbnail'] = $imageUrl ?? "";
-                $this->s3Services->isDestroy($oldImageThumb);
+                $data['thumbnail'] = $imageUrl ?? config('constants.news_thumbnail_default');
+                if (!$news->is_thumbnail_default) {
+                    $this->s3Services->isDestroy($oldImageThumb);
+                }
             }
             $this->repository->update($data, $id);
             session()->flash('success', trans('message.admin.news.updatedSuccess'));
@@ -147,8 +149,11 @@ class NewsServices extends BaseService
             $imgUrl = getImageUrlFromImageTag($image);
             $this->s3Services->isDestroy($imgUrl);
         }
-        $oldImageThumb = config('filesystems.disks.s3.url')."/".$news->thumbnail;
-        $this->s3Services->isDestroy($oldImageThumb);
+        if (!$news->is_thumbnail_default) {
+            $oldImageThumb = config('filesystems.disks.s3.url')."/".$news->thumbnail;
+            $this->s3Services->isDestroy($oldImageThumb);
+        }
+
         $news->delete();
         session()->flash('success', trans('message.admin.news.deletedSuccess'));
         return response()->json([

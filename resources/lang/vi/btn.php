@@ -11,6 +11,10 @@ return [
     'send-mail' => 'Gửi mail',
     'news-request-verify' => 'Yêu cầu duyệt tin',
     'news-preview' => 'Xem trước bài viết',
-    'news-destroy' => 'Xoá bài viết'
+    'news-destroy' => 'Xoá bài viết',
+    'banner-verify' => 'Duyệt Banner',
+    'banner-destroy' => 'Xoá Banner',
+    'notify-verify' => 'Duyệt Thông báo',
+    'notify-destroy' => 'Xoá Thông báo',
 ];
 

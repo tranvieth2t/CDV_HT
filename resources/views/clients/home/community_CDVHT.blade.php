@@ -33,7 +33,7 @@
                                             <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
                                                         class="post-cat text-info text-uppercase">{{$news[$index]->community->name}}</span></a>
                                             <a href="category.html.htm"><span
-                                                        class="post-cat text-success text-uppercase">Tâm linh</span></a>
+                                                        class="post-cat  text-uppercase" style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span></a>
                                         </div>
                                         <h3 class="post-title font-weight-900 mb-20">
                                             <a class="text-white"
@@ -87,13 +87,13 @@
                             <ul class="social-share">
                                 <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
                                 <li><a class="fb"
-                                       href="https://www.facebook.com/sharer/sharer.php?u={{route('clients.news.show', [$news[$index]->id])}}"
+                                       href="https://www.facebook.com/sharer.php?u={{route('clients.news.show', [$news[$index]->id])}}"
                                        title="Share on Facebook" target="_blank"><i
                                                 class="elegant-icon social_facebook"></i></a></li>
-                                <li><a class="tw" href="#" target="_blank" title="Tweet now"><i
-                                                class="elegant-icon social_twitter"></i></a></li>
-                                <li><a class="pt" href="#" target="_blank" title="Pin it"><i
-                                                class="elegant-icon social_pinterest"></i></a></li>
+{{--                                <li><a class="tw" href="#" target="_blank" title="Tweet now"><i--}}
+{{--                                                class="elegant-icon social_twitter"></i></a></li>--}}
+{{--                                <li><a class="pt" href="#" target="_blank" title="Pin it"><i--}}
+{{--                                                class="elegant-icon social_pinterest"></i></a></li>--}}
                             </ul>
                         </div>
                         <div class="post-content p-30">
@@ -104,15 +104,15 @@
                             </div>
                             <div class="d-flex post-card-content">
                                 <h5 class="post-title mb-20 font-weight-900">
-                                    <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">{{$news[$index]->title}}</a>
+                                    <a href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}</a>
                                 </h5>
                                 <div class="post-excerpt mb-25 font-small text-muted">
                                     <p>{{$news[$index]->description}}</p>
                                 </div>
                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                     <span class="post-on">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
-                                    <span class="time-reading has-dot">12 mins read</span>
-                                    <span class="post-by has-dot">23k views</span>
+{{--                                    <span class="time-reading has-dot">12 mins read</span>--}}
+{{--                                    <span class="post-by has-dot">23k views</span>--}}
                                 </div>
                             </div>
                         </div>

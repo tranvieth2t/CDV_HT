@@ -111,7 +111,7 @@
             arrows: false,
             autoplay: true,
             slidesToShow: 3,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
             loop: true,
             adaptiveHeight: true,
             responsive: [{

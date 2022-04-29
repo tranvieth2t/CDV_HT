@@ -5,13 +5,15 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\CommunityController;
+use App\Http\Controllers\Admin\NotifyController;
+use App\Http\Controllers\Admin\BannerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('404', function () {
     return view('admin.404');
 })->name('404');
 // Login
-Route::get('/login', [LoginController::class, 'showFormLogin'])->name('admin.auth.login');
+Route::get('/login', [LoginController::class, 'showFormLogin'])->name('admin.login');
 Route::post('/login', [LoginController::class, 'login']);
 ////User
 //Route::get('/user',[UserController::class, 'showUser'])->name('admin.user');
@@ -32,12 +34,16 @@ Route::middleware('auth:admin')->group(function (){
     Route::resource('admins', AdminController::class)->names('admins');
     //News
     Route::resource('/news', NewsController::class)->names('news');
-    //Community
-    Route::resource('/community', CommunityController::class)->names('community');
-
-
     Route::get('/news/{id}/show',[NewsController::class,'show']) ->name('news.show');
     Route::get('/news/{id}/verify', [NewsController::class,'verify']) ->name('news.verify');
     Route::get('/news/{id}/setNews', [NewsController::class,'hot_news']) ->name('news.setNews');
     Route::post('/news/{id}/wait', [NewsController::class,'wait']) ->name('news.wait');
+    //Community
+    Route::resource('/community', CommunityController::class)->names('community');
+    //Notify
+    Route::resource('/notify', NotifyController::class)->names('notify');
+    Route::get('/notify/{id}/verify', [NotifyController::class,'verify']) ->name('notify.verify');
+    //Banner
+    Route::resource('/banner', BannerController::class)->names('banner');
+    Route::get('/banner/{id}/verify', [BannerController::class,'verify']) ->name('banner.verify');
 });

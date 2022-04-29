@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Services\Client\BannerServices;
 use App\Services\Client\CommunityServices;
 use App\Services\Client\NewsServices;
+use App\Services\Client\NotifyServices;
 use function view;
 
 class HomeController extends Controller
@@ -12,15 +14,24 @@ class HomeController extends Controller
     protected $newsServices;
 
     protected $communityServices;
+
+    protected $bannerServices;
+    protected $notifyServices;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(NewsServices $newsServices, CommunityServices $communityServices)
-    {
+    public function __construct(
+        NewsServices $newsServices,
+        CommunityServices $communityServices,
+        BannerServices $bannerServices,
+        NotifyServices  $notifyServices
+    ) {
         $this->newsServices = $newsServices;
         $this->communityServices = $communityServices;
+        $this->bannerServices = $bannerServices;
+        $this->notifyServices = $notifyServices;
     }
 
     /**
@@ -33,6 +44,15 @@ class HomeController extends Controller
     {
         $listNewHot = $this->newsServices->getListNewHotChildCommunity();
         $listHotNewsParentCommunity = $this->newsServices->getListNewsParentCommunity();
-        return view('clients.index', ['listHotNews' => $listNewHot , 'listHotNewsParentCommunity'=> $listHotNewsParentCommunity ]);
+        $listBanner = $this->bannerServices->getListBanner();
+        $listNotify = $this->notifyServices->getListNotify();
+
+        return view('clients.index',
+            [
+                'listHotNews' => $listNewHot,
+                'listHotNewsParentCommunity' => $listHotNewsParentCommunity,
+                'listBanner' => $listBanner,
+                'listNotify' => $listNotify,
+            ]);
     }
 }

@@ -22,12 +22,6 @@ class NewsServices extends BaseService
     public function getListNewHotChildCommunity($perPage = 12, $condition = [])
     {
         return $this->repository->getListNewHotChildCommunity();
-//            ->where('verify', NewsVerify::VERIFY)
-//            ->where('hot', NewsHot::HOT)
-//            ->where('community_id', '>', Community::VHT)
-//            ->with('community')
-//            ->orderBy('created_at')
-//            ->limit($perPage)->get();
     }
 
     public function getListNewsParentCommunity()

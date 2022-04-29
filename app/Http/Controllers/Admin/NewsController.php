@@ -99,7 +99,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-dd($id, 'show');
+    return abort(404);
     }
 
     /**

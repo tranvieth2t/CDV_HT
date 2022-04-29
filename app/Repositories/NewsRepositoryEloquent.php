@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Enums\NewsHot;
 use App\Enums\NewsStatus;
 use App\Enums\NewsVerify;
+use App\Enums\ParentCommunity;
 use App\Interfaces\NewsRepository;
 use App\Models\News;
 use http\Client\Curl\User;
@@ -117,13 +118,16 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
 
     public function getListNewHotChildCommunity($perPage = 10)
     {
-        return $this->model
-            ->where('verify', NewsVerify::VERIFY)
-            ->with('community')
-            ->where('hot', NewsHot::HOT)
-            ->where('community_id', '!=', Community::VHT)
-//            ->join('community', 'community.id', 'news.community_id' )
-            ->orderByDesc('created_at')
-            ->limit($perPage)->get();
+        return DB::select(
+            "select * from (
+                        select news.*,community.name, community.color,
+                               row_number() over(partition by news.community_id order by news.created_at desc ) as country_rank 
+                        from news JOIN community on news.community_id = community.id 
+                        WHERE news.hot=" . NewsHot::HOT . " 
+                        AND  news.verify=" . NewsVerify::VERIFY . " 
+                        AND  community.parent=" . ParentCommunity::CHILD . " 
+                        ORDER BY news.created_at DESC) ranks
+                    where country_rank <= 2;"
+        );
     }
 }

@@ -3,6 +3,8 @@
 use App\Enums\Community;
 use App\Enums\AdminVerify;
 use App\Enums\NewsVerify;
+use App\Enums\NotifyVerify;
+use App\Enums\BannerVerify;
 use App\Enums\NewsHot;
 use App\Enums\NewsTag;
 
@@ -40,5 +42,13 @@ return [
         NewsTag::TT => 'Tri thức',
         NewsTag::NK => 'Nối kết',
         NewsTag::KH => 'Tin khác',
+    ],
+    'notify_verify' => [
+        NotifyVerify::VERIFY => 'Đã duyệt',
+        NotifyVerify::NOT_VERIFY => 'Chưa duyệt',
+    ],
+    'banner_verify' => [
+        BannerVerify::VERIFY => 'Hiển thị',
+        BannerVerify::NOT_VERIFY => 'Không hiển thị',
     ]
 ];

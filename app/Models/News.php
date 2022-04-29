@@ -26,6 +26,13 @@ class News extends Model
         'updated_at',
     ];
 
+    protected $appends = [
+        'is_thumbnail_default',
+    ];
+
+    public function getIsThumbnailDefaultAttribute () {
+        return ($this->thumbnail == config('constants.news_thumbnail_default')) ;
+    }
     public function admin()
     {
         return $this->hasOne(Admin::class, 'id','created_by');

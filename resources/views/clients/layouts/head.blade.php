@@ -9,4 +9,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/widgets.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+    <meta property="og:url" content="http://cdvht.something.test/"/>
+    <meta property="og:image" content="http://cdvht.something.test/assets/imgs/news/news-1.png"/>
+    <meta property="og:title" content="Prepaid Phone Cards, low rates for International calls with Lucky Prepay"/>
+    <meta property="og:description"
+          content="Cheap prepaid Phone Cards. Low rates for international calls anywhere in the world."/>
 </head>

@@ -89,6 +89,54 @@ class Menu
             ],
             [
                 'id' => 3,
+                'name' => trans('message.admin.notify.notify'),
+                'route' => '#',
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' => [
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.notify.list-notify'),
+                        'route' => route('notify.index'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ],
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.notify.created-notify'),
+                        'route' => route('notify.create'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ]
+                ]
+            ],
+            [
+                'id' => 4,
+                'name' => trans('message.admin.banner.banner'),
+                'route' => '#',
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' => [
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.banner.list-banner'),
+                        'route' => route('banner.index'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ],
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.banner.created-banner'),
+                        'route' => route('banner.create'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ]
+                ]
+            ],
+            [
+                'id' => 5,
                 'name' => trans('message.admin.community.community'),
                 'route' => '#',
                 'parent_id' => 0,

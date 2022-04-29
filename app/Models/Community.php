@@ -26,6 +26,11 @@ class Community extends Model
 
     public function news()
     {
-        return $this->hasMany(News::class, 'community_id', );
+        return $this->hasMany(News::class, 'community_id', 'id');
+    }
+
+    public function newsFavaros()
+    {
+        return $this->hasMany(News::class, 'community_id', 'id')->limit(2);
     }
 }

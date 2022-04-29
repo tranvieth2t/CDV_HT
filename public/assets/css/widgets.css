@@ -401,7 +401,7 @@ span.has-dot::before {
 /*featured-slider-2*/
 .featured-slider-2-items .post-thumb .thumb-overlay,
 .featured-slider-3-items .post-thumb .thumb-overlay {
-    min-height: 600px;
+    max-height: 650px;
     background-position: center;
 }
 
