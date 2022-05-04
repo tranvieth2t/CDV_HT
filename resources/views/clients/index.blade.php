@@ -5,7 +5,8 @@
     @include('clients.home.notify', ['listNotify' => $listNotify])
     @include('clients.home.community_CDVHT',['news' => $listHotNewsParentCommunity])
     @include('clients.home.community_child' ,['news' => $listHotNews])
-    @include('clients.home.catholic')
+    @include('clients.home.catholic', ['listNewsCatholic' => $listNewsCatholic])
+    @include('clients.home.couple', ['listNewsCatholic' => $listNewsCatholic])
     @include('clients.home.video')
     @include('clients.layouts.stile_bottom')
 @endsection

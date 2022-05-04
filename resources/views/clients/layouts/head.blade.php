@@ -5,13 +5,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.png">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/widgets.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
-    <meta property="og:url" content="http://cdvht.something.test/"/>
-    <meta property="og:image" content="http://cdvht.something.test/assets/imgs/news/news-1.png"/>
-    <meta property="og:title" content="Prepaid Phone Cards, low rates for International calls with Lucky Prepay"/>
-    <meta property="og:description"
-          content="Cheap prepaid Phone Cards. Low rates for international calls anywhere in the world."/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+    <link href="{{asset('fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 </head>

@@ -21,21 +21,23 @@
                     <div class="arrow-cover"></div>
                     <div class="slide-fade">
                         @php($index = 0)
-                        @for(; count($news) - 6 > $index; $index++)
+                        @for(; count($news) - 7 > $index; $index++)
                             <div class="position-relative post-thumb">
                                 <div class="thumb-overlay img-hover-slide position-relative"
                                      style="background-image: url({{getDomainShowImage().$news[$index]->thumbnail}})">
                                     <a class="img-link" href="{{route('clients.news.show', [$news[$index]->id])}}"></a>
-                                    <span class="top-left-icon bg-warning"><i
-                                                class="elegant-icon icon_star_alt"></i></span>
+                                    <span class="top-left-icon bg-warning">
+                                        {!! config('constants.icon_tag')[$news[$index]->tag] !!}
+                                    </span>
                                     <div class="post-content-overlay text-white p-30">
-                                        <div class="entry-meta meta-0 font-small mb-20">
+                                        <div class="entry-meta meta-0 font-small mb-15">
                                             <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
-                                                        class="post-cat text-info text-uppercase">{{$news[$index]->community->name}}</span></a>
+                                                        class="post-cat text-info ">{{$news[$index]->community->name}}</span></a>
                                             <a href="category.html.htm"><span
-                                                        class="post-cat  text-uppercase" style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span></a>
+                                                        class="post-cat  "
+                                                        style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span></a>
                                         </div>
-                                        <h3 class="post-title font-weight-900 mb-20">
+                                        <h3 class="post-title font-weight-600 mb-15">
                                             <a class="text-white"
                                                href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}</a>
                                         </h3>
@@ -55,8 +57,8 @@
                         <div class="post-block-list post-module-1">
                             <ul class="list-post">
                                 @for(; $index < count($news) - 3; $index++)
-                                    <li class="mb-10 wow fadeInUp animated">
-                                        <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
+                                    <li class="mb-15 wow fadeInUp animated">
+                                        <div class="d-flex bg-white has-border p-15 hover-up transition-normal border-radius-5">
                                             <div class="post-content media-body">
                                                 <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
                                                             href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}
@@ -66,7 +68,9 @@
                                                     <span class="post-cat font-weight-bold"
                                                           style="color: {{$news[$index]->community->color}}">
                                                         {{$news[$index]->community->name}}</span>
-                                                    <span class="post-on text-uppercase">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
+                                                    <span class="post-cat  "
+                                                          style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span>
+                                                    <span class="post-on ">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,36 +87,36 @@
                         <div class="post-thumb thumb-overlay img-hover-slide position-relative"
                              style="background-image: url({{getDomainShowImage().$news[$index]->thumbnail}})">
                             <a class="img-link" href="{{route('clients.news.show', [$news[$index]->id])}}"></a>
-                            <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
+                            <span class="top-right-icon"
+                                  style="background-color: {{config('constants.color_tag')[$news[$index]->tag]}}">{!! config('constants.icon_tag')[$news[$index]->tag] !!}</span>
                             <ul class="social-share">
-                                <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                <li><a href="#"><i class="fa-solid fa-share"></i></a></li>
                                 <li><a class="fb"
-                                       href="https://www.facebook.com/sharer.php?u={{route('clients.news.show', [$news[$index]->id])}}"
-                                       title="Share on Facebook" target="_blank"><i
-                                                class="elegant-icon social_facebook"></i></a></li>
-{{--                                <li><a class="tw" href="#" target="_blank" title="Tweet now"><i--}}
-{{--                                                class="elegant-icon social_twitter"></i></a></li>--}}
-{{--                                <li><a class="pt" href="#" target="_blank" title="Pin it"><i--}}
-{{--                                                class="elegant-icon social_pinterest"></i></a></li>--}}
+                                       href="https://www.facebook.com/sharer.php?display=page&u={{route('clients.news.show', [$news[$index]->id])}}"
+                                       title="Share on Facebook" target="_blank">
+                                        <i class="fa-brands fa-facebook"></i></a></li>
                             </ul>
                         </div>
                         <div class="post-content p-30">
-                            <div class="entry-meta meta-0 font-small mb-10">
-                                <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
-                                            class="post-cat text-info">{{$news[$index]->community->name}}</span></a>
-                                <a href="category.html.htm"><span class="post-cat text-success">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span></a>
+                            <div class="entry-meta meta-0 font-small mb-15 d-flex justify-content-between">
+                                <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">
+                                                    <span class="post-cat"
+                                                          style="color: {{$news[$index]->community->color}}">{{$news[$index]->community->name}}</span></a>
+                                <a href="category.html.htm"><span
+                                            class="post-cat"
+                                            style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">
+                                                        {{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}
+                                                    </span></a>
                             </div>
                             <div class="d-flex post-card-content">
-                                <h5 class="post-title mb-20 font-weight-900">
+                                <h6 class="post-title mb-15 font-weight-600 text-justify">
                                     <a href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}</a>
-                                </h5>
-                                <div class="post-excerpt mb-25 font-small text-muted">
-                                    <p>{{$news[$index]->description}}</p>
+                                </h6>
+                                <div class="post-excerpt mb-15 font-small text-muted">
+                                    <p class="m-0">{{$news[$index]->description}}</p>
                                 </div>
-                                <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
+                                <div class="entry-meta meta-1 float-left font-x-small ">
                                     <span class="post-on">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
-{{--                                    <span class="time-reading has-dot">12 mins read</span>--}}
-{{--                                    <span class="post-by has-dot">23k views</span>--}}
                                 </div>
                             </div>
                         </div>

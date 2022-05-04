@@ -53,4 +53,12 @@ class NewsServices extends BaseService
             ->with('community')
             ->paginate(10);
     }
+
+    public function getListNewCatholic() {
+        return $this->repository
+            ->where('verify', NewsVerify::VERIFY)
+            ->orderBy('created_at')
+            ->limit(4)
+            ->get();
+    }
 }

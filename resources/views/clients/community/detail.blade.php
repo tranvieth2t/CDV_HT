@@ -56,7 +56,7 @@
                                 <a class="img-link" href="{{route('clients.community.show', [$community->id])}}"></a>
                                 <span class="top-right-icon bg-success"><i class="elegant-icon icon_camera_alt"></i></span>
                                 <ul class="social-share">
-                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>
+                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>
                                     <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>
                                     <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>
                                     <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>
@@ -89,7 +89,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-2.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -117,7 +117,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-3.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -146,7 +146,7 @@
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <span class="top-right-icon bg-info"><i class="elegant-icon icon_headphones"></i></span>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -174,7 +174,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-5.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -202,7 +202,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-6.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -230,7 +230,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-7.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -258,7 +258,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-8.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -286,7 +286,7 @@
 {{--                            <div class="post-thumb thumb-overlay img-hover-slide position-relative" style="background-image: url(assets/imgs/news/news-9.jpg)">--}}
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}
@@ -315,7 +315,7 @@
 {{--                                <a class="img-link" href="single.html.htm"></a>--}}
 {{--                                <span class="top-right-icon bg-info"><i class="elegant-icon icon_headphones"></i></span>--}}
 {{--                                <ul class="social-share">--}}
-{{--                                    <li><a href="#"><i class="elegant-icon social_share"></i></a></li>--}}
+{{--                                    <li><a href="#"><i class="fa-solid fa-share"></i></a></li>--}}
 {{--                                    <li><a class="fb" href="#" title="Share on Facebook" target="_blank"><i class="elegant-icon social_facebook"></i></a></li>--}}
 {{--                                    <li><a class="tw" href="#" target="_blank" title="Tweet now"><i class="elegant-icon social_twitter"></i></a></li>--}}
 {{--                                    <li><a class="pt" href="#" target="_blank" title="Pin it"><i class="elegant-icon social_pinterest"></i></a></li>--}}

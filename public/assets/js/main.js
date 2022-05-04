@@ -98,8 +98,8 @@
             autoplaySpeed: 3000,
             fade: true,
             fadeSpeed: 1500,
-            prevArrow: '<button type="button" class="slick-prev"><i class="elegant-icon arrow_left"></i></button>',
-            nextArrow: '<button type="button" class="slick-next"><i class="elegant-icon arrow_right"></i></button>',
+            prevArrow: '<button type="button" class="slick-prev"><i class="fa-solid fa-left-long"></i></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="fa-solid fa-right-long"></i></i></button>',
             appendArrows: '.arrow-cover',
         });
 
@@ -134,7 +134,7 @@
         // featured slider 2
         $('.featured-slider-2-items').slick({
             slidesToShow: 1,
-            slidesToScroll: 1,
+            slidesToScroll: 3,
             arrows: false,
             dots: false,
             fade: true,

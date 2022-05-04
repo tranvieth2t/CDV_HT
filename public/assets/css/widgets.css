@@ -268,8 +268,7 @@ button.box-shadow {
 }
 
 .widget_instagram .insta-feed li {
-    width: 29.33%;
-    margin: 5px;
+   padding: 5px;
 }
 
 .widget_instagram .insta-feed li img {
@@ -505,8 +504,6 @@ span.has-dot::before {
 
 .post-module-1 .post-content-overlay .entry-meta span.post-cat,
 .entry-meta.meta-0 span.post-cat {
-    padding-right: 7px;
-    margin-right: 10px;
     font-weight: bold;
     color: #666;
 }

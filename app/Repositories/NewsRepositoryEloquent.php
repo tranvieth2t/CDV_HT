@@ -125,9 +125,8 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
                         from news JOIN community on news.community_id = community.id 
                         WHERE news.hot=" . NewsHot::HOT . " 
                         AND  news.verify=" . NewsVerify::VERIFY . " 
-                        AND  community.parent=" . ParentCommunity::CHILD . " 
-                        ORDER BY news.created_at DESC) ranks
-                    where country_rank <= 2;"
+                        AND  community.parent=" . ParentCommunity::CHILD . " ) ranks
+                    where country_rank <= 2 ORDER BY created_at DESC;"
         );
     }
 }

@@ -34,7 +34,6 @@ TABLE CONTENT
 @import url(vendor/bootstrap.min.css);
 @import url(vendor/owl.carousel.min.css);
 @import url(vendor/ticker-style.css);
-@import url(vendor/elegant-icons.css);
 @import url(vendor/slick.css);
 @import url(vendor/slicknav.css);
 @import url(vendor/animate.min.css);
@@ -55,7 +54,7 @@ TABLE CONTENT
     --color-warning: #e38836;
     --color-info: #4da7d4;
     --color-light: #f8f9f9;
-    --color-grey: #9fcdfb2b;
+    --color-grey: #f8f9fe;
     --color-dark: #000c2d;
     --color-muted: #687385;
     --color-white: #FFFFFF;
@@ -206,7 +205,7 @@ button.bg-primary:hover {
 
 /* GENERAL */
 body {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: Open Sans,sans-serif !important;
     font-weight: normal;
     font-style: normal;
     font-size: 14px;
@@ -224,7 +223,8 @@ h6,
     font-style: normal;
     font-weight: 500;
     text-transform: none;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
+
 }
 
 p {
@@ -2031,7 +2031,8 @@ textarea.form-control {
     font-size: 20px;
     letter-spacing: 2em;
     padding-left: 2em;
-    font-family: serif;
+    font-family: 'Roboto', sans-serif !important;
+
 }
 
 .wp-block-separator.is-style-dots {
@@ -2203,5 +2204,5 @@ pre {
 }
 
 .entry-wraper * {
-    font-family: sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
