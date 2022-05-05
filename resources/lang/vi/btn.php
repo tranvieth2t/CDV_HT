@@ -7,6 +7,7 @@ return [
     'news-hot' => 'Đặt làm tin hot',
     'news-no_hot' => 'Xoá tin hot',
     'news-verify' => 'Duyệt tin',
+    'news-not-verify' => 'Xoá duyệt tin',
     'close' => 'Đóng',
     'send-mail' => 'Gửi mail',
     'news-request-verify' => 'Yêu cầu duyệt tin',

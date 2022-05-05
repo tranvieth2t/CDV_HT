@@ -13,6 +13,7 @@ class Community extends Model
         'id',
         'name',
         'description',
+        'thumbnail',
         'content',
         'color',
         'facebook',
@@ -23,7 +24,15 @@ class Community extends Model
         'created_at',
         'updated_at',
     ];
+    protected $appends = [
+        'is_thumbnail_default',
+    ];
 
+    public function getIsThumbnailDefaultAttribute()
+    {
+        return ($this->thumbnail == config('constants.community_thumbnail_default'));
+
+    }
     public function news()
     {
         return $this->hasMany(News::class, 'community_id', 'id');

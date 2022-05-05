@@ -62,7 +62,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
         if (isset($conditions['endDate'])) {
             $query = $query->where('created_at', '<=', $conditions['endDate']);
         }
-        $query = $query->orderByDesc('created_at');
+        $query = $query->orderByDesc('id');
         if (isset($conditions['orderBy'])) {
             switch ($conditions['orderBy']) {
                 case 1 :

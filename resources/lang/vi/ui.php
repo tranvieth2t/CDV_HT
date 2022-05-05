@@ -16,6 +16,8 @@ return [
             'verify' => 'Trạng thái',
             'thumbnail' => 'Ảnh đại diện',
             'censors' => 'Người kiểm duyệt',
+            'start-date' => 'Ngày bắt đầu',
+            'end-date' => 'Ngày kết thúc',
             'description' => 'Mô tả',
             'content' => 'Nội dung',
             'admin' => 'Người đăng',
@@ -53,6 +55,7 @@ return [
         ],
         'community' => [
             'name' => 'Tên cộng đoàn',
+            'thumbnail' => 'Ảnh đại diện',
             'description' => 'Mô tả',
             'content' => 'Nội dung',
             'facebook' => 'Link Facebook',

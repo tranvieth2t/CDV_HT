@@ -18,7 +18,7 @@ class NotifySeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 1000;
+        $limit = 100;
         $listAdmin = DB::table('admins')->get();
         $listCommunity = DB::table('community')->get();
         $listVerify = [NotifyVerify::VERIFY, NotifyVerify::NOT_VERIFY];

@@ -18,8 +18,8 @@ class CreateTableBanner extends Migration
             $table->string('title', 255);
             $table->tinyInteger('verify')->default(\App\Enums\BannerVerify::NOT_VERIFY);
             $table->text('link')->nullable();
-            $table->text('thumbnail')->nullable();
-            $table->text('thumbnail_small')->nullable();
+            $table->string('thumbnail')->default(config('constants.banner_thumbnail_default'));
+            $table->string('thumbnail_small')->default(config('constants.banner_thumbnail_small_default'));
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
             $table->integer('created_by')->unsigned();

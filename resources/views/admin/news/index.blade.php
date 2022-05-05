@@ -7,60 +7,60 @@
         <div class="card-body">
             <form method="GET" action="{{route('news.index')}}">
                 @include('admin.inc.form.select', [
-                                   'name' => 'community_id',
+                                   'name' => 'filter[community_id]',
                                    'label' => __('ui.label.news.community'),
                                    'pluck' => $listCommunity,
                                    'colLabel' => 'col-lg-2',
                                    'colInput' => 'col-lg-10',
-                                   'value' => $_GET['community_id']?? 'none',
+                                   'value' => $filter['community_id']?? 'none',
                                    'isAll' => true,
                                    'nameAll' => 'Tất cả'
                                ])
                 @include('admin.inc.form.select', [
-                                   'name' => 'orderBy',
+                                   'name' => 'filter[orderBy]',
                                    'label' => __('ui.label.news.orderby'),
                                    'pluck' => config('setting.orderBy'),
                                    'colLabel' => 'col-lg-2',
                                    'colInput' => 'col-lg-10',
-                                   'value' => $_GET['orderBy']?? 'none',
+                                   'value' => $filter['orderBy']?? 'none',
                                ])
                 @include('admin.inc.form.input', [
-                                    'name' => 'title',
+                                    'name' => 'filter[title]',
                                     'label' => __('ui.label.news.title'),
-                                    'value' => $_GET['title']?? '',
+                                    'value' => $filter['title']?? '',
                                     'colLabel' => 'col-lg-2 ',
                                     'colInput' => 'col-lg-10 ',
                                     'attributes' => 'type ="text" maxlength="255"'
                                     ])
                 @include('admin.inc.form.input', [
-                                   'name' => 'startDate',
+                                   'name' => 'filter[startDate]',
                                    'label' => __('ui.label.news.start-date'),
-                                   'value' => $_GET['startDate']?? '',
+                                   'value' => $filter['startDate']?? '',
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
                                    'attributes' => 'type ="datetime-local" maxlength="255"'
                                    ])
                 @include('admin.inc.form.input', [
-                                   'name' => 'endDate',
+                                   'name' => 'filter[endDate]',
                                    'label' => __('ui.label.news.end-date'),
-                                   'value' => $_GET['endDate']?? '',
+                                   'value' => $filter['endDate']?? '',
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
                                    'attributes' => 'type ="datetime-local" maxlength="255"'
                                    ])
                 @include('admin.inc.form.checkbox', [
-                                   'name' => 'verify',
+                                   'name' => 'filter[verify]',
                                    'label' => __('ui.label.news.verify'),
-                                   'value' => $_GET['verify']?? \App\Enums\NewsVerify::ALL,
+                                   'value' => $filter['verify']?? \App\Enums\NewsVerify::ALL,
                                    'colLabel' => 'col-lg-2 ',
                                    'colInput' => 'col-lg-10 ',
                                    'values' => trans('enums.news_verify'),
                                    'attributes' => 'type="radio"',
                                    ])
                 @include('admin.inc.form.checkbox', [
-                              'name' => 'hot',
+                              'name' => 'filter[hot]',
                               'label' => __('ui.label.news.hot'),
-                              'value' => $_GET['hot']?? \App\Enums\NewsHot::ALL,
+                              'value' => $filter['hot']?? \App\Enums\NewsHot::ALL,
                               'colLabel' => 'col-lg-2 ',
                               'colInput' => 'col-lg-10 ',
                               'values' => trans('enums.news_hot'),
@@ -80,60 +80,66 @@
             <div class="card-header"><h1 class="h3 mb-2 text-gray-800">Tin tức</h1></div>
             <div class="card-body">
                 <div class="table-responsive pt-2">
-                    <table class="table table-bordered" id="dataTable" style="width:100%; cellspacing="0"" >
-                        <thead>
+                    <table class="table table-bordered" id="dataTable" style="width:100%; cellspacing=" 0
+                    "" >
+                    <thead>
+                    <tr>
+                        <th class="col-1">ID</th>
+                        <th class="col-2">{{__('ui.label.news.title')}}</th>
+                        <th class="col-1">{{__('ui.label.news.verify')}}</th>
+                        <th class="col-1">{{__('ui.label.news.admin')}}</th>
+                        <th class="col-1">{{__('ui.label.news.hot')}}</th>
+                        <th class="col-1">{{__('ui.label.news.tag')}}</th>
+                        <th class="col-2">{{__('ui.label.news.community')}}</th>
+                        <th class="col-2">{{__('ui.label.news.created_at')}}</th>
+                        <th class="col-1">{{__('ui.label.news.note')}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($listNews as $news)
                         <tr>
-                            <th class="col-1">ID</th>
-                            <th class="col-2">{{__('ui.label.news.title')}}</th>
-                            <th class="col-1">{{__('ui.label.news.verify')}}</th>
-                            <th class="col-1">{{__('ui.label.news.admin')}}</th>
-                            <th class="col-1">{{__('ui.label.news.hot')}}</th>
-                            <th class="col-1">{{__('ui.label.news.tag')}}</th>
-                            <th class="col-2">{{__('ui.label.news.community')}}</th>
-                            <th class="col-2">{{__('ui.label.news.created_at')}}</th>
-                            <th class="col-1">{{__('ui.label.news.note')}}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($listNews as $news)
-                            <tr>
-                                <td>{{$news->id}}</td>
-                                <td>{{$news->title}}</td>
-                                <td>{{trans('enums.news_verify')[$news->verify]}}</td>
-                                <td>{{trans('enums.news_hot')[$news->hot]}}</td>
-                                <td>{{__('enums.news_tag')[$news->tag]}}</td>
-                                <td>{{$news->admin->name}}</td>
-                                <td>{{$news->community->name ?? "Khác"}}</td>
-                                <td>{{$news->created_at}}</td>
-                                <td>
-                                    <a target="_blank" class="btn btn-success news-request-verify"
-                                       data-placement="top"
-                                       href="{{route('clients.news.show', [$news->id])}}"
-                                       title="{{__('btn.news-preview')}}">
-                                        <i class="fas fa-diagram-successor fa-fw"> </i>
-                                    </a>
+                            <td>{{$news->id}}</td>
+                            <td>{{$news->title}}</td>
+                            <td>{{trans('enums.news_verify')[$news->verify]}}</td>
+                            <td>{{trans('enums.news_hot')[$news->hot]}}</td>
+                            <td>{{__('enums.news_tag')[$news->tag]}}</td>
+                            <td>{{$news->admin->name}}</td>
+                            <td>{{$news->community->name ?? "Khác"}}</td>
+                            <td>{{convertTimeDbToTimeString($news->created_at)}}</td>
+                            <td>
+                                <a target="_blank" class="btn btn-outline-danger"
+                                   data-placement="top"
+                                   href="{{route('clients.news.show', [$news->id])}}"
+                                   title="{{__('btn.news-preview')}}">
+                                    <i class="fas fa-arrows-to-eye fa-fw"> </i>
+                                </a>
+                                @if($admin->role_admin != \App\Enums\AdminRole::EDITS)
                                     <a class="btn btn-outline-primary" data-toggle="tooltip"
                                        data-placement="top"
                                        title="{{__('btn.edit')}}"
                                        href="{{route('news.edit', [$news->id])}}"><span>
                                             <i class="fas fa-edit fa-fw"></i></span></a>
-                                    <button type="button" class="btn btn-outline-danger news-request-hot"
-                                            data-toggle="modal"
-                                            data-target="#exampleModalHot" data-toggle="tooltip"
-                                            data-placement="top"
-                                            data-url="{{route('news.setNews', [$news->id])}}"
-                                            title="{{__('btn.news-hot')}}">
-                                        <i class="fas fa-mug-hot fa-fw"> </i>
-                                    </button>
+                                    @if($news->verify == \App\Enums\NewsVerify::VERIFY)
+                                        <button type="button" class="btn btn-outline-danger news-request-hot"
+                                                data-toggle="modal"
+                                                data-target="#exampleModalHot" data-toggle="tooltip"
+                                                data-placement="top"
+                                                data-url="{{route('news.setNews', [$news->id])}}"
+                                                title="{{__('btn.news-hot')}}">
+                                            <i class="fas fa-mug-hot fa-fw"> </i>
+                                        </button>
+                                    @endif
                                     <button type="button"
                                             class="btn btn-outline-warning news-request-status"
                                             data-toggle="modal"
                                             data-target="#exampleModalVerify" data-toggle="tooltip"
                                             data-placement="top"
                                             data-url="{{route('news.verify', [$news->id])}}"
-                                            title="{{__('btn.news-verify')}}">
+                                            title="{{$news->verify == \App\Enums\NewsVerify::VERIFY ?__('btn.news-not-verify'):__('btn.news-verify')}}">
                                         <i class="fas fa-diagram-successor fa-fw"> </i>
                                     </button>
+                                @endif
+                                @if($admin->role_admin == \App\Enums\AdminRole::EDITS)
                                     <button type="button" class="btn btn-success news-request-verify"
                                             data-toggle="modal"
                                             data-censors="{{$news->censors}}"
@@ -143,24 +149,23 @@
                                             title="{{__('btn.news-request-verify')}}">
                                         <i class="fas fa-diagram-successor fa-fw"> </i>
                                     </button>
-
-                                    <button type="button"
-                                            class="btn btn-outline-dark news-destroy"
-                                            data-toggle="modal"
-                                            data-target="#exampleModalDelete" data-toggle="tooltip"
-                                            data-placement="top"
-                                            data-url="{{route('news.destroy', [$news->id])}}"
-                                            title="{{__('btn.news-destroy')}}">
-                                        <i class="fas fa-delete-left fa-fw"> </i>
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-
+                                @endif
+                                <button type="button"
+                                        class="btn btn-outline-dark news-destroy"
+                                        data-toggle="modal"
+                                        data-target="#exampleModalDelete" data-toggle="tooltip"
+                                        data-placement="top"
+                                        data-url="{{route('news.destroy', [$news->id])}}"
+                                        title="{{__('btn.news-destroy')}}">
+                                    <i class="fas fa-delete-left fa-fw"> </i>
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
 
                     </table>
-                    {!! $listNews->links() !!}
+                    {!! $listNews->appends(['filter' => $filter])->links()!!}
                 </div>
             </div>
         </div>
@@ -259,7 +264,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Xác nhận xoas baif vieets </h5>
+                    <h5 class="modal-title">Xác nhận xoá bài viết </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -267,7 +272,8 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
                             data-dismiss="modal">{{__('btn.close')}}</button>
-                    <button data-url ="" type="button" class="btn btn-primary btn-cf-detele" style="color: white">{{__('btn.confirm')}}</button>
+                    <button data-url="" type="button" class="btn btn-primary btn-cf-detele"
+                            style="color: white">{{__('btn.confirm')}}</button>
                 </div>
             </div>
         </div>
@@ -295,7 +301,7 @@
                 type: "DELETE",
                 data: {"_token": "{{ csrf_token() }}"},
                 url: $(this).attr('data-url'), //resource
-                success: function(response) {
+                success: function (response) {
                     window.location.reload()
                 },
                 error: function (response) {

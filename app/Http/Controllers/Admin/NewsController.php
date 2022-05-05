@@ -48,13 +48,15 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $listNews = $this->newsServices->getListNews(null, $request->all());
+        $listNews = $this->newsServices->getListNews(null, $request->filter);
         $listAdminCensors = $this->adminServices->getAdminCensor();
         $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
+        $filter = $request->get('filter');
         return view('admin.news.index', [
             'listAdminCensors' => $listAdminCensors,
             'listCommunity' => $listCommunityByRoleAdmin,
-            'listNews' => $listNews
+            'listNews' => $listNews,
+            'filter' => $filter
         ]);
     }
 
@@ -194,5 +196,15 @@ class NewsController extends Controller
 
         return redirect()->route('news.index');
     }
-
+    public function newsNotVerify()
+    {
+        $listNews = $this->newsServices->getListNewsNotVerify();
+        $listAdminCensors = $this->adminServices->getAdminCensor();
+        $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
+        return view('admin.news.new_not_verify', [
+            'listAdminCensors' => $listAdminCensors,
+            'listCommunity' => $listCommunityByRoleAdmin,
+            'listNews' => $listNews,
+        ]);
+    }
 }

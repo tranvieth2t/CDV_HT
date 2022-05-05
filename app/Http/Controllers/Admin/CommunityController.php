@@ -77,7 +77,7 @@ class CommunityController extends Controller
      */
     public function update(UpdateCommunityRequest $request, $id)
     {
-        $this->communityService->update($request->all(), $id);
+        $this->communityService->update($request, $id);
         return redirect()->route('dashboard');
     }
 

@@ -4,7 +4,6 @@
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                 <div class="col-lg-6">
                     <div class="p-5">
                         <div class="text-center">
@@ -23,7 +22,7 @@
                             </div>
                             <div class="form-group">
                                 <input  type="text" name="name" class="form-control form-control-user"
-                                       id="exampleInputEmail" aria-describedby="emailHelp"
+                                       id="exampleInputName" aria-describedby="name"
                                         value="{{$admin->name}}"
                                        placeholder="Enter name">
                                 @error('name')
@@ -39,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="password" name="cf_password" class="form-control form-control-user"
-                                       id="exampleInputPassword" value="{{old('cf_password')}}" placeholder="Xác nhận mật khẩu mới">
+                                       id="exampleInputCfPassword" value="{{old('cf_password')}}" placeholder="Xác nhận mật khẩu mới">
                                 @error('cf_password')
                                 <span style="color: red">{{$message}} </span>
                                 @enderror

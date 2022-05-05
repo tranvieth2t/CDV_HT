@@ -13,6 +13,7 @@ return [
     'news_thumbnail_default' => 'constants/news.jpg',
     'notify_thumbnail_default' => 'constants/notify.jpg',
     'banner_thumbnail_default' => 'constants/banner.jpg',
+    'community_thumbnail_default' => 'constants/community.jpg',
     'banner_thumbnail_small_default' => 'constants/banner_small.jpg',
     'icon_tag' => [
         \App\Enums\NewsTag::TT => '<i class="fa-solid fa-book-bible"> </i>',

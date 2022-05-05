@@ -17,6 +17,7 @@ class TableCommunity extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->text('description')->nullable();
+            $table->string('thumbnail',255)->default(config('constants.community_thumbnail_default'));
             $table->string('color',255)->nullable()->default('black');
             $table->text('content')->nullable();
             $table->string('facebook',255)->nullable();

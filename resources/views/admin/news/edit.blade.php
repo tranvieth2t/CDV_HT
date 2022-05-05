@@ -40,7 +40,7 @@
                                      'value' => $news->description,
                                      'colLabel' => 'col-lg-2 ',
                                      'colInput' => 'col-lg-10 ',
-                                     'attributes' => 'type ="text" maxlength="255"'
+                                     'attributes' => 'type ="text"'
                                      ])
                         @include('admin.inc.form.select', [
                                     'name' => 'community_id',

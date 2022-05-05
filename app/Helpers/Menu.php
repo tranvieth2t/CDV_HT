@@ -39,30 +39,30 @@ class Menu
                     ]
                 ]
             ],
-            [
-                'id' => 1,
-                'name' => trans('message.admin.users.user'),
-                'route' => '#',
-                'parent_id' => 0,
-                'icon' => '<i class="fa-solid fa-people-group"></i>',
-                'hideRole' => [],
-                'sub-menu' => [
-                    [
-                        'id' => '',
-                        'name' => trans('message.admin.users.edit-user'),
-                        'route' => 'admin/index',
-                        'parent_id' => 0,
-                        'hideRole' => [],
-                    ],
-                    [
-                        'id' => '',
-                        'name' => trans('message.admin.users.list-users'),
-                        'route' => 'admin/user',
-                        'parent_id' => 0,
-                        'hideRole' => [],
-                    ]
-                ]
-            ],
+//            [
+//                'id' => 1,
+//                'name' => trans('message.admin.users.user'),
+//                'route' => '#',
+//                'parent_id' => 0,
+//                'icon' => '<i class="fa-solid fa-people-group"></i>',
+//                'hideRole' => [],
+//                'sub-menu' => [
+//                    [
+//                        'id' => '',
+//                        'name' => trans('message.admin.users.edit-user'),
+//                        'route' => 'admin/index',
+//                        'parent_id' => 0,
+//                        'hideRole' => [],
+//                    ],
+//                    [
+//                        'id' => '',
+//                        'name' => trans('message.admin.users.list-users'),
+//                        'route' => 'admin/user',
+//                        'parent_id' => 0,
+//                        'hideRole' => [],
+//                    ]
+//                ]
+//            ],
             [
                 'id' => 2,
                 'name' => trans('message.admin.news.news'),
@@ -75,6 +75,13 @@ class Menu
                         'id' => '',
                         'name' => trans('message.admin.news.list-news'),
                         'route' => route('news.index'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ],
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.news.list-news_not_verify'),
+                        'route' => route('news-verify'),
                         'parent_id' => 0,
                         'hideRole' => [],
                     ],

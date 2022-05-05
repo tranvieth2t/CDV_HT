@@ -8,7 +8,7 @@
 </div>
 @include('clients.layouts.slide_left')
 @include('clients.layouts.header')
-<main class="bg-grey pb-30">
+<main class=" pb-30">
     @yield('content')
 </main>
 @include('clients.layouts.footer')

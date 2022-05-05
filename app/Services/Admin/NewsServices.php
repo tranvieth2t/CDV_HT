@@ -3,6 +3,7 @@
 namespace App\Services\Admin;
 
 use App\Enums\AdminRole;
+use App\Enums\NewsVerify;
 use App\Interfaces\NewsRepository;
 use App\Services\BaseService;
 use App\Services\S3Service;
@@ -24,6 +25,15 @@ class NewsServices extends BaseService
     public function getListNews($perPage = null, $condition = [])
     {
         return $this->repository->getListNews($perPage, $condition);
+    }
+
+    public function getListNewsNotVerify($perPage = 10, $condition = [])
+    {
+        return $this->repository
+            ->where('verify', NewsVerify::WAIT)
+            ->where('censors', Auth::guard('admin')->user()->id)
+            ->orderByDesc('id')
+            ->paginate($perPage);
     }
 
     public function getListNewHot($perPage = null, $condition = [])

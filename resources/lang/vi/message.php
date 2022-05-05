@@ -20,7 +20,8 @@ return [
             'created-news' => 'Thêm bài viết',
             'updatedSuccess' => 'Update thành công',
             'deletedSuccess' => 'Xoá thành công',
-            'deletedError' => 'Không thể xoá bài viết'
+            'deletedError' => 'Không thể xoá bài viết',
+            'list-news_not_verify' =>  'Bài viết chưa duyệt'
         ],
         'notify' => [
             'notify' => 'Thông báo',
