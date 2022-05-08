@@ -87,9 +87,9 @@
                         <th class="col-1">ID</th>
                         <th class="col-2">{{__('ui.label.news.title')}}</th>
                         <th class="col-1">{{__('ui.label.news.verify')}}</th>
-                        <th class="col-1">{{__('ui.label.news.admin')}}</th>
                         <th class="col-1">{{__('ui.label.news.hot')}}</th>
                         <th class="col-1">{{__('ui.label.news.tag')}}</th>
+                        <th class="col-1">{{__('ui.label.news.admin')}}</th>
                         <th class="col-2">{{__('ui.label.news.community')}}</th>
                         <th class="col-2">{{__('ui.label.news.created_at')}}</th>
                         <th class="col-1">{{__('ui.label.news.note')}}</th>

@@ -9,13 +9,14 @@
 </head>
 <body>
 <div>
-    <p>Your email address has been registered with an admin account.
-        Please click on the url to verify the account.</p>
+    <p>Bạn đã được thêm làm quản trị viên trên page cộng đoàn, vui lòng đăng nhập ở link phía dưới và thay đổi mật khẩu</p>
     <br>
-    <p>URL: {{ $data['url'] }}</p>
-    <p>Account Information</p>
+    <p>Link đổi mật khẩu :<a href="{{ $data['url'] }}">{{ $data['url'] }}</a></p>
+
+    <p>Link trang admin web cộng đoàn:  {{config('app.url')}}</p>
     <p>Email: {{ $data['email'] }}</p>
-    <p>Please avoid revealing your account information</p>
+    <p>Account Information</p>
+    <p>Mọi thắc mắc liên hệ : 'tranvieth2t@gmai.com' </p>
 </div>
 </body>
 </html>
