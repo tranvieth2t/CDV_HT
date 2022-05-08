@@ -10,10 +10,9 @@
                             <a href="{{route('home')}}">
                                 <i class="elegant-icon icon_house_alt mr-5"></i> Trang chủ</a>
                         </li>
-                        <li><a href="category-list.html.htm">Giới thiệu</a></li>
                         <li class=""><a href="">Thông báo</a></li>
 {{--                        <li class="menu-item-has-children"><a href="category-grid.html.htm">Tin cộng đoàn</a></li>--}}
-                        <li class="menu-item-has-children"><a href="{{route('clients.community.index')}}">Tin cộng đoàn</a>
+                        <li class="menu-item-has-children"><a href="{{route('clients.community.show', [1])}}">Giới thiệu</a>
                             <ul class="sub-menu font-small">
                                 @php($listCommunity = getFullCommunity())
                                 @foreach($listCommunity as $community)

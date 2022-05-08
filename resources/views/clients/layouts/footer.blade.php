@@ -25,7 +25,7 @@
             <div class="col-lg-2 col-md-6">
                 <div class="sidebar-widget widget_categories wow fadeInUp animated mb-30" data-wow-delay="0.1s">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">Quick link</h5>
+                        <h5 class="widget-title mt-5 mb-30">Quick link</h5>
                     </div>
                     <ul class="font-small">
                         <li class="cat-item cat-item-2"><a href="#">About me</a></li>
@@ -40,7 +40,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="sidebar-widget widget_tagcloud wow fadeInUp animated mb-30" data-wow-delay="0.2s">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">Tagcloud</h5>
+                        <h5 class="widget-title mt-5 mb-30">Tagcloud</h5>
                     </div>
                     <div class="tagcloud mt-50">
                         <a class="tag-cloud-link" href="category.html.htm">beautiful</a>
@@ -56,7 +56,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="sidebar-widget widget_newsletter wow fadeInUp animated mb-30" data-wow-delay="0.3s">
                     <div class="widget-header-2 position-relative mb-30">
-                        <h5 class="mt-5 mb-30">Newsletter</h5>
+                        <h5 class="widget-title mt-5 mb-30">Newsletter</h5>
                     </div>
                     <div class="newsletter">
                         <p class="font-medium">Subscribe to our newsletter and get our newest updates right on your inbox.</p>
