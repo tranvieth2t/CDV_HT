@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://cdvht.herokuapp.com'),
+    'url' => env('APP_URL', 'https://congdoanvinhhatinh.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
