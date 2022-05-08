@@ -40,7 +40,7 @@ function generatePassword($length = \App\Enums\AdminRole::DEFAULT_PASSWORD_LENGT
 function getListCommunityByRoleId()
 {
     $user = \Illuminate\Support\Facades\Auth::guard('admin')->user() ?? [];
-    if ($user->role_admin == \App\Enums\AdminRole::EDITS) {
+    if ($user->role_admin != \App\Enums\AdminRole::SUPPER_ADMIN) {
         return \Illuminate\Support\Facades\DB::table('community')->where('id', $user->community_id)->get();
     } else {
         return \Illuminate\Support\Facades\DB::table('community')->get();
