@@ -31,7 +31,7 @@ class NewsServices extends BaseService
             ->with('community')
             ->orderByDesc('created_at')
             ->where('community_id', Community::VHT)
-            ->limit(15)->get();
+            ->limit(12)->get();
     }
 
     public function findNews($id)

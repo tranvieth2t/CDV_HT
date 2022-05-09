@@ -55,7 +55,7 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = $this->newsService->findNews($id);
-        return view('clients.news.news',['news'=>$news]);
+        return view('clients.news.detail',['news'=>$news]);
     }
 
     /**

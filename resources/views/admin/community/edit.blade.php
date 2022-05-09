@@ -70,7 +70,7 @@
                         <div class="mb-3 div-edit-editor w-100 col-12">
                             <label for="community-content" class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.community.content') }}</label>
                             <textarea name="content" class="edit-content" id="community-content">
-                                {{$community->content}}
+                                {{old('content') ??  $community->content}}
                             </textarea>
                         </div>
                         <div class="justify-content-center d-flex">

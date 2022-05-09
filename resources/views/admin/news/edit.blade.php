@@ -16,7 +16,6 @@
                                      'colInput' => 'col-lg-10 ',
                                      'attributes' => 'type ="text"'
                                      ])
-
                         @include('admin.inc.form.input', [
                              'name' => 'thumbnail',
                              'label' => __('ui.label.news.thumbnail'),
@@ -63,7 +62,7 @@
                         <div class="mb-3 div-edit-editor w-100 col-12">
                             <label for="news-content" class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.news.content') }}</label>
                             <textarea name="content" class="edit-content" id="news-content">
-                                {{$news->content}}
+                                {{old('content') ??  $news->content}}
                             </textarea>
                         </div>
 

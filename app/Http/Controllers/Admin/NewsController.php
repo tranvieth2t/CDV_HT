@@ -67,10 +67,9 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $listAdminCensor = $this->adminServices->getAdminCensor();
         $listCommunityByRoleAdmin = $this->communityServices->getListCommunityByRoleAdmin();
         return view('admin.news.create',
-            ['listCommunity' => $listCommunityByRoleAdmin, 'adminCensors' => $listAdminCensor]);
+            ['listCommunity' => $listCommunityByRoleAdmin]);
     }
 
     /**

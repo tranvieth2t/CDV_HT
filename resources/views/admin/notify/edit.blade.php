@@ -53,9 +53,10 @@
 
 
                         <div class="mb-3 div-edit-editor w-100 col-12">
-                            <label for="notify-content" class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.notify.content') }}</label>
-                            <textarea name="content" class="edit-content" id="notify-content" >
-                                {{$notify->content}}
+                            <label for="notify-content"
+                                   class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.notify.content') }}</label>
+                            <textarea name="content" class="edit-content" id="notify-content">
+                                {{old('notify')??$notify->content}}
                             </textarea>
                         </div>
 
