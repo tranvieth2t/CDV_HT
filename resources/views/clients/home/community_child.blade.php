@@ -1,7 +1,7 @@
 <div class="bg-grey ">
     <div class="container">
         <div class="hot-tags pt-30 pb-30 font-small align-self-center">
-            <div class="widget-header-3">
+            <div class="widget-header-2">
                 <div class="row align-self-center">
                     <div class="col-md-4 align-self-center">
                         <h4 class="widget-title">Tin Cộng đoàn Thành Viên</h4>
@@ -44,8 +44,7 @@
                                         <div class="post-content p-30">
                                             <div class="entry-meta meta-0 font-small mb-15 d-flex justify-content-between">
                                                 <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">
-                                                    <span class="post-cat"
-                                                          style="color: {{$news[$index]->color}}">{{$news[$index]->name}}</span></a>
+                                                    <span class="post-cat">{{$news[$index]->name}}</span></a>
                                                 <a href="category.html.htm"><span
                                                             class="post-cat"
                                                             style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">
@@ -85,8 +84,7 @@
                                                     </a>
                                                 </h6>
                                                 <div class="entry-meta meta-1 float-left font-x-small ">
-                                                    <span class="post-cat font-weight-bold"
-                                                          style="color: {{$news[$index]->color}}">
+                                                    <span class="post-cat font-weight-bold">
                                                         {{$news[$index]->name}}</span>
                                                     <span
                                                             class="post-cat  "

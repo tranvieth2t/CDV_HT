@@ -1,7 +1,7 @@
 <div class="bg-grey ">
     <div class="container">
         <div class="hot-tags pt-30 pb-30 font-small align-self-center">
-            <div class="widget-header-3">
+            <div class="widget-header-2">
                 <div class="row align-self-center">
                     <div class="col-md-4 align-self-center">
                         <h4 class="widget-title">Tin Hội Thánh</h4>

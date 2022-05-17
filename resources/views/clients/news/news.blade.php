@@ -197,7 +197,7 @@
                 <div class="col-lg-4 primary-sidebar sticky-sidebar">
                     <div class="widget-area">
                         <div class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 bg-white border-radius-5 has-border  wow fadeInUp animated">
-{{--                            <img class="about-author-img mb-25" src="assets/imgs/authors/author.jpg" alt="">--}}
+{{--                            <img class="about-author-img mb-25" src="assets/imgs/authors/author-1.jpg" alt="">--}}
                             <h5 class="mb-20">{{$news->title}}</h5>
                             <p class="font-medium text-muted">{{$news->description}}</p>
                         </div>
