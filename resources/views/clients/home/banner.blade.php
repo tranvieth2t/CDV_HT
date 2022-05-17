@@ -7,27 +7,6 @@
                         <div >
                             <img src="{{getDomainShowImage().$banner->thumbnail}}" style="object-fit: cover; width: 100%">
                         </div>
-
-{{--                        <div class="post-content-overlay d-lg-block d-none">--}}
-{{--                            <div class="container">--}}
-{{--                                <div class="">--}}
-{{--                                    <div class="entry-meta meta-0 font-small mb-20">--}}
-{{--                                        <a href="category.html.htm" tabindex="0"><span--}}
-{{--                                                    class="post-cat text-info text-uppercase">Cộng đoàn Don Bosco</span></a>--}}
-{{--                                        <a href="category.html.htm" tabindex="0"><span--}}
-{{--                                                    class="post-cat text-warning text-uppercase">Animal</span></a>--}}
-{{--                                    </div>--}}
-{{--                                    <h1 class="post-title mb-20 font-weight-900 text-white">--}}
-{{--                                        <a class="text-white" href="single.html.htm" tabindex="0">Thánh lễ Quan Thầy--}}
-{{--                                            Cộng đoàn Don Bosco 2022</a>--}}
-{{--                                    </h1>--}}
-{{--                                    <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5 ">--}}
-{{--                                        <span class="post-on">THỨ SÁU, 13 THÁNG 5, 2022 </span>--}}
-{{--                                        <span class="hit-count has-dot">22K Người sẽ tham gia</span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
                 </div>
             </div>
