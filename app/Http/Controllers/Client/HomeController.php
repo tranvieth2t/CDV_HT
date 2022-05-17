@@ -42,18 +42,17 @@ class HomeController extends Controller
 
     public function index()
     {
-        $listNewHot = $this->newsServices->getListNewHotChildCommunity();
+        $listNewHotChildCommunity = $this->newsServices->getListNewHotChildCommunity();
         $listNewCatholic = $this->newsServices->getListNewCatholic();
         $listHotNewsParentCommunity = $this->newsServices->getListNewsParentCommunity();
         $listBanner = $this->bannerServices->getListBanner();
-
         $listNotify = $this->notifyServices->getListNotify();
 
         return view('clients.index',
             [
-                'listHotNews' => $listNewHot,
-                'listNewsCatholic' => $listNewCatholic,
+                'listNewHotChildCommunity' => $listNewHotChildCommunity,
                 'listHotNewsParentCommunity' => $listHotNewsParentCommunity,
+                'listNewsCatholic' => $listNewCatholic,
                 'listBanner' => $listBanner,
                 'listNotify' => $listNotify,
             ]);

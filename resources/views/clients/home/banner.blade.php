@@ -24,7 +24,7 @@
                         </div>
                         <div class="post-content media-body text-white">
                             <a href="{{$banner->link}}">
-                            <h5 class="post-title mb-15 text-limit-2-row text-white">{{$banner->id}}</h5>
+                            <h5 class="post-title mb-15 text-limit-2-row text-white">{{$banner->title}}</h5>
                             </a>
                             <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
                                 <span class="post-on text-white">{{convertTimeDbToTimeString($banner->start_date)}} </span>

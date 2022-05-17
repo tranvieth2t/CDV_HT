@@ -16,12 +16,12 @@ class BannerServices extends BaseService
         $this->repository = $repository;
     }
 
-
     public function getListBanner()
     {
         return $this->repository
             ->where('verify', BannerVerify::VERIFY)
             ->orderByDesc('start_date')
-            ->limit(10)->get();
+            ->limit(5)
+            ->get();
     }
 }

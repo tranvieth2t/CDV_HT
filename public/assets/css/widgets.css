@@ -21,10 +21,6 @@
     left: 0;
 }
 
-.widget-header-3 .widget-title {
-    text-transform: uppercase;
-    font-size: 16px;
-}
 
 /*Widget sidebar menu*/
 .sidebar-widget ul.menu li {
@@ -51,7 +47,7 @@
     font-weight: 400;
     line-height: 0;
     padding: 15px 20px;
-    border-radius: 30px;
+    border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
     margin: 0 5px 10px 0;
     border: 1px solid #ebebeb;
     background: #f2f3f5;
@@ -59,7 +55,7 @@
 
 /*Widget about*/
 .about-author-img {
-    border-radius: 50%;
+    border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
     width: 64px;
     height: 64px;
     box-shadow: 0 2px 4px var(--button-shadow-color-normal), 0 0 0 transparent
@@ -105,7 +101,7 @@
     margin: 0px 8px 0 0;
     display: inline-block;
     vertical-align: middle;
-    border-radius: 2px;
+    border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
 }
 
 .custome-checkbox .form-check-label span {
@@ -202,7 +198,7 @@
 .form-subcriber input.form-control {
     padding: 16px 25px;
     line-height: 24px;
-    border-radius: 30px 0 0 30px;
+    border-radius: calc(.375rem - 1px) calc(.375rem - 1px) 0 0;
     max-width: 300px;
     font-size: 0.875rem;
 }

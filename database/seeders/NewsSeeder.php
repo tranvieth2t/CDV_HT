@@ -21,7 +21,7 @@ class NewsSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 100;
+        $limit = 1000;
         $listAdmin = DB::table('admins')->get();
         $listAdminCensor = DB::table('admins')->where('role_admin', AdminRole::ADMIN)->get();
         $listCommunity = DB::table('community')->get();

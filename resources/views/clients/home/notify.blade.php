@@ -13,7 +13,7 @@
                         </a>
                     </div>
                     <div class="post-content media-body">
-                        <p><a href="category.html.htm" class="text-limit-3-row">{{$notify->title.$notify->id}}}}</a></p>
+                        <p><a href="category.html.htm" class="text-limit-3-row">{{$notify->title}}</a></p>
 {{--                        <p class="text-muted font-small">{{$notify->description}}.</p>--}}
                     </div>
                 </div>

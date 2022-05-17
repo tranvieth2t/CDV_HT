@@ -15,7 +15,6 @@ class Community extends Model
         'description',
         'thumbnail',
         'content',
-        'color',
         'facebook',
         'parent',
         'instagram',

@@ -120,7 +120,7 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     {
         return DB::select(
             "select * from (
-                        select news.*,community.name, community.color,
+                        select news.*,community.name,
                                row_number() over(partition by news.community_id order by news.created_at desc ) as country_rank 
                         from news JOIN community on news.community_id = community.id 
                         WHERE news.hot=" . NewsHot::HOT . " 
