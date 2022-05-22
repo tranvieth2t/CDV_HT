@@ -1,5 +1,6 @@
 @extends('clients.layouts.app')
 @section('content')
+
     <main class="bg-grey pb-30 pt-30">
         <div class="container single-content">
             <div class="row">

@@ -31,7 +31,7 @@ class News extends Model
     ];
 
     public function getIsThumbnailDefaultAttribute () {
-        return ($this->thumbnail == config('constants.news_thumbnail_default')) ;
+        return ($this->thumbnail == config('constants.news_thumbnail_default.'.$this->community_id)) ;
     }
     public function admin()
     {
