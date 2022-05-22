@@ -6,7 +6,7 @@
                     <h4 class="widget-title">Tin Cộng đoàn giáo phận Vinh Hà Tĩnh tại Hà Nội</h4>
                 </div>
                 <div class="col-md-4 text-md-right font-small align-self-center">
-                    <a href="{{route('clients.community.show', [$news[0]->community_id])}}"
+                    <a href="{{route('clients.news.community', [$news[0]->community_id])}}"
                        class="d-inline-block mr-5 mb-0">
                         <i class="elegant-icon  icon_tag_alt mr-5 text-muted"></i>Xem thêm
                     </a>
@@ -31,9 +31,9 @@
                                     </span>
                                     <div class="post-content-overlay text-white p-30">
                                         <div class="entry-meta meta-0 font-small mb-15">
-                                            <a href="{{route('clients.community.show', [$news[$index]->community_id])}}"><span
+                                            <a href="{{route('clients.news.community', [$news[$index]->community_id])}}"><span
                                                         class="post-cat ">Cộng đoàn Vinh Hà Tĩnh</span></a>
-                                            <a href="category.html.htm"><span
+                                            <a href="{{route('home')}}"><span
                                                         class="post-cat  "
                                                         style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">{{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}</span></a>
                                         </div>
@@ -98,9 +98,9 @@
                         </div>
                         <div class="post-content p-30">
                             <div class="entry-meta meta-0 font-small mb-15 d-flex justify-content-between">
-                                <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">
+                                <a href="{{route('clients.news.community', [$news[$index]->community_id])}}">
                                                     <span class="post-cat">Cộng đoàn Vinh Hà Tĩnh</span></a>
-                                <a href="category.html.htm"><span
+                                <a href="{{route('home')}}"><span
                                             class="post-cat"
                                             style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">
                                                         {{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}

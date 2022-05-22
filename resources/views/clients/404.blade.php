@@ -33,8 +33,8 @@
             </div>
             <div class="widget_nav_menu">
                 <ul>
-                    <li class="cat-item cat-item-2"><a href="category.html.htm">Travel tips</a> <span class="post-count">30</span></li>
-                    <li class="cat-item cat-item-3"><a href="category-grid.html.htm">Book review</a> <span class="post-count">25</span></li>
+                    <li class="cat-item cat-item-2"><a href="{{route('home')}}">Travel tips</a> <span class="post-count">30</span></li>
+                    <li class="cat-item cat-item-3"><a href="{{route('home')}}">Book review</a> <span class="post-count">25</span></li>
                     <li class="cat-item cat-item-4"><a href="category-list.html.htm">Hotel review</a> <span class="post-count">16</span></li>
                     <li class="cat-item cat-item-5"><a href="category-masonry.html.htm">Destinations </a> <span class="post-count">22</span></li>
                     <li class="cat-item cat-item-6"><a href="category-big.html.htm">Lifestyle</a> <span class="post-count">25</span></li>
@@ -137,7 +137,7 @@
                                 <li class="menu-item-has-children"><a href="#">Category</a>
                                     <ul class="sub-menu font-small">
                                         <li><a href="category-list.html.htm">List layout</a></li>
-                                        <li><a href="category-grid.html.htm">Grid layout</a></li>
+                                        <li><a href="{{route('home')}}">Grid layout</a></li>
                                         <li><a href="category-masonry.html.htm">Masonry layout</a></li>
                                         <li><a href="category-big.html.htm">Big layout</a></li>
                                     </ul>
@@ -178,13 +178,13 @@
                         </li>
                         <li> <a href="category-list.html.htm">Travel</a> </li>
                         <li class="current-item"> <a href="category-list.html.htm">Destinations</a> </li>
-                        <li> <a href="category-grid.html.htm">Guides</a> </li>
+                        <li> <a href="{{route('home')}}">Guides</a> </li>
                         <li> <a href="category-masonry.html.htm">Food</a> </li>
                         <li> <a href="category-big.html.htm">Hotels</a> </li>
-                        <li> <a href="category.html.htm">Review</a> </li>
-                        <li> <a href="category.html.htm">Healthy </a> </li>
-                        <li> <a href="category.html.htm">Lifestyle</a> </li>
-                        <li> <a href="category.html.htm">Blog</a> </li>
+                        <li> <a href="{{route('home')}}">Review</a> </li>
+                        <li> <a href="{{route('home')}}">Healthy </a> </li>
+                        <li> <a href="{{route('home')}}">Lifestyle</a> </li>
+                        <li> <a href="{{route('home')}}">Blog</a> </li>
                     </ul>
                     <!--Mobile menu-->
                     <ul id="mobile-menu" class="d-block d-lg-none text-muted">
@@ -211,7 +211,7 @@
                         <li class="menu-item-has-children"><a href="#">Category</a>
                             <ul class="sub-menu font-small">
                                 <li><a href="category-list.html.htm">List layout</a></li>
-                                <li><a href="category-grid.html.htm">Grid layout</a></li>
+                                <li><a href="{{route('home')}}">Grid layout</a></li>
                                 <li><a href="category-masonry.html.htm">Masonry layout</a></li>
                                 <li><a href="category-big.html.htm">Big layout</a></li>
                             </ul>
@@ -266,14 +266,14 @@
                 <div class="col-12 font-small suggested-area">
                     <h5 class="suggested font-heading mb-20 text-muted"> <strong>Suggested keywords:</strong></h5>
                     <ul class="list-inline d-inline-block">
-                        <li class="list-inline-item"><a href="category.html.htm">World</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">American</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">Opinion</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">Tech</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">Science</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">Books</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">Travel</a></li>
-                        <li class="list-inline-item"><a href="category.html.htm">Business</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">World</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">American</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">Opinion</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">Tech</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">Science</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">Books</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">Travel</a></li>
+                        <li class="list-inline-item"><a href="{{route('home')}}">Business</a></li>
                     </ul>
                 </div>
             </div>
@@ -286,7 +286,7 @@
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6> <a href="category.html.htm">Travel Tips</a> </h6>
+                            <h6> <a href="{{route('home')}}">Travel Tips</a> </h6>
                             <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
@@ -299,7 +299,7 @@
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6> <a href="category.html.htm">Lifestyle</a> </h6>
+                            <h6> <a href="{{route('home')}}">Lifestyle</a> </h6>
                             <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
@@ -312,7 +312,7 @@
                             </a>
                         </div>
                         <div class="post-content media-body">
-                            <h6> <a href="category.html.htm">Hotel Review</a> </h6>
+                            <h6> <a href="{{route('home')}}">Hotel Review</a> </h6>
                             <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
@@ -388,13 +388,13 @@
                         <h5 class="mt-5 mb-30">Tagcloud</h5>
                     </div>
                     <div class="tagcloud mt-50">
-                        <a class="tag-cloud-link" href="category.html.htm">beautiful</a>
-                        <a class="tag-cloud-link" href="category.html.htm">New York</a>
-                        <a class="tag-cloud-link" href="category.html.htm">droll</a>
-                        <a class="tag-cloud-link" href="category.html.htm">intimate</a>
-                        <a class="tag-cloud-link" href="category.html.htm">loving</a>
-                        <a class="tag-cloud-link" href="category.html.htm">travel</a>
-                        <a class="tag-cloud-link" href="category.html.htm">fighting </a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">beautiful</a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">New York</a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">droll</a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">intimate</a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">loving</a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">travel</a>
+                        <a class="tag-cloud-link" href="{{route('home')}}">fighting </a>
                     </div>
                 </div>
             </div>

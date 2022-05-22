@@ -106,7 +106,9 @@ class NewsRepositoryEloquent extends BaseRepository implements NewsRepository
     public function getListNewHot($perPage, $conditions = [], $columns = ['*'])
     {
         $query = $this->model;
-        $query = $query->where('hot', NewsHot::HOT)->get();
+        $query = $query
+            ->where('hot', NewsHot::HOT)
+            ->get();
         return $query;
     }
 

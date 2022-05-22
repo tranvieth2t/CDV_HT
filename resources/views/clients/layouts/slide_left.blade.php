@@ -1,5 +1,5 @@
 <aside id="sidebar-wrapper" class="custom-scrollbar offcanvas-sidebar">
-    <button class="off-canvas-close"><i class="elegant-icon icon_close"></i></button>
+    <button class="off-canvas-close"><i class=" fas fa-close"></i></button>
     <div class="sidebar-inner">
         <!--Categories-->
         <div class="sidebar-widget widget_categories mb-50 mt-30">

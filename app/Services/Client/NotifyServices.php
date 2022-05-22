@@ -23,4 +23,13 @@ class NotifyServices extends BaseService
             ->orderByDesc('created_at')
             ->limit(10)->get();
     }
+
+    public function findNotify($id)
+    {
+        $notify = $this->repository->with('community')->find($id);
+        if ($notify->verify == NotifyVerify::VERIFY || Auth::guard('admin')->user()) {
+            return $notify;
+        }
+        return abort(404);
+    }
 }

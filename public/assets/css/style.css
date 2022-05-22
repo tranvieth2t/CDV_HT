@@ -914,21 +914,22 @@ header .search-icon .ti-close,
 
 .main-header .main-nav ul li.menu-item-has-children > a::before,
 .nav-topbar li.menu-item-has-children > a::before {
-    content: "<i class="fa-solid fa-angle-right"></i>";
-    display: inline-block;
-    padding-left: 5px;
-    position: absolute;
-    right: 0;
-    font-size: 14px;
+    /*content: "\33";*/
+    /*font-family: 'ElegantIcons';*/
+    /*display: inline-block;*/
+    /*padding-left: 5px;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*font-size: 14px;*/
 }
 
 .nav-topbar li.menu-item-has-children > ul > li.menu-item-has-children > a::before {
-    content: "<i class="fa-solid fa-angle-right"></i>";
-    display: inline-block;
-    padding-right: 8px;
-    position: absolute;
-    right: 0;
-    font-size: 14px;
+    /*content: "<i class="fa-solid fa-angle-right"></i>";*/
+    /*display: inline-block;*/
+    /*padding-right: 8px;*/
+    /*position: absolute;*/
+    /*right: 0;*/
+    /*font-size: 14px;*/
 }
 
 .nav-topbar ul.sub-menu,
@@ -1287,6 +1288,9 @@ header .search-icon .ti-close,
 
 .pagination-area .page-item.active .page-link {
     color: #fff !important;
+}
+.pagination {
+    justify-content: center;
 }
 
 .page-item:last-child .page-link,
