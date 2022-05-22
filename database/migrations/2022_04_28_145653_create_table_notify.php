@@ -17,8 +17,8 @@ class CreateTableNotify extends Migration
             $table->id();
             $table->string('title', 255);
             $table->string('thumbnail')->default(config('constants.notify_thumbnail_default'));
-            $table->string('description')->nullable();
-            $table->string('content')->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
             $table->tinyInteger('verify')->default(\App\Enums\NotifyVerify::NOT_VERIFY);
             $table->integer('community_id')->nullable()->unsigned();
             $table->integer('created_by')->unsigned();

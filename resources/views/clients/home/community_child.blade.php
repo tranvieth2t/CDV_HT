@@ -43,9 +43,9 @@
                                         </div>
                                         <div class="post-content p-30">
                                             <div class="entry-meta meta-0 font-small mb-15 d-flex justify-content-between">
-                                                <a href="{{route('clients.community.show', [$news[$index]->community_id])}}">
+                                                <a href="{{route('clients.news.community', [$news[$index]->community_id])}}">
                                                     <span class="post-cat">{{$news[$index]->name}}</span></a>
-                                                <a href="category.html.htm"><span
+                                                <a href="{{route('home')}}"><span
                                                             class="post-cat"
                                                             style="color: {{config('constants.color_tag')[$news[$index]->tag]}}">
                                                         {{__('enums.news_tag')[$news[$index]->tag] ?? 'Khác'}}

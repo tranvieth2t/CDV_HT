@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Services\Client\NewsServices;
+use App\Services\Client\NotifyServices;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class NotifyController extends Controller
 {
-    protected $newsService;
-    public function __construct(NewsServices $newsServices)
+    protected $notifyService;
+    public function __construct(NotifyServices $notifyServices)
     {
-        $this->newsService = $newsServices;
+        $this->notifyService = $notifyServices;
     }
 
     /**
@@ -21,23 +21,12 @@ class NewsController extends Controller
      */
     public function index(Request $request)
     {
-        $listNews = $this->newsService->getListNews($request);
-        return view('clients.news.index', [
-            'listNews' => $listNews
+        $listNotify = $this->notifyService->getListNotify($request);
+        return view('clients.notify.index', [
+            'listNotify' => $listNotify
         ]);
     }
 
-    /**
-     * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function getListNewsCommunity($id)
-    {
-        $listNews = $this->newsService->getListNewsCommunity($id);
-        return view('clients.news.index', [
-            'listNews' => $listNews
-        ]);
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -67,9 +56,9 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = $this->newsService->findNews($id);
-        $listNewsHot =  $this->newsService->getListNewHotChild($news->community_id);
-        return view('clients.news.news',['news'=>$news, 'listNewsHot' => $listNewsHot]);
+        $notify = $this->notifyService->findNotify($id);
+        $listNotifyHot =  $this->notifyService->getListNotify($notify->community_id);
+        return view('clients.notify.detail',['notify'=>$notify, 'listNotifyHot' => $listNotifyHot]);
     }
 
     /**

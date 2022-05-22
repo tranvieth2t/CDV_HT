@@ -216,7 +216,7 @@
                         </a>
                     </div>
                     <div class="post-content media-body">
-                        <h6><a href="category.html.htm">Travel Tips</a></h6>
+                        <h6><a href="{{route('home')}}">Travel Tips</a></h6>
                         <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
@@ -228,7 +228,7 @@
                         </a>
                     </div>
                     <div class="post-content media-body">
-                        <h6><a href="category.html.htm">Lifestyle</a></h6>
+                        <h6><a href="{{route('home')}}">Lifestyle</a></h6>
                         <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
@@ -240,7 +240,7 @@
                         </a>
                     </div>
                     <div class="post-content media-body">
-                        <h6><a href="category.html.htm">Foody</a></h6>
+                        <h6><a href="{{route('home')}}">Foody</a></h6>
                         <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
@@ -252,7 +252,7 @@
                         </a>
                     </div>
                     <div class="post-content media-body">
-                        <h6><a href="category.html.htm">Entertaiment</a></h6>
+                        <h6><a href="{{route('home')}}">Entertaiment</a></h6>
                         <p class="text-muted font-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>

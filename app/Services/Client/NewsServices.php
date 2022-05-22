@@ -41,7 +41,6 @@ class NewsServices extends BaseService
             return $news;
         }
         return abort(404);
-
     }
 
     public function getListNewsCommunity($community_id)
@@ -49,16 +48,33 @@ class NewsServices extends BaseService
         return $this->repository
             ->where('community_id', $community_id)
             ->where('verify', NewsVerify::VERIFY)
-            ->orderBy('created_at')
+            ->orderByDesc('created_at')
             ->with('community')
-            ->paginate(10);
+            ->paginate(9);
+    }
+    public function getListNewHotChild($community_id)
+    {
+        return $this->repository
+            ->where('community_id', $community_id)
+            ->where('verify', NewsVerify::VERIFY)
+            ->where('hot', NewsHot::HOT)
+            ->orderByDesc('created_at')
+            ->with('community')
+            ->limit(5)->get();
     }
 
     public function getListNewCatholic() {
         return $this->repository
             ->where('verify', NewsVerify::VERIFY)
-            ->orderBy('created_at')
+            ->orderByDesc('created_at')
             ->limit(4)
             ->get();
+    }
+
+    public function getListNews($request) {
+        return $this->repository
+            ->where('verify', NewsVerify::VERIFY)
+            ->orderByDesc('created_at')
+            ->paginate(9);
     }
 }

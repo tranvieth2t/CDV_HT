@@ -8,15 +8,15 @@
                     <div class="single-content2">
                         <div class="entry-header entry-header-style-1 mb-50">
                             <h1 class="entry-title mb-30 font-weight-900">
-                                {!! $news->title !!}
+                                <section>{!! $notify->title !!}</section>
                             </h1>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="entry-meta align-items-center meta-2 font-small color-muted">
                                         <p class="mb-5">
-                                            By <a href="author.html"><span class="author-name font-weight-bold">{{$news->community->name}}</span></a>
+                                            By <a href="author.html"><span class="author-name font-weight-bold">{{$notify->community->name}}</span></a>
                                         </p>
-                                        <span class="mr-10">{{convertTimeDbToTimeString($news->created_at)}}</span>
+                                        <span class="mr-10">{{convertTimeDbToTimeString($notify->created_at)}}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 text-right d-none d-md-inline">
@@ -37,11 +37,11 @@
                         </div>
                         <!--end single header-->
                         <figure class="image mb-30 m-auto text-center border-radius-10">
-                            <img class="border-radius-10" src="{{getDomainShowImage().$news->thumbnail}}" alt="post-title">
+                            <img class="border-radius-10" src="{{getDomainShowImage().$notify->thumbnail}}" alt="post-title">
                         </figure>
                         <!--figure-->
                         <article class="entry-wraper mb-50">
-                            {!! $news->content !!}
+                            <section>{!! $notify->content !!}</section>
                             <!--Comments-->
                             <div class="comments-area">
                                 <div class="widget-header-2 position-relative mb-30">
@@ -199,8 +199,8 @@
                     <div class="widget-area">
                         <div class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 bg-white border-radius-5 has-border  wow fadeInUp animated">
 {{--                            <img class="about-author-img mb-25" src="assets/imgs/authors/author-1.jpg" alt="">--}}
-                            <h5 class="mb-20">{!!$news->title!!}</h5>
-                            <p class="font-medium text-muted">{{$news->description}}</p>
+                            <h5 class="mb-20">{!!$notify->title!!}</h5>
+                            <p class="font-medium text-muted">{{$notify->description}}</p>
                         </div>
                         <div class="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">
                             <div class="widget-header-1 position-relative mb-30">
@@ -208,22 +208,22 @@
                             </div>
                             <div class="post-block-list post-module-1">
                                 <ul class="list-post">
-                                    @foreach($listNewsHot as $news)
+                                    @foreach($listNotifyHot as $notify)
                                     <li class="mb-30 wow fadeInUp animated">
                                         <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">
                                             <div class="post-content media-body">
                                                 <h6 class="post-title mb-15 text-limit-3-row font-medium"><a
-                                                            href="{{ route('clients.news.show', [$news->id]) }}">
-                                                        {!! $news->title !!}
+                                                            href="{{ route('clients.notify.show', [$notify->id]) }}">
+                                                        {!! $notify->title !!}
                                                     </a></h6>
                                                 <div class="entry-meta meta-1 float-left font-x-small text-uppercase">
-                                                    <span class="post-on">{{convertTimeDbToTimeString($news->created_at)}}</span>
+                                                    <span class="post-on">{{convertTimeDbToTimeString($notify->created_at)}}</span>
 {{--                                                    <span class="post-by has-dot">150 views</span>--}}
                                                 </div>
                                             </div>
                                             <div class="post-thumb post-thumb-80 d-flex ml-15 border-radius-5 img-hover-scale overflow-hidden">
                                                 <a class="color-white" href="single.html.htm">
-                                                    <img src="{{getDomainShowImage().$news->thumbnail}}" alt="">
+                                                    <img src="{{getDomainShowImage().$notify->thumbnail}}" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -232,47 +232,7 @@
                                 </ul>
                             </div>
                         </div>
-{{--                        <div class="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">--}}
-{{--                            <div class="widget-header-1 position-relative mb-30">--}}
-{{--                                <h5 class="mt-5 mb-30">Last comments</h5>--}}
-{{--                            </div>--}}
-{{--                            <div class="post-block-list post-module-2">--}}
-{{--                                <ul class="list-post">--}}
-{{--                                    <li class="mb-30 wow fadeInUp animated">--}}
-{{--                                        <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">--}}
-{{--                                            <div class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">--}}
-{{--                                                <a class="color-white" href="single.html.htm">--}}
-{{--                                                    <img src="assets/imgs/authors/author-2.jpg" alt="">--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="post-content media-body">--}}
-{{--                                                <p class="mb-10"><a href="author.html"><strong>David</strong></a>--}}
-{{--                                                    <span class="ml-15 font-small text-muted has-dot">16 Jan 2020</span>--}}
-{{--                                                </p>--}}
-{{--                                                <p class="text-muted font-small">A writer is someone for whom writing is--}}
-{{--                                                    more difficult than...</p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="wow fadeInUp animated">--}}
-{{--                                        <div class="d-flex bg-white has-border p-25 hover-up transition-normal border-radius-5">--}}
-{{--                                            <div class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">--}}
-{{--                                                <a class="color-white" href="single.html.htm">--}}
-{{--                                                    <img src="assets/imgs/news/thumb-1.jpg" alt="">--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="post-content media-body">--}}
-{{--                                                <p class="mb-10"><a href="author.html"><strong>Tsukasi</strong></a>--}}
-{{--                                                    <span class="ml-15 font-small text-muted has-dot">18 May 2020</span>--}}
-{{--                                                </p>--}}
-{{--                                                <p class="text-muted font-small">Workwear bow detailing a slingback--}}
-{{--                                                    buckle strap</p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
                     </div>
                 </div>
             </div>

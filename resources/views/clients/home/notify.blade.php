@@ -6,15 +6,15 @@
             </div>
             <div class="carausel-3-columns" >
                 @foreach($listNotify  as $notify)
-                <div class="carausel-3-columns-item d-flex bg-grey has-border p-25 hover-up-2 transition-normal border-radius-5 " style="min-height: 100px">
+                <div class="carausel-3-columns-item d-flex bg-grey has-border p-15 hover-up-2 transition-normal border-radius-5 " style="min-height: 100px">
                     <div class="post-thumb post-thumb-64 d-flex mr-15 border-radius-5 img-hover-scale overflow-hidden">
                         <a class="color-white" href="single.html.htm">
                             <img src="{{getDomainShowImage().$notify->thumbnail}}" alt="">
                         </a>
                     </div>
                     <div class="post-content media-body">
-                        <p><a href="category.html.htm" class="text-limit-3-row">{!!$notify->title!!}</a></p>
-{{--                        <p class="text-muted font-small">{{$notify->description}}.</p>--}}
+                        <p><a href="{{route("clients.notify.show", [$notify->id])}}" class="text-limit-3-row">{!!$notify->title!!}</a></p>
+                        <p class="text-muted font-small mb-0">{{ convertTimeDbToTimeString($notify->created_at) }}</p>
                     </div>
                 </div>
                 @endforeach
