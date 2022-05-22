@@ -22,7 +22,7 @@
                         @foreach($listNotify as $notify)
                             <tr>
                                 <td>{{$notify->id}}</td>
-                                <td>{{$notify->title}}</td>
+                                <td>{!!$notify->title!!}</td>
                                 <td>{{trans('enums.notify_verify')[$notify->verify]}}</td>
                                 <td>{{$notify->admin->name}}</td>
                                 <td>{{$notify->community->name ?? "Khác"}}</td>

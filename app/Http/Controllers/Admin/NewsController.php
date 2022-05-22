@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\AdminRole;
 use App\Enums\NewsHot;
+use App\Enums\NewsTag;
 use App\Enums\NewsVerify;
 use App\Http\Controllers\Controller;
 use App\Services\Admin\AdminServices;
@@ -40,7 +41,100 @@ class NewsController extends Controller
         $this->mailServices = $mailService;
         $this->s3Services = $s3Service;
     }
+    public function convertNews() {
+        $params["community_id"] = DB::table('community')->where("id", 2)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.2');
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Don Bosco" . '%')
+            ->update($params);
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Don Bosco" . '%')->get();
+        $params["community_id"] = DB::table('community')->where("id", 3)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.3');
 
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Mẹ Vô Nhiễm" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 4)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.4');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Gioan Tông Đồ" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 5)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.5');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Đaminh Savio" . '%')
+            ->update($params);
+        $params["community_id"] = DB::table('community')->where("id", 6)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.6');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Phaolo Trở Lại" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 7)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.7');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Anton Padua" . '%')
+            ->update($params);
+        $params["community_id"] = DB::table('community')->where("id", 8)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.8');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Phanxico Assisi" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 9)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.9');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Phanxico Xavie" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 10)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.10');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Cựu SV" . '%')
+            ->update($params);
+        $params["community_id"] = DB::table('community')->where("id", 1)->first()->id;
+        $params['thumbnail'] = config('constants.news_thumbnail_default.1');
+
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Cộng đoàn Vinh" . '%')
+            ->update($params);
+        // tag
+        $tag['tag'] = NewsTag::NK;
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "bóng đá" . '%')
+            ->orWhere('title', 'LIKE', '%' . "Picnic" . '%')
+            ->update($tag);
+
+        $tag['tag'] = NewsTag::TT;
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "cuộc thi viết" . '%')
+            ->orWhere('title', 'LIKE', '%' . "Rung Chuông Vàng" . '%')
+            ->update($tag);
+        $tag['tag'] = NewsTag::TL;
+        $data = DB::table('news')
+            ->where('title', 'LIKE', '%' . "Tĩnh Tâm" . '%')
+            ->orWhere('title', 'LIKE', '%' . "Cầu nguyện" . '%')
+            ->update($tag);
+        $community = DB::table('community')->pluck("id");
+        foreach ($community as $id) {
+            DB::table("news")
+                ->where("community_id", $id)
+                ->orderByDesc('created_at')
+                ->limit("2")
+                ->update(["hot"=> NewsHot::HOT]);
+        }
+        dd("done");
+    }
     /**
      * Display a listing of the resource.
      *
@@ -101,7 +195,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-    return abort(404);
+        return abort(404);
     }
 
     /**
@@ -144,17 +238,17 @@ class NewsController extends Controller
      * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
         if (!$request->ajax()) {
             return response()->json([
                 'code' => 500,
                 'data' => trans('message.admin.news.deletedError'),
-            ] , 500);
+            ], 500);
         }
         if (Auth::guard('admin')->user()->role_admin > AdminRole::ADMIN) {
             return response()->json([
-                'code'    => 500,
+                'code' => 500,
                 'message' => trans('message.admin.news.deletedError'),
             ], 500);
         }
@@ -196,6 +290,7 @@ class NewsController extends Controller
 
         return redirect()->route('news.index');
     }
+
     public function newsNotVerify()
     {
         $listNews = $this->newsServices->getListNewsNotVerify();

@@ -33,6 +33,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::resource('admins', AdminController::class)->names('admins');
     //News
     Route::resource('/news', NewsController::class)->names('news');
+    Route::get('/convert_news', [NewsController::class, 'convertNews'])->name('convert_news');
+    Route::get('/convert_notify', [NotifyController::class, 'convertNotify'])->name('convert_notify');
     Route::get('/news-verify', [NewsController::class, 'newsNotVerify'])->name('news-verify');
     Route::get('/news/{id}/show',[NewsController::class,'show']) ->name('news.show');
     Route::get('/news/{id}/verify', [NewsController::class,'verify']) ->name('news.verify');

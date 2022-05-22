@@ -18,7 +18,7 @@ class CreateNewsTable extends Migration
             $table->id();
 
             $table->string('title', 255);
-            $table->string('thumbnail')->default(config('constants.news_thumbnail_default'));
+            $table->string('thumbnail')->default(config('constants.news_thumbnail_default.0'));
             $table->text('description')->nullable();
             $table->text('content')->nullable();
             $table->tinyInteger('verify')->default(\App\Enums\NewsVerify::NOT_VERIFY);

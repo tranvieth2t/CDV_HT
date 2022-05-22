@@ -41,7 +41,7 @@
                                 <div class="col-md-8">
                                     <div class="post-content">
                                         <h6 class="post-title font-weight-600 mb-15 text-justify">
-                                            <a href="{{route('clients.news.show', [$news->id])}}">{{$news->title}}</a>
+                                            <a href="{{route('clients.news.show', [$news->id])}}">{!!$news->title!!}</a>
                                         </h6>
                                         <div class="post-excerpt mb-15 text-limit-3-row font-small text-muted text-justify">
                                             <p class="m-0 p-0">{{$news->description}}</p>

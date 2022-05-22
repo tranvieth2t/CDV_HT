@@ -7,7 +7,7 @@
                     <div class="single-content2">
                         <div class="entry-header entry-header-style-1 mb-50">
                             <h1 class="entry-title mb-30 font-weight-900">
-                                {{$news->title}}
+                                {!! $news->title !!}
                             </h1>
                             <div class="row">
                                 <div class="col-md-6">
@@ -198,7 +198,7 @@
                     <div class="widget-area">
                         <div class="sidebar-widget widget-about mb-50 pt-30 pr-30 pb-30 pl-30 bg-white border-radius-5 has-border  wow fadeInUp animated">
 {{--                            <img class="about-author-img mb-25" src="assets/imgs/authors/author-1.jpg" alt="">--}}
-                            <h5 class="mb-20">{{$news->title}}</h5>
+                            <h5 class="mb-20">{!!$news->title!!}</h5>
                             <p class="font-medium text-muted">{{$news->description}}</p>
                         </div>
                         <div class="sidebar-widget widget-latest-posts mb-50 wow fadeInUp animated">

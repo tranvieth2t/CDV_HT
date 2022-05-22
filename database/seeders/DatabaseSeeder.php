@@ -25,33 +25,10 @@ class DatabaseSeeder extends Seeder
         DB::table('admins')->insert([
             [
                 'name' => 'DaiViet',
-                'email' => 'admin@gmail.com',
+                'email' => 'tranvieth2t@gmail.com',
                 'password' => bcrypt('admin123'),
                 'verify' => AdminVerify::VERIFY,
                 'role_admin' => AdminRole::SUPPER_ADMIN,
-                'community_id' => Community::VHT
-            ],
-            [
-                'name' => 'DaiViet',
-                'email' => 'tranvieth21t@gmail.com',
-                'password' => bcrypt('admin123'),
-                'verify' => AdminVerify::NOT_VERIFY,
-                'role_admin' => AdminRole::EDITS,
-                'community_id' => Community::DON
-            ],
-            [
-                'name' => 'DaiViet',
-                'email' => 'pauldaiviet1@gmail.com',
-                'password' => bcrypt('admin123'),
-                'verify' => AdminVerify::VERIFY,
-                'role_admin' => AdminRole::ADMIN,
-                'community_id' => Community::VHT
-            ], [
-                'name' => 'DaiViet',
-                'email' => 'daivietdonBosco@gmail.com',
-                'password' => bcrypt('admin123'),
-                'verify' => AdminVerify::VERIFY,
-                'role_admin' => AdminRole::ADMIN,
                 'community_id' => Community::VHT
             ]
         ]);

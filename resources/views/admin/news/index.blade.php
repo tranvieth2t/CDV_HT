@@ -99,7 +99,7 @@
                     @foreach($listNews as $news)
                         <tr>
                             <td>{{$news->id}}</td>
-                            <td>{{$news->title}}</td>
+                            <td>{!!$news->title!!}</td>
                             <td>{{trans('enums.news_verify')[$news->verify]}}</td>
                             <td>{{trans('enums.news_hot')[$news->hot]}}</td>
                             <td>{{__('enums.news_tag')[$news->tag]}}</td>

@@ -53,7 +53,7 @@
                                             </div>
                                             <div class="d-flex post-card-content">
                                                 <h6 class="post-title mb-20 font-weight-600 text-justify">
-                                                    <a href=" {{route('clients.news.show', [$news[$index]->id])}} ">{{$news[$index]->title}}</a>
+                                                    <a href=" {{route('clients.news.show', [$news[$index]->id])}} ">{!!$news[$index]->title!!}</a>
                                                 </h6>
                                                 <div class="post-excerpt mb-15 font-small text-muted">
                                                     <p class="mb-0">{{$news[$index]->description}}</p>
@@ -80,7 +80,7 @@
                                         <div class="d-flex bg-white has-border p-15 hover-up transition-normal border-radius-5">
                                             <div class="post-content media-body">
                                                 <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
-                                                            href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}
+                                                            href="{{route('clients.news.show', [$news[$index]->id])}}">{!!$news[$index]->title!!}
                                                     </a>
                                                 </h6>
                                                 <div class="entry-meta meta-1 float-left font-x-small ">

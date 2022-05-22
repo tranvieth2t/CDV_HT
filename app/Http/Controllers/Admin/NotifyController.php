@@ -38,7 +38,66 @@ class NotifyController extends Controller
         $listNotify = $this->notifyService->getListNotify();
         return view('admin.notify.index', ['listNotify' => $listNotify]);
     }
+    public function convertNotify() {
+        $params["community_id"] = DB::table('community')->where("id", 2)->first()->id;
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Don Bosco" . '%')
+            ->update($params);
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Don Bosco" . '%')->get();
+        $params["community_id"] = DB::table('community')->where("id", 3)->first()->id;
 
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Mẹ Vô Nhiễm" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 4)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Gioan Tông Đồ" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 5)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Đaminh Savio" . '%')
+            ->update($params);
+        $params["community_id"] = DB::table('community')->where("id", 6)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Phaolo Trở Lại" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 7)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Anton Padua" . '%')
+            ->update($params);
+        $params["community_id"] = DB::table('community')->where("id", 8)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Phanxico Assisi" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 9)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Phanxico Xavie" . '%')
+            ->update($params);
+
+        $params["community_id"] = DB::table('community')->where("id", 10)->first()->id;
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Cựu SV" . '%')
+            ->update($params);
+        $params["community_id"] = DB::table('community')->where("id", 1)->first()->id;
+
+
+        $data = DB::table('notify')
+            ->where('title', 'LIKE', '%' . "Cộng đoàn Vinh" . '%')
+            ->update($params);
+        dd("done");
+    }
     /**
      * Show the form for creating a new resource.
      *

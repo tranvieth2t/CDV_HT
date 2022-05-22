@@ -54,7 +54,7 @@ function getFullCommunity()
 
 function convertTimeDbToTimeString($time)
 {
-    return date('jS F, Y', strtotime($time));
+    return date('Y-m-d H:i:s', strtotime($time));
 }
 
 function getDomainShowImage(): string

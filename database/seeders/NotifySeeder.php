@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Enums\NewsHot;
+use App\Enums\NewsTag;
+use App\Enums\NewsVerify;
 use App\Enums\NotifyVerify;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,22 +21,22 @@ class NotifySeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 100;
         $listAdmin = DB::table('admins')->get();
-        $listCommunity = DB::table('community')->get();
-        $listVerify = [NotifyVerify::VERIFY, NotifyVerify::NOT_VERIFY];
-        for ($i = 0; $i < $limit; $i++) {
-            DB::table('notify')->insert([
-                'title' => $faker->text(100),
-                'content' => $faker->text,
-                'thumbnail' => config('constants.notify_thumbnail_default'),
-                'verify' => $faker->randomElement($listVerify),
-                'description' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-                'created_by' =>  $faker->randomElement($listAdmin)->id,
-                'community_id' => $faker->randomElement($listCommunity)->id,
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now(),
-            ]);
+        $listCommunity = DB::table('community')->where('id', 1)->get();
+        $jsonString = file_get_contents(base_path('resources/dataOld/notify.json'));
+        $json = json_decode($jsonString, true);
+        foreach ($json as  $value) {
+                DB::table('notify')->insert([
+                    'title' => $value['title'],
+                    'content' => $value['bodytext'],
+                    'thumbnail' => config('constants.notify_thumbnail_default'),
+                    'verify' => NotifyVerify::VERIFY,
+                    'description' => $value['hometext'],
+                    'created_by' => $faker->randomElement($listAdmin)->id,
+                    'community_id' => $faker->randomElement($listCommunity)->id,
+                    'created_at' => date('Y-m-d H:i:s', $value['addtime']),
+                    'updated_at' => date('Y-m-d H:i:s', $value['addtime']),
+                ]);
         }
     }
 }

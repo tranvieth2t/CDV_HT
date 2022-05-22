@@ -39,7 +39,7 @@
                                         </div>
                                         <h3 class="post-title font-weight-600 mb-15">
                                             <a class="text-white"
-                                               href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}</a>
+                                               href="{{route('clients.news.show', [$news[$index]->id])}}">{!!$news[$index]->title!!}</a>
                                         </h3>
                                         <div class="entry-meta meta-1 font-small text-white mt-10 pr-5 pl-5">
                                             <span class="post-on">{{convertTimeDbToTimeString($news[$index]->created_at)}}</span>
@@ -61,7 +61,7 @@
                                         <div class="d-flex bg-white has-border p-15 hover-up transition-normal border-radius-5">
                                             <div class="post-content media-body">
                                                 <h6 class="post-title mb-15 text-limit-2-row font-medium"><a
-                                                            href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}
+                                                            href="{{route('clients.news.show', [$news[$index]->id])}}">{!!$news[$index]->title!!}
                                                     </a>
                                                 </h6>
                                                 <div class="entry-meta meta-1 float-left font-x-small ">
@@ -108,7 +108,7 @@
                             </div>
                             <div class="d-flex post-card-content">
                                 <h6 class="post-title mb-15 font-weight-600 text-justify">
-                                    <a href="{{route('clients.news.show', [$news[$index]->id])}}">{{$news[$index]->title}}</a>
+                                    <a href="{{route('clients.news.show', [$news[$index]->id])}}">{!!$news[$index]->title!!}</a>
                                 </h6>
                                 <div class="post-excerpt mb-15 font-small text-muted">
                                     <p class="m-0">{{$news[$index]->description}}</p>
