@@ -3531,10 +3531,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
    * @returns {Function} Returns a new `lodash` function.
    * @example
    *
-   * _.mixin({ 'foo': _.constant('foo') });
+   * _.mixin({ 'foo': _.constants('foo') });
    *
    * var lodash = _.runInContext();
-   * lodash.mixin({ 'bar': lodash.constant('bar') });
+   * lodash.mixin({ 'bar': lodash.constants('bar') });
    *
    * _.isFunction(_.foo);
    * // => true
@@ -3715,7 +3715,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * The chainable wrapper methods are:
      * `after`, `ary`, `assign`, `assignIn`, `assignInWith`, `assignWith`, `at`,
      * `before`, `bind`, `bindAll`, `bindKey`, `castArray`, `chain`, `chunk`,
-     * `commit`, `compact`, `concat`, `conforms`, `constant`, `countBy`, `create`,
+     * `commit`, `compact`, `concat`, `conforms`, `constants`, `countBy`, `create`,
      * `curry`, `debounce`, `defaults`, `defaultsDeep`, `defer`, `delay`,
      * `difference`, `differenceBy`, `differenceWith`, `drop`, `dropRight`,
      * `dropRightWhile`, `dropWhile`, `extend`, `extendWith`, `fill`, `filter`,
@@ -15230,11 +15230,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * function Foo() {
-     *   this.a = _.constant('a');
-     *   this.b = _.constant('b');
+     *   this.a = _.constants('a');
+     *   this.b = _.constants('b');
      * }
      *
-     * Foo.prototype.c = _.constant('c');
+     * Foo.prototype.c = _.constants('c');
      *
      * _.functions(new Foo);
      * // => ['a', 'b']
@@ -15257,11 +15257,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * function Foo() {
-     *   this.a = _.constant('a');
-     *   this.b = _.constant('b');
+     *   this.a = _.constants('a');
+     *   this.b = _.constants('b');
      * }
      *
-     * Foo.prototype.c = _.constant('c');
+     * Foo.prototype.c = _.constants('c');
      *
      * _.functionsIn(new Foo);
      * // => ['a', 'b', 'c']
@@ -15778,7 +15778,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {*} Returns the resolved value.
      * @example
      *
-     * var object = { 'a': [{ 'b': { 'c1': 3, 'c2': _.constant(4) } }] };
+     * var object = { 'a': [{ 'b': { 'c1': 3, 'c2': _.constants(4) } }] };
      *
      * _.result(object, 'a[0].b.c1');
      * // => 3
@@ -15789,7 +15789,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.result(object, 'a[0].b.c3', 'default');
      * // => 'default'
      *
-     * _.result(object, 'a[0].b.c3', _.constant('default'));
+     * _.result(object, 'a[0].b.c3', _.constants('default'));
      * // => 'default'
      */
     function result(object, path, defaultValue) {
@@ -16063,7 +16063,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      *
      * var object = {};
      *
-     * _.updateWith(object, '[0][1]', _.constant('a'), Object);
+     * _.updateWith(object, '[0][1]', _.constants('a'), Object);
      * // => { '0': { '1': 'a' } }
      */
     function updateWith(object, path, updater, customizer) {
@@ -17482,9 +17482,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * var func = _.cond([
-     *   [_.matches({ 'a': 1 }),           _.constant('matches A')],
-     *   [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
-     *   [_.stubTrue,                      _.constant('no match')]
+     *   [_.matches({ 'a': 1 }),           _.constants('matches A')],
+     *   [_.conforms({ 'b': _.isNumber }), _.constants('matches B')],
+     *   [_.stubTrue,                      _.constants('no match')]
      * ]);
      *
      * func({ 'a': 1, 'b': 2 });
@@ -17554,10 +17554,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @since 2.4.0
      * @category Util
      * @param {*} value The value to return from the new function.
-     * @returns {Function} Returns the new constant function.
+     * @returns {Function} Returns the new constants function.
      * @example
      *
-     * var objects = _.times(2, _.constant({ 'a': 1 }));
+     * var objects = _.times(2, _.constants({ 'a': 1 }));
      *
      * console.log(objects);
      * // => [{ 'a': 1 }, { 'a': 1 }]
@@ -17798,8 +17798,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @example
      *
      * var objects = [
-     *   { 'a': { 'b': _.constant(2) } },
-     *   { 'a': { 'b': _.constant(1) } }
+     *   { 'a': { 'b': _.constants(2) } },
+     *   { 'a': { 'b': _.constants(1) } }
      * ];
      *
      * _.map(objects, _.method('a.b'));
@@ -17828,7 +17828,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @returns {Function} Returns the new invoker function.
      * @example
      *
-     * var array = _.times(3, _.constant),
+     * var array = _.times(3, _.constants),
      *     object = { 'a': array, 'b': array, 'c': array };
      *
      * _.map(['a[2]', 'c[0]'], _.methodOf(object));
@@ -18306,7 +18306,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * _.times(3, String);
      * // => ['0', '1', '2']
      *
-     *  _.times(4, _.constant(0));
+     *  _.times(4, _.constants(0));
      * // => [0, 0, 0, 0]
      */
     function times(n, iteratee) {

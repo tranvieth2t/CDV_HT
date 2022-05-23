@@ -13,6 +13,7 @@ use App\Enums\AdminRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\Admin\StoreNotifyRequest;
 use mysql_xdevapi\Exception;
 
 class NotifyController extends Controller
@@ -101,7 +102,7 @@ class NotifyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -111,12 +112,11 @@ class NotifyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param StoreNotifyRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Throwable
      */
-    public function store(Request $request)
+    public function store(StoreNotifyRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -146,7 +146,7 @@ class NotifyController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -163,9 +163,9 @@ class NotifyController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(StoreNotifyRequest $request, $id)
     {
         $this->notifyService->update($request, $id);
         return redirect()->route('notify.index');

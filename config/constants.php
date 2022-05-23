@@ -30,6 +30,8 @@ return [
         '11' => 'constants/news-11.jpg',
     ],
     'notify_thumbnail_default' => 'constants/notify.jpg',
+    'couple_thumbnail_default' => 'constants/couple.jpg',
+    'vocation_thumbnail_default' => 'constants/vocation.jpg',
     'banner_thumbnail_default' => 'constants/banner.jpg',
     'community_thumbnail_default' => 'constants/community.jpg',
     'banner_thumbnail_small_default' => 'constants/banner_small.jpg',

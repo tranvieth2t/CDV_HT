@@ -1,8 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
-    <div>
-        <h1 class="h3 mb-2 text-gray-800">Tin tức</h1>
         <div class="card shadow mb-4">
+            <div class="card-header"><h1 class="h3 mb-2 text-gray-800">Banner</h1></div>
             <div class="card-body">
                 <div class="">
                     <form method="POST" action="{{route('banner.update', $banner->id) }}" enctype="multipart/form-data">
@@ -82,7 +81,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @push('scripts')

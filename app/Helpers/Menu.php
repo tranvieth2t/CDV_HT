@@ -151,6 +151,52 @@ class Menu
                 'hideRole' => [],
                 'sub-menu' =>
                     $data,
+            ], [
+                'id' => 6,
+                'name' => trans('message.admin.couple.couple'),
+                'route' => '#',
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' => [
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.couple.list-couple'),
+                        'route' => route('couple.index'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ],
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.couple.created-couple'),
+                        'route' => route('couple.create'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ]
+                ]
+            ],[
+                'id' => 7,
+                'name' => trans('message.admin.vocation.vocation'),
+                'route' => '#',
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' => [
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.vocation.list-vocation'),
+                        'route' => route('vocation.index'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ],
+                    [
+                        'id' => '',
+                        'name' => trans('message.admin.vocation.created-vocation'),
+                        'route' => route('vocation.create'),
+                        'parent_id' => 0,
+                        'hideRole' => [],
+                    ]
+                ]
             ],
         ];
 

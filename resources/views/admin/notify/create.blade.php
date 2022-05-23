@@ -44,7 +44,9 @@
 
                             <div class="mb-3 div-edit-editor w-100 col-12">
                                 <label for="notify-content" class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.notify.content') }}</label>
-                                <textarea name="content" class="edit-content" id="notify-content"></textarea>
+                                <textarea name="content" class="edit-content" id="notify-content">
+                                    {{old('content') ?? ""}}
+                                </textarea>
                             </div>
                             <div class="justify-content-center d-flex">
                                 <button type="submit" class="btn btn-primary"> {{__('btn.confirm')}} </button>
