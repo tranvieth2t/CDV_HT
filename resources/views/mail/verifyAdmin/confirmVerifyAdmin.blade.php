@@ -9,13 +9,13 @@
 </head>
 <body>
 <div>
-    <p>Your email address has been registered with an admin account.
-        Please click on the url to verify the account.</p>
+    <p>Bạn nhận được lời mời làm {{config('constants.role_admin')[$data['role_admin']]}} trên website Cộng đoàn Giáo phận Vinh Hà Tĩnh tại Hà Nội</p>
+    <p>Chức vụ: {{config('constants.role_admin')[$data['role_admin']]}} </p>
     <br>
-    <p>URL: {{ $data['url'] }}</p>
-    <p>Account Information</p>
+    <p> Nhấp vào link sau để đổi mật khẩu URL: {{ $data['url'] }}</p>
+    <p> Nhấp vào link sau để truy cập trang quản trị website cộng đoàn {{ $data['url_login'] }}</p>
     <p>Email: {{ $data['email'] }}</p>
-    <p>Please avoid revealing your account information</p>
+    <p>Mọi chi tiết xin liên hệ: {{config('mail.from.address')}}</p>
 </div>
 </body>
 </html>

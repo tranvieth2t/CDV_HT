@@ -10,7 +10,7 @@
                             <a href="{{route('home')}}">
                                 <i class="elegant-icon icon_house_alt mr-5"></i> Trang chủ</a>
                         </li>
-                        <li class=""><a href="">Thông báo</a></li>
+                        <li class=""><a href="{{route("clients.notify.index")}}">Thông báo</a></li>
 {{--                        <li class="menu-item-has-children"><a href="{{route('home')}}">Tin cộng đoàn</a></li>--}}
                         <li class="menu-item-has-children"><a href="{{route('clients.community.show', [1])}}">Giới thiệu</a>
                             <ul class="sub-menu font-small">

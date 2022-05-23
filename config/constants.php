@@ -10,6 +10,11 @@ return [
         \App\Enums\NewsTag::TL => '#5534A5',
         \App\Enums\NewsTag::KH => '#FF6363'
         ],
+    'role_admin' => [
+        \App\Enums\AdminRole::SUPPER_ADMIN => "Quản trị viên",
+        \App\Enums\AdminRole::ADMIN => "Kiểm duyệt viên",
+        \App\Enums\AdminRole::EDITS => "Biên tập viên"
+    ],
     'news_thumbnail_default' => [
         '0' => 'constants/news-0.jpg',
         '1' => 'constants/news-1.jpg',
