@@ -3,7 +3,7 @@
     <main>
         <div class="archive-header pt-50 text-center pb-50">
             <div class="container">
-                <h2 class="font-weight-900">{{$listNotify->first()->community->name}}</h2>
+                <h2 class="font-weight-900">Thông báo</h2>
             </div>
         </div>
         <div class="container">
@@ -15,7 +15,6 @@
                             <div class="post-thumb thumb-overlay img-hover-slide position-relative"
                                  style="background-image: url({{getDomainShowImage().$notify->thumbnail}})">
                                 <a class="img-link" href="{{ route('notify.show', [$notify->id]) }}"></a>
-                                <span class="top-right-icon bg-success">{!! config('constants.icon_tag')[$notify->tag] !!}</span>
                                 <ul class="social-share">
                                     <li><a href="#"><i class="fa-solid fa-share"></i></a></li>
                                     <li>
@@ -29,13 +28,8 @@
                             </div>
                             <div class="post-content p-30">
                                 <div class="entry-meta meta-0 font-small mb-15 d-flex justify-content-between">
-                                    <a href="{{route('clients.notify.community', [$notify->community_id])}}">
+                                    <a href="{{route('clients.community.show', [$notify->community_id])}}">
                                         <span class="post-cat">{{$notify->community->name}}</span></a>
-                                    <a href="{{route('home')}}"><span
-                                                class="post-cat"
-                                                style="color: {{config('constants.color_tag')[$notify->tag]}}">
-                                                        {{__('enums.notify_tag')[$notify->tag] ?? 'Khác'}}
-                                                    </span>
                                     </a>
                                 </div>
                                 <div class="d-flex post-card-content">

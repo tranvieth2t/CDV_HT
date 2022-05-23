@@ -10,11 +10,12 @@ class MailService extends BaseService
     public function sendMailAddAdmin($data)
     {
         $dataMail = [
-            'subject' => 'xacs nhan email',
+            'subject' => 'Xác nhận email',
             'viewFile' => 'mail.verifyAdmin.confirmVerifyAdmin',
             'email' => $data['email'],
             'url' => url(config('app.url')) . '/admin/verify-admin?token=' . $data['verify_token'],
-            'url_login' => url(config('app.url')) . '/admin/login',
+            'url_login' => route('admin.login'),
+            'role_admin' => $data['role_admin']
         ];
         Mail::to($data['email'])->send(new SendMail($dataMail));
     }

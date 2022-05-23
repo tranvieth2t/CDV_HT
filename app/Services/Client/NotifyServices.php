@@ -21,7 +21,7 @@ class NotifyServices extends BaseService
         return $this->repository
             ->where('verify', NotifyVerify::VERIFY)
             ->orderByDesc('created_at')
-            ->limit(10)->get();
+            ->paginate(9);
     }
 
     public function findNotify($id)
