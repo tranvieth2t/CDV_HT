@@ -40,6 +40,33 @@ return [
             'note' => 'Ghi chú',
             'orderby' => 'Sắp xếp'
         ],
+        'vocation' => [
+            'title'  => 'Tiêu đề',
+            'community' => 'Cộng đoàn',
+            'verify' => 'Trạng thái',
+            'date_time' => 'Ngày',
+            'thumbnail' => 'Ảnh đại diện',
+            'description' => 'Mô tả',
+            'content' => 'Nội dung',
+            'admin' => 'Người đăng',
+            'created_at' => 'Ngày đăng',
+            'note' => 'Ghi chú',
+            'orderby' => 'Sắp xếp'
+        ],
+        'couple' => [
+            'male'  => 'Anh',
+            'community_male_id' => 'Cộng đoàn Anh',
+            'female' => 'Chị',
+            'community_female_id' => 'Cộng đoàn chị',
+            'date_wedding' => 'Ngày cưới',
+            'verify' => 'Trạng thái',
+            'thumbnail' => 'Ảnh đại diện',
+            'description' => 'Mô tả',
+            'content' => 'Nội dung',
+            'admin' => 'Người đăng',
+            'created_at' => 'Ngày đăng',
+            'note' => 'Ghi chú',
+        ],
         'banner' => [
             'title'  => 'Tên banner',
             'verify' => 'Trạng thái',

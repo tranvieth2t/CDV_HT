@@ -47,6 +47,14 @@ return [
         NotifyVerify::VERIFY => 'Đã duyệt',
         NotifyVerify::NOT_VERIFY => 'Chưa duyệt',
     ],
+    'couple_verify' => [
+        \App\Enums\CoupleVerify::VERIFY => 'Đã duyệt',
+        \App\Enums\CoupleVerify::NOT_VERIFY => 'Chưa duyệt',
+    ],
+    'vocation_verify' => [
+        \App\Enums\VocationVerify::VERIFY => 'Đã duyệt',
+        \App\Enums\VocationVerify::NOT_VERIFY => 'Chưa duyệt',
+    ],
     'banner_verify' => [
         BannerVerify::VERIFY => 'Hiển thị',
         BannerVerify::NOT_VERIFY => 'Không hiển thị',

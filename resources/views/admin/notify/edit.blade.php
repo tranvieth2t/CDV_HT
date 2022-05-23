@@ -1,8 +1,10 @@
 @extends('admin.layouts.app')
 @section('content')
     <div>
-        <h1 class="h3 mb-2 text-gray-800">Tin tức</h1>
         <div class="card shadow mb-4">
+            <div class="card-header">
+                <h1 class="h3 mb-2 text-gray-800">Thông báo</h1>
+            </div>
             <div class="card-body">
                 <div class="">
                     <form method="POST" action="{{route('notify.update', $notify->id) }}" enctype="multipart/form-data">
@@ -53,9 +55,10 @@
 
 
                         <div class="mb-3 div-edit-editor w-100 col-12">
-                            <label for="notify-content" class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.notify.content') }}</label>
-                            <textarea name="content" class="edit-content" id="notify-content" >
-                                {{$notify->content}}
+                            <label for="notify-content"
+                                   class="form-label control-label  my-0  font-weight-bold ">{{ __('ui.label.notify.content') }}</label>
+                            <textarea name="content" class="edit-content" id="notify-content">
+                                {{old('content') ?? $notify->content}}
                             </textarea>
                         </div>
 

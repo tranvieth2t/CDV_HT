@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\CoupleController;
+use App\Http\Controllers\Admin\VocationController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NewsController;
@@ -48,4 +50,10 @@ Route::middleware('auth:admin')->group(function (){
     //Banner
     Route::resource('/banner', BannerController::class)->names('banner');
     Route::get('/banner/{id}/verify', [BannerController::class,'verify']) ->name('banner.verify');
+
+    Route::resource('/couple', CoupleController::class)->names('couple');
+    Route::get('/couple/{id}/verify', [CoupleController::class,'verify']) ->name('couple.verify');
+
+    Route::resource('/vocation', VocationController::class)->names('vocation');
+    Route::get('/vocation/{id}/verify', [VocationController::class,'verify']) ->name('vocation.verify');
 });
