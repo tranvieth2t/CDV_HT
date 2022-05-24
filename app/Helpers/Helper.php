@@ -39,17 +39,41 @@ function generatePassword($length = \App\Enums\AdminRole::DEFAULT_PASSWORD_LENGT
 
 function getListCommunityByRoleId()
 {
-    $user = \Illuminate\Support\Facades\Auth::guard('admin')->user() ?? [];
-    if ($user->role_admin != \App\Enums\AdminRole::SUPPER_ADMIN) {
-        return \Illuminate\Support\Facades\DB::table('community')->where('id', $user->community_id)->get();
-    } else {
-        return \Illuminate\Support\Facades\DB::table('community')->get();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
     }
+    $user = \Illuminate\Support\Facades\Auth::guard('admin')->user() ?? [];
+    if (!isset($_SESSION['listCommunity'])) {
+        if ($user->role_admin != \App\Enums\AdminRole::SUPPER_ADMIN) {
+            $data = \Illuminate\Support\Facades\DB::table('community')
+                ->select('id', 'name')
+                ->where('id', $user->community_id)
+                ->get();
+        } else {
+            $data = \Illuminate\Support\Facades\DB::table('community')
+                ->select('id', 'name')
+                ->get();
+        }
+        $_SESSION['listCommunity'] = $data;
+    } else{
+        $data = $_SESSION['listCommunity'];
+    }
+
+    return $data;
 }
 
 function getFullCommunity()
 {
-    return \Illuminate\Support\Facades\DB::table('community')->get(['id', 'name']);
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (!isset($_SESSION['listCommunityByUser'])) {
+        $data= \Illuminate\Support\Facades\DB::table('community')->get(['id', 'name']);
+        $_SESSION['listCommunityByUser'] = $data;
+    } else{
+        $data = $_SESSION['listCommunityByUser'];
+    }
+    return $data;
 }
 
 function convertTimeDbToTimeString($time)
@@ -57,6 +81,10 @@ function convertTimeDbToTimeString($time)
     return date('Y-m-d H:i:s', strtotime($time));
 }
 
+function convertTimeDbToTimeStringDate($time)
+{
+    return date('Y-m-d', strtotime($time));
+}
 function getDomainShowImage(): string
 {
     return config('app.env') == 'local' ? asset('storage') . '/' : config('filesystems.disks.s3.url') . '/';

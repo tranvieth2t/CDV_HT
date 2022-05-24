@@ -35,7 +35,7 @@ return [
             'deletedError' => 'Không thể xoá bài viết'
         ],
         'vocation' => [
-            'vocation' => 'Ơn gọi',
+            'vocation' => 'Ơn gọi Cộng đoàn',
             'list-vocation' => 'Danh sách ơn gọi',
             'created-vocation' => 'Thêm Ơn gọi',
             'createdSuccess' => 'Thêm thành công',

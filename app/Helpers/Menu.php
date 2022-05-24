@@ -25,7 +25,7 @@ class Menu
             [
                 'id' => 0,
                 'name' => trans('message.admin.admin.admin'),
-                'route' => '#',
+                'route' => route('admins.index'),
                 'parent_id' => 0,
                 'icon' => '<i class="fa-solid fa-people-group"></i>',
                 'hideRole' => [],
@@ -66,7 +66,7 @@ class Menu
             [
                 'id' => 2,
                 'name' => trans('message.admin.news.news'),
-                'route' => '#',
+                'route' => route('news.index'),
                 'parent_id' => 0,
                 'icon' => '<i class="fa-solid fa-people-group"></i>',
                 'hideRole' => [],
@@ -75,13 +75,6 @@ class Menu
                         'id' => '',
                         'name' => trans('message.admin.news.list-news'),
                         'route' => route('news.index'),
-                        'parent_id' => 0,
-                        'hideRole' => [],
-                    ],
-                    [
-                        'id' => '',
-                        'name' => trans('message.admin.news.list-news_not_verify'),
-                        'route' => route('news-verify'),
                         'parent_id' => 0,
                         'hideRole' => [],
                     ],
@@ -97,7 +90,7 @@ class Menu
             [
                 'id' => 3,
                 'name' => trans('message.admin.notify.notify'),
-                'route' => '#',
+                'route' => route('notify.index'),
                 'parent_id' => 0,
                 'icon' => '<i class="fa-solid fa-people-group"></i>',
                 'hideRole' => [],
@@ -121,7 +114,7 @@ class Menu
             [
                 'id' => 4,
                 'name' => trans('message.admin.banner.banner'),
-                'route' => '#',
+                'route' => route('banner.index'),
                 'parent_id' => 0,
                 'icon' => '<i class="fa-solid fa-people-group"></i>',
                 'hideRole' => [],
@@ -141,20 +134,10 @@ class Menu
                         'hideRole' => [],
                     ]
                 ]
-            ],
-            [
-                'id' => 5,
-                'name' => trans('message.admin.community.community'),
-                'route' => '#',
-                'parent_id' => 0,
-                'icon' => '<i class="fa-solid fa-people-group"></i>',
-                'hideRole' => [],
-                'sub-menu' =>
-                    $data,
             ], [
                 'id' => 6,
                 'name' => trans('message.admin.couple.couple'),
-                'route' => '#',
+                'route' => route('couple.index'),
                 'parent_id' => 0,
                 'icon' => '<i class="fa-solid fa-people-group"></i>',
                 'hideRole' => [],
@@ -177,7 +160,7 @@ class Menu
             ],[
                 'id' => 7,
                 'name' => trans('message.admin.vocation.vocation'),
-                'route' => '#',
+                'route' => route('vocation.index'),
                 'parent_id' => 0,
                 'icon' => '<i class="fa-solid fa-people-group"></i>',
                 'hideRole' => [],
@@ -197,6 +180,16 @@ class Menu
                         'hideRole' => [],
                     ]
                 ]
+            ],
+            [
+                'id' => 5,
+                'name' => trans('message.admin.community.community'),
+                'route' => route('banner.index'),
+                'parent_id' => 0,
+                'icon' => '<i class="fa-solid fa-people-group"></i>',
+                'hideRole' => [],
+                'sub-menu' =>
+                    $data,
             ],
         ];
 

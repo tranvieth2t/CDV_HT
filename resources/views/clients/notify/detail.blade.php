@@ -14,7 +14,7 @@
                                 <div class="col-md-6">
                                     <div class="entry-meta align-items-center meta-2 font-small color-muted">
                                         <p class="mb-5">
-                                            By <a href="author.html"><span class="author-name font-weight-bold">{{$notify->community->name}}</span></a>
+                                            By <a href="{{route('clients.community.show', [$notify->community_id])}}"><span class="author-name font-weight-bold">{{$notify->community->name ?? ""}}</span></a>
                                         </p>
                                         <span class="mr-10">{{convertTimeDbToTimeString($notify->created_at)}}</span>
                                     </div>

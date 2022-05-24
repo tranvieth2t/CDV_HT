@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Services\Client\BannerServices;
 use App\Services\Client\CommunityServices;
+use App\Services\Client\CoupleServices;
 use App\Services\Client\NewsServices;
 use App\Services\Client\NotifyServices;
+use App\Services\Client\VocationServices;
 use function view;
 
 class HomeController extends Controller
@@ -17,6 +19,8 @@ class HomeController extends Controller
 
     protected $bannerServices;
     protected $notifyServices;
+    protected $coupleServices;
+    protected $vocationServices;
     /**
      * Create a new controller instance.
      *
@@ -26,12 +30,16 @@ class HomeController extends Controller
         NewsServices $newsServices,
         CommunityServices $communityServices,
         BannerServices $bannerServices,
-        NotifyServices  $notifyServices
+        NotifyServices  $notifyServices,
+        CoupleServices  $coupleServices,
+        VocationServices $vocationServices
     ) {
         $this->newsServices = $newsServices;
         $this->communityServices = $communityServices;
         $this->bannerServices = $bannerServices;
         $this->notifyServices = $notifyServices;
+        $this->coupleServices = $coupleServices;
+        $this->vocationServices = $vocationServices;
     }
 
     /**
@@ -47,7 +55,8 @@ class HomeController extends Controller
         $listHotNewsParentCommunity = $this->newsServices->getListNewsParentCommunity();
         $listBanner = $this->bannerServices->getListBanner();
         $listNotify = $this->notifyServices->getListNotify();
-
+        $listCouple = $this->coupleServices->getListCouple();
+        $listVocation = $this->vocationServices->getListVocation();
         return view('clients.index',
             [
                 'listNewHotChildCommunity' => $listNewHotChildCommunity,
@@ -55,6 +64,8 @@ class HomeController extends Controller
                 'listNewsCatholic' => $listNewCatholic,
                 'listBanner' => $listBanner,
                 'listNotify' => $listNotify,
+                'listCouple' => $listCouple,
+                'listVocation' => $listVocation,
             ]);
     }
 }
