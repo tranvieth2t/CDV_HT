@@ -25,6 +25,8 @@ Route::get('/404', function () {
 //News
 Route::resource('news', NewsController::class)->names('clients.news');
 Route::resource('notify', NotifyController::class)->names('clients.notify');
+Route::resource('couple', \App\Http\Controllers\Client\CoupleController::class)->names('clients.couple');
+Route::resource('vocation', \App\Http\Controllers\Client\VocationController::class)->names('clients.vocation');
 Route::get('news/community/{id}', [NewsController::class, "getListNewsCommunity"])->name('clients.news.community');
 //Community
 Route::resource('community', CommunityController::class)->names('clients.community');

@@ -30,9 +30,8 @@ class NewsServices extends BaseService
     public function getListNewsNotVerify($perPage = 10, $condition = [])
     {
         return $this->repository
-            ->where('verify', NewsVerify::WAIT)
-            ->where('censors', Auth::guard('admin')->user()->id)
-            ->orderByDesc('id')
+            ->where('verify', '!=' ,NewsVerify::VERIFY)
+            ->orderByDesc('created_at')
             ->paginate($perPage);
     }
 

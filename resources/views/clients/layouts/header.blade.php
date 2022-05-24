@@ -11,7 +11,6 @@
                                 <i class="elegant-icon icon_house_alt mr-5"></i> Trang chủ</a>
                         </li>
                         <li class=""><a href="{{route("clients.notify.index")}}">Thông báo</a></li>
-{{--                        <li class="menu-item-has-children"><a href="{{route('home')}}">Tin cộng đoàn</a></li>--}}
                         <li class="menu-item-has-children"><a href="{{route('clients.community.show', [1])}}">Giới thiệu</a>
                             <ul class="sub-menu font-small">
                                 @php($listCommunity = getFullCommunity())
@@ -20,9 +19,8 @@
                                     @endforeach
                             </ul>
                         </li>
-                        <li class=""><a href="{{route('home')}}">Tin Hội Thánh</a></li>
-                        <li><a href="{{route('home')}}">Cặp đôi cộng đoàn</a></li>
-                        <li><a href="{{route('home')}}">Cuộc thi viết</a></li>
+                        <li><a href="{{route('clients.couple.index')}}">Tân Gia Đình CG</a></li>
+                        <li><a href="{{route('clients.vocation.index')}}">Ơn gọi Cộng đoàn</a></li>
                     </ul>
                     <!--Mobile menu-->
                     <ul id="mobile-menu" class="d-block d-lg-none text-muted">
@@ -40,7 +38,7 @@
                             <a href="{{route('home')}}">Tin Hội Thánh</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="{{route('home')}}">Cặp đôi cộng đoàn</a>
+                            <a href="{{route('home')}}">Tân Gia Đình CG</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="{{route('home')}}">Cuộc thi viết</a>
