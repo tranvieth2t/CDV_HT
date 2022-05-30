@@ -6,7 +6,6 @@ use App\Enums\AdminVerify;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CheckNameRequest;
 use App\Http\Requests\Admin\CheckPassRequest;
-use App\Http\Requests\Admin\NameReqest;
 use App\Http\Requests\Admin\StoreAdminRequest;
 use App\Services\Admin\AdminServices;
 use App\Services\Admin\CommunityServices;
@@ -14,7 +13,6 @@ use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use mysql_xdevapi\Exception;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
@@ -57,14 +55,13 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.admins.creat');
+        //
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param StoreAdminRequest $request
+     * @return \Illuminate\Http\RedirectResponse|string
+     * @throws \Throwable
      */
     public function store(StoreAdminRequest $request)
     {
